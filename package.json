@@ -1,0 +1,26 @@
+{
+  "name": "f22-kneed-for-speed",
+  "version": "1.0.0",
+  "description": "BSU CS481 Capstone project template",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs481-ekh/f22-kneed-for-speed.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs481-ekh/f22-kneed-for-speed/issues"
+  },
+  "homepage": "https://github.com/cs481-ekh/f22-kneed-for-speed#readme",
+  "dependencies": {
+    "csv": "^6.2.0"
+  }
+}
