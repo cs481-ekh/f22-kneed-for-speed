@@ -255,23 +255,15 @@ var parser = parse({columns: true}, function (err, records) {
 	for(const row of records) {
 		fillArray(row.element, row.time1, row.time2, row.time3, row.time4, row.time5, row.time6, row.time7, row.time8, row.time9, row.time10, row.time11, row.time12, row.time13, row.time14, row.time15, row.time16, row.time17, row.time18, row.time19, row.time20, row.time21, row.time22, row.time23, row.time24, row.time25, row.time26, row.time27, row.time28, row.time29, row.time30, row.time31, row.time32, row.time33, row.time34, row.time35, row.time36, row.time37, row.time38, row.time39, row.time40, row.time41, row.time42, row.time43, row.time44, row.time45, row.time46, row.time47, row.time48, row.time49, row.time50, row.time51, row.time52, row.time53, row.time54, row.time55, row.time56, row.time57, row.time58, row.time59, row.time60, row.time61, row.time62, row.time63, row.time64, row.time65, row.time66, row.time67, row.time68, row.time69, row.time70, row.time71, row.time72, row.time73, row.time74, row.time75, row.time76, row.time77, row.time78, row.time79, row.time80, row.time81, row.time82, row.time83, row.time84, row.time85, row.time86, row.time87, row.time88, row.time89, row.time90, row.time91, row.time92, row.time93, row.time94, row.time95, row.time96, row.time97, row.time98, row.time99, row.time100, row.time101, row.time102, row.time103, row.time104, row.time105, row.time106, row.time107, row.time108, row.time109, row.time110, row.time111, row.time112, row.time113, row.time114, row.time115, row.time116, row.time117, row.time118, row.time119, row.time120, row.time121, row.time122, row.time123, row.time124, row.time125, row.time126, row.time127, row.time128, row.time129, row.time130, row.time131, row.time132, row.time133, row.time134, row.time135, row.time136, row.time137, row.time138, row.time139, row.time140, row.time141, row.time142, row.time143, row.time144, row.time145, row.time146, row.time147, row.time148, row.time149, row.time150, row.time151, row.time152, row.time153, row.time154, row.time155, row.time156, row.time157, row.time158, row.time159, row.time160, row.time161, row.time162, row.time163, row.time164, row.time165, row.time166, row.time167, row.time168, row.time169, row.time170, row.time171, row.time172, row.time173, row.time174, row.time175, row.time176, row.time177, row.time178, row.time179, row.time180, row.time181, row.time182, row.time183, row.time184, row.time185, row.time186, row.time187, row.time188, row.time189, row.time190, row.time191, row.time192, row.time193, row.time194, row.time195, row.time196, row.time197, row.time198, row.time199, row.time200, row.time201, row.time202, row.time203, row.time204, row.time205, row.time206, row.time207, row.time208, row.time209, row.time210, row.time211, row.time212, row.time213, row.time214, row.time215, row.time216, row.time217, row.time218, row.time219, row.time220, row.time221, row.time222, row.time223, row.time224, row.time225, row.time226, row.time227, row.time228, row.time229, row.time230, row.time231, row.time232, row.time233, row.time234, row.time235, row.time236, row.time237, row.time238, row.time239, row.time240);
 	}
-	printArr(output);
-
-	//because createReadStream is asynchronous anything we do with the array output will have to be done in this function
-	//it's possible to pass it to call other functions with the array as a parameter (shown below), but long term saving will be an issue
-
 
 });
 
-fs.createReadStream('../../data/CART-TIBIA-MED_S.csv').pipe(parser);
-
-function printArr(arr) {
-	console.log(arr);
-}
 
 
-//console.log(records.index[0]);
-
-
+var readable = fs.createReadStream('../../data/CART-TIBIA-MED_S.csv');// Path to csv goes here
+readable.pipe(parser)
+		.on('finish', function() {
+			console.log(output);   									//any functions using the parsed data should be called in here
+		});
 
 
