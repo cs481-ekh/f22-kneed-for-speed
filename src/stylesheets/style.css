@@ -4,8 +4,11 @@ body {
 
 .layout-grid-container {
     display: grid;
-    grid-template-columns: repeat(10, 9.92vw);
+    /*grid-template-columns: repeat(10, 9.92vw);
     grid-template-rows: repeat(10, 9.83vh);
+    */
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 36%);
     text-align: center;
 }
 
