@@ -9,6 +9,7 @@ window.onresize = function(){
     canvas.height = (parent.offsetHeight*.996);
     drawSquare();
     drawCircle();
+    drawTriangle();
 }
 
 function drawSquare() {
