@@ -112,9 +112,7 @@ input[type=number] {
     visibility: hidden;
     opacity: 0;
     overflow: scroll;
-  
-    /* transition effect */
-    transition: opacity .2s, visibility .2s;
+    overflow-x: hidden;
   }
   
   .sdp-text-wrapper:hover .sdp-text {
@@ -124,13 +122,12 @@ input[type=number] {
 
 .dial-image {
     height: auto;
-    max-width: 200px;
+    max-width: 150px;
 }
 
 .map-colors{
     height: auto;
     max-width: 50px;
-
 }
 
 .file-buttons {
@@ -144,5 +141,10 @@ input[type=number] {
 .canvas-container {
     width: 99%;
     height: 99%;
+}
+
+.plus-minus{
+    width: 20;
+    height: 20;
 }
 
