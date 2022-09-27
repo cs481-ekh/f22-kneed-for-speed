@@ -11,7 +11,7 @@ body {
 }
 
 .grid-item {
-    /*border: 1px solid black;*/
+    /* border: 1px solid black; */
     background-color: #eeeeee;
 }
 
@@ -30,10 +30,31 @@ body {
     padding-left: 8%;
 }
 
-.grid-item-3 {
+.grid-item-3-1 {
     grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 7;
+}
+
+.grid-item-3-2 {
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
+    grid-row-end: 7;
+}
+
+.grid-item-3-3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 10;
+}
+
+.grid-item-3-4 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 7;
     grid-row-end: 10;
 }
 
