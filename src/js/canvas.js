@@ -16,16 +16,23 @@ function drawSquare() {
     var ctx = canvas.getContext("2d");
 
     // Define the color of the square
+    //define the color of the square
+    ctx.strokeStyle = "blue";
     ctx.fillStyle = "blue";
 
     // Draw a square using the fillRect()
     ctx.fillRect(canvas.width * 0.2, canvas.height * 0.1, 50, 50);
+
+    // Actually draws the square
+    ctx.stroke();
 }
 
 function drawCircle() {
     var ctx = canvas.getContext("2d");
 
     // Define the color of the circle
+    //define the color of the circle
+    ctx.strokeStyle = "blue";
     ctx.fillStyle = "blue";
 
     // Draw a circle using arc
@@ -51,6 +58,10 @@ function drawTriangle() {
     // Actually getting the triangle to show on canvas
     ctx.fill();
 
+    ctx.fill();
+
+    // Actually draws the circle on canvas
+    canvas.stroke();
 }
 
 // Calls function to draw square on canvas
@@ -59,3 +70,4 @@ drawSquare();
 drawCircle();
 // Calls function to draw triangle on canvas
 drawTriangle();
+
