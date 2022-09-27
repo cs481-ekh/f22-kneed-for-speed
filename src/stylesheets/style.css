@@ -99,6 +99,12 @@ input[type=number] {
     max-width: 200px;
 }
 
+.map-colors{
+    height: auto;
+    max-width: 50px;
+
+}
+
 .file-buttons {
     height: 45%;
     width: 90%;
