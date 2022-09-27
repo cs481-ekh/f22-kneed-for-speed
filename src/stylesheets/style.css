@@ -136,10 +136,15 @@ input[type=number] {
     overflow-x: hidden;
   }
   
-  .sdp-text-wrapper:hover .sdp-text {
+.sdp-text-wrapper:hover .sdp-text {
     visibility: visible;
     opacity: 1;
   }
+
+.sdp-text a {
+    text-decoration: none;
+    color: #D64309;
+}
 
 .dial-image {
     height: auto;
