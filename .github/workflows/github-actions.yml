@@ -8,9 +8,9 @@ on:
   pull_request:
     branches: [main]
     paths-ignore:
-      - 'docs/***'
-      - 'data/***'
-      - 'img/***'
+      - 'docs/**'
+      - 'data/**'
+      - 'img/**'
 
 #One job named build
 jobs:
