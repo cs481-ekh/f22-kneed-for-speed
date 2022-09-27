@@ -18,15 +18,15 @@ jobs:
 
     #Checkout the entire repository history
     steps:
-      -name: Code Checkout
-       uses: actions/checkout@v2
-       with:
+      - name: Code Checkout
+        uses: actions/checkout@v2
+        with:
         fetch-depth: 0
 
       #Run the build.sh file using the container's commands
-      -name: Build
+      - name: Build
         run: ./build.sh
 
       #Run the test.sh file using the container's commands
-      -name: Test
+      - name: Test
         run: ./test.sh
