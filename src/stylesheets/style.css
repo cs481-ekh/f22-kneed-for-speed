@@ -55,6 +55,8 @@ body {
     grid-column-end: 6;
     grid-row-start: 10;
     grid-row-end: 11;
+    text-align: left;
+    padding: .5%;
 }
 
 .grid-item-7 {
@@ -80,4 +82,15 @@ input[type=number]::-webkit-outer-spin-button {
 /* Hide Arrows From Input Number - Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+/* SDP Sticker */
+.sdp-sticker {
+    height: auto;
+    max-width: 150px;
+}
+
+.dial-image {
+    height: auto;
+    max-width: 200px;
 }
