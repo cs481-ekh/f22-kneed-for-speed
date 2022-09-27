@@ -8,3 +8,22 @@ window.onresize = function(){
     canvas.width = (parent.offsetWidth*.996);
     canvas.height = (parent.offsetHeight*.996);
 }
+
+function drawSquare() {
+    var ctx = canvas.getContext("2d");
+
+    //define the color of the square
+    ctx.strokeStyle = "blue";
+    ctx.fillStyle = "blue";
+
+    // Draw a square using the fillRect()
+    ctx.fillRect(200,50,100,100);
+
+    // Actually draws the square
+    ctx.stroke();
+}
+
+drawSquare();
+
+
+
