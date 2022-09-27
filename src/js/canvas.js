@@ -8,6 +8,7 @@ window.onresize = function(){
     canvas.width = (parent.offsetWidth*.996);
     canvas.height = (parent.offsetHeight*.996);
     drawSquare();
+    drawCircle();
 }
 
 function drawSquare() {
