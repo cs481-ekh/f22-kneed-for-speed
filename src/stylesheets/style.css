@@ -90,9 +90,37 @@ input[type=number] {
 
 /* SDP Sticker */
 .sdp-sticker {
-    height: auto;
     max-width: 150px;
+    height: auto;
 }
+
+.sdp-text-wrapper {
+    position: relative;
+    max-width: 150px;
+    height: auto;
+  }
+  
+.sdp-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0033A0;
+    color: white;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    overflow: scroll;
+  
+    /* transition effect */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .sdp-text-wrapper:hover .sdp-text {
+    visibility: visible;
+    opacity: 1;
+  }
 
 .dial-image {
     height: auto;
