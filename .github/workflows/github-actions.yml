@@ -1,1 +1,36 @@
 
+name: Kneed for Speed Workflow
+
+#Run the workflow when there is a push or pull request for the main branch
+on: 
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'data/**'
+      - 'img/**'
+
+#One job named build
+jobs:
+  #Runs the build.sh and test.sh files on our repository code
+  build:
+    #Run in a ubuntu container and timeout if the job isn't done after two minutes
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    #Checkout the entire repository history
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   fetch-depth: 0
+
+      #Run the build.sh file using the container's commands
+      - name: Build
+        run: ./build.sh
+
+      #Run the test.sh file using the container's commands
+      - name: Test
+        run: ./test.sh
