@@ -1,5 +1,5 @@
 var canvas = document.getElementById("map");
-var parent = document.getElementById("grid-item-5");
+var parent = document.getElementById("canvas-container");
 canvas.width = (parent.offsetWidth*.996); //multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight*.996);
 

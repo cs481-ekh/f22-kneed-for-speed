@@ -113,3 +113,8 @@ input[type=number] {
     background-color: white;
 }
 
+.canvas-container {
+    width: 99%;
+    height: 99%;
+}
+
