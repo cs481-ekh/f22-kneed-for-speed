@@ -1,5 +1,5 @@
 body {
-    background-color: #dfdfdf;
+    background-color: #eeeeee;
 }
 
 .layout-grid-container {
@@ -11,8 +11,8 @@ body {
 }
 
 .grid-item {
-    border: 1px solid black;
-    background-color: #dfdfdf;
+    /* border: 1px solid black; */
+    background-color: #eeeeee;
 }
 
 .grid-item-1 {
@@ -27,12 +27,34 @@ body {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
+    padding-left: 8%;
 }
 
-.grid-item-3 {
+.grid-item-3-1 {
     grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 7;
+}
+
+.grid-item-3-2 {
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
+    grid-row-end: 7;
+}
+
+.grid-item-3-3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 10;
+}
+
+.grid-item-3-4 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 7;
     grid-row-end: 10;
 }
 
@@ -41,6 +63,9 @@ body {
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 10;
+    text-align: right;
+    padding: 10%;
+    padding-top: 0;
 }
 
 .grid-item-5 {
@@ -68,11 +93,11 @@ body {
 
 .map {
     background-color: white;
-    border:1px solid #000000;
+    /* border:1px solid #000000; */
 }
 
-/*For cleaner Dial Buttons UI*/
-/* Hide Arrows From Input Number - Chrome, Safari, Edge, Opera */
+/* Hide Arrows From Input Number -
+Chrome, Safari, Edge, Opera */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -86,11 +111,65 @@ input[type=number] {
 
 /* SDP Sticker */
 .sdp-sticker {
-    height: auto;
     max-width: 150px;
+    height: auto;
+}
+
+.sdp-text-wrapper {
+    position: relative;
+    max-width: 150px;
+    height: auto;
+ }
+  
+.sdp-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0033A0;
+    color: white;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  
+.sdp-text-wrapper:hover .sdp-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.sdp-text a {
+    text-decoration: none;
+    color: #D64309;
 }
 
 .dial-image {
     height: auto;
-    max-width: 200px;
+    max-width: 150px;
+}
+
+.map-colors{
+    height: auto;
+    max-width: 50px;
+}
+
+.file-buttons {
+    height: 45%;
+    width: 90%;
+    padding-top: 3.5%;
+    padding-bottom: .5%;
+    background-color: white;
+}
+
+.canvas-container {
+    width: 99%;
+    height: 99%;
+}
+
+.plus-minus {
+    width: 20;
+    height: 20;
 }

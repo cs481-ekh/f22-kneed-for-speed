@@ -7,9 +7,15 @@
 <body>
     <div class="layout-grid-container">
         <div class="grid-item grid-item-1">
-            <p>Product Name</p>
+            <h1>BSU SDP Knee Visualization App</h1>
         </div>
         <div class="grid-item grid-item-2">
+            <div class="file-buttons">
+            <input type="file" class="choose-file">
+            <button type="button" class="upload">Upload</button>
+            </div>
+        </div>
+        <div class="grid-item grid-item-3-1">
             <p>File Upload Buttons</p>
             <input type="file">
             <button type="button">Upload</button>
@@ -19,34 +25,50 @@
                 <p>Limb Alignment</p>
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
-                <button type="button">-</button>
-                <input type="number" min="-100" max="100">
-                <button type="button">+</button>
+                    <button type="button" class="plus-minus">-</button>
+                    <input type="number" min="-100" max="100">
+                    <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
-            <br>
+        </div>
+        <div class="grid-item grid-item-3-2"> 
             <div class="dial-buttons dial-buttons-2">
                 <p>Body Weight</p>
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
-                <button type="button">-</button>
-                <input type="number" min="-100" max="100">
-                <button type="button">+</button>
+                    <button type="button" class="plus-minus">-</button>
+                    <input type="number" min="-100" max="100">
+                    <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="grid-item grid-item-4">
-            <p>Heat Map Color Key</p>
+            <img src="assets/images/map-colors.png" alt="heat map color key" class="map-colors">
         </div>
         <div class="grid-item grid-item-5" id="grid-item-5">
-            <canvas class="map" id="map"></canvas>
-            <script src="js/canvas.js"></script>
+            <div class="canvas-container" id="canvas-container">
+                <canvas class="map" id="map"></canvas>
+                <script src="js/canvas.js"></script>
+            </div>
         </div>
-        <div class="grid-item grid-item-6">
-            <img src="assets/images/sdp-logo-3.png" alt="senior design project logo" class="sdp-sticker">
+        <div class="grid-item grid-item-6">        
+            <div class="sdp-text-wrapper">
+                <img src="assets/images/sdp-logo-3.png" alt="senior design project logo" class="sdp-sticker">
+                <div class="sdp-text">
+                    This website was created for a<br/>
+                    Boise State University<br/>
+                    Computer Science Senior Design Project by:
+                    <div> Mitchell Crocker </div>
+                    <div> Ezekiel Holmes </div>
+                    <div> Kate Rosenthal </div>
+                    <div> Mario Torres </div>
+                    <div> Sharon Yang </div>
+                    For information about sponsoring a project go to:<br/>
+                    <a href="https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/">https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/</a>
+                </div>
+              </div>
         </div>
         <div class="grid-item grid-item-7">
-            <p>Footer/Stretch Goal Buttons</p>
         </div>
     </div>
 </body>
