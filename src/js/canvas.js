@@ -24,6 +24,23 @@ function drawSquare() {
     ctx.stroke();
 }
 
+function drawCircle() {
+    var ctx = canvas.getContext("2d");
+
+    //define the color of the circle
+    ctx.strokeStyle = "blue";
+    ctx.fillStyle = "blue";
+
+    // Draw a circle using arc
+    ctx.arc(canvas.width * 0.1, canvas.height * 0.14, 25, 0, 2 * Math.PI, false);
+    ctx.fill();
+
+    // Actually draws the circle on canvas
+    canvas.stroke();
+}
+
 // Calls function to draw square on canvas
 drawSquare();
+// Calls function to draw circle on canvas
+drawCircle();
 
