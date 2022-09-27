@@ -16,7 +16,6 @@ function drawSquare() {
     var ctx = canvas.getContext("2d");
 
     // Define the color of the square
-    ctx.strokeStyle = "blue";
     ctx.fillStyle = "blue";
 
     // Draw a square using the fillRect()
@@ -27,7 +26,6 @@ function drawCircle() {
     var ctx = canvas.getContext("2d");
 
     // Define the color of the circle
-    ctx.strokeStyle = "blue";
     ctx.fillStyle = "blue";
 
     // Draw a circle using arc
