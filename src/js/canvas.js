@@ -18,7 +18,7 @@ function drawSquare() {
     ctx.fillStyle = "blue";
 
     // Draw a square using the fillRect()
-    ctx.fillRect(300, 50,200,200);
+    ctx.fillRect(canvas.width * 0.2, canvas.height * 0.1, 50, 50);
 
     // Actually draws the square
     ctx.stroke();
