@@ -6,6 +6,8 @@ sudo apt install npm
 #install JavaScript linter
 npm i eslint --save-dev
 npx eslint --init
+npm init @eslint/config
+
 #install HTML linter
 npm i htmlint@0.0.7
 
