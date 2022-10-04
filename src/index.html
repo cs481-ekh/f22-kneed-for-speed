@@ -9,12 +9,15 @@
         <div class="grid-item grid-item-1">
             <h1>BSU SDP Knee Visualization App</h1>
         </div>
-        <div class="grid-item grid-item-2">
-            <div class="file-buttons">
-            <input type="file" class="choose-file">
-            <button type="button" class="upload">Upload</button>
+        <form id= "form" enctype="multipart/form-data">
+            <div class="grid-item grid-item-2">
+                <div class="file-buttons">
+                <input id="file" type="file" class="choose-file">
+                <button type="submit" class="submit-btn">Upload</button>
+                </div>
             </div>
-        </div>
+        </form>
+        <script src="js/upload.js"></script>
         <!--
         <div class="grid-item grid-item-3-1">
             <p>File Upload Buttons</p>
