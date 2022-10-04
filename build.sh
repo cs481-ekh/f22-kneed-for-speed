@@ -11,10 +11,7 @@ npm i htmlint@0.0.7
 
 #run the linters
 npx eslint src/js/*.js
-htmlint src/*.htmlint
-
-echo List of files:
-ls
+node node_modules/htmlint src/*.html
 
 #Zip the src folder, should include linted .js and .html files
 zip -r build.zip src
