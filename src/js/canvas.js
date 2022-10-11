@@ -7,22 +7,25 @@ canvas.height = (parent.offsetHeight*.996);
 window.onresize = function(){
     canvas.width = (parent.offsetWidth*.996);
     canvas.height = (parent.offsetHeight*.996);
-    drawSquare();
+    drawKnee();
 }
 
-function drawSquare() {
+function drawKnee() {
     var ctx = canvas.getContext("2d");
     ctx.translate(canvas.width / 2, canvas.height / 2);
 
-    // Define the color of the square
-    //define the color of the square
-    ctx.strokeStyle = "blue";
-    ctx.fillStyle = "blue";
+    // Define what color the outline of our circle/knee is going to be
+    ctx.strokeStyle = "black"
 
-    // Draw a square using the fillRect()
-    ctx.fillRect(0, 0, 50, 50);
+    // Creates the size of the circle/knee we're going to draw
+    ctx.arc(0, 0, 100, 0, 2 * Math.PI, false);
+
+    // Draw the outline of the circle/knee
+    ctx.stroke();
 }
 
-// Calls function to draw square on canvas
-drawSquare();
+// Calls function to draw the knee
+drawKnee();
+
+}
 
