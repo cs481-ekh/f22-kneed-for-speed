@@ -6,10 +6,10 @@
 </head>
 <body>
     <div class="layout-grid-container">
-        <div class="grid-item grid-item-1">
+        <div class="grid-item header">
             <h1>BSU SDP Knee Visualization App</h1>
         </div>
-            <div class="grid-item grid-item-2">
+            <div class="grid-item upload-buttons-container">
                 <form id= "form" enctype="multipart/form-data">
                     <div class="file-buttons">
                         <input id="file" type="file" class="choose-file">
@@ -18,29 +18,29 @@
                 </form>
                 <script src="js/upload.js"></script>
             </div>
-        <div class="grid-item grid-item-3-1">
+        <div class="grid-item dial-1-container">
             <div class="dial-buttons dial-buttons-1">
                 <p>Limb Alignment</p>
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
                     <button type="button" class="plus-minus">-</button>
-                    <input type="number" min="-100" max="100">
+                    <input type="number" min="-100" max="100"  class="dial-numbers">
                     <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
         </div>
-        <div class="grid-item grid-item-3-2"> 
+        <div class="grid-item dial-2-container"> 
             <div class="dial-buttons dial-buttons-2">
                 <p>Body Weight</p>
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
                     <button type="button" class="plus-minus">-</button>
-                    <input type="number" min="-100" max="100">
+                    <input type="number" min="-100" max="100"  class="dial-numbers">
                     <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
         </div> 
-        <div class="grid-item grid-item-4">
+        <div class="grid-item heat-map-container">
             <img src="assets/images/map-colors.png" alt="heat map color key" class="map-colors">
         </div>
         <div class="grid-item grid-item-5" id="grid-item-5">
@@ -49,7 +49,7 @@
                 <script src="js/canvas.js"></script>
             </div>
         </div>
-        <div class="grid-item grid-item-6">        
+        <div class="grid-item footer">        
             <div class="sdp-text-wrapper">
                 <img src="assets/images/sdp-logo-3.png" alt="senior design project logo" class="sdp-sticker">
                 <div class="sdp-text">
@@ -66,7 +66,7 @@
                 </div>
               </div>
         </div>
-        <div class="grid-item grid-item-7">
+        <div class="grid-item stretch-goal-buttons">
         </div>
     </div>
 </body>
