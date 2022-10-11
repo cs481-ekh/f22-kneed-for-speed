@@ -148,12 +148,12 @@ input[type=number] {
 
 .dial-image {
     height: auto;
-    max-width: 150px;
+    max-width: 50%;
 }
 
 .map-colors{
     height: auto;
-    max-width: 50px;
+    max-width: 70%;
 }
 
 .file-buttons {
