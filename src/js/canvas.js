@@ -107,5 +107,5 @@ function drawElement() {
 // Calls function to draw the knee
 drawKnee();
 
-}
+
 
