@@ -4,9 +4,24 @@ var num1 = document.getElementById("number-dial-1");
 var sub1 = document.getElementById("minus-dial-1");
 var add1 = document.getElementById("plus-dial-1");
 
-add1.onclick = function(){
-    num1.stepUp();
-}
+
+
+var wrapper = document.getElementById("plus-dial-1");
+var counter;
+var count = 0;
+
+  
+add1.onmousedown= function() {
+    counter = setInterval(function() {
+      num1.innerHTML = count;
+      count++;
+      num1.stepUp();
+    }, 500);
+  }
+
+  add1.onmouseup= function()  {
+    clearInterval(counter)
+  }
 
 sub1.onclick = function(){
     num1.stepDown();
