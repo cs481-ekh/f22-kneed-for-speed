@@ -27,3 +27,5 @@ function drawKnee() {
 // Calls function to draw the knee
 drawKnee();
 
+}
+
