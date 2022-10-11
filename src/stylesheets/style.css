@@ -111,13 +111,13 @@ input[type=number] {
 
 /* SDP Sticker */
 .sdp-sticker {
-    max-width: 40%;
+    max-width: 150px;
     height: auto;
 }
 
 .sdp-text-wrapper {
     position: relative;
-    max-width: 40%;
+    max-width: 150px;
     height: auto;
  }
   
@@ -139,7 +139,6 @@ input[type=number] {
 .sdp-text-wrapper:hover .sdp-text {
     visibility: visible;
     opacity: 1;
-    max-width: 45%;
   }
 
 .sdp-text a {
