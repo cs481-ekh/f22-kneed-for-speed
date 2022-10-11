@@ -31,6 +31,7 @@ jobs:
         uses: github/super-linter@v4.9.7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
           #OUTPUT_FOLDER: Reports
           OUTPUT_DETAILS: detailed
           VALIDATE_ALL_CODEBASE: false
