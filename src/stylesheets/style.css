@@ -111,13 +111,13 @@ input[type=number] {
 
 /* SDP Sticker */
 .sdp-sticker {
-    max-width: 150px;
+    max-width: 40%;
     height: auto;
 }
 
 .sdp-text-wrapper {
     position: relative;
-    max-width: 150px;
+    max-width: 40%;
     height: auto;
  }
   
@@ -139,6 +139,7 @@ input[type=number] {
 .sdp-text-wrapper:hover .sdp-text {
     visibility: visible;
     opacity: 1;
+    max-width: 45%;
   }
 
 .sdp-text a {
@@ -147,13 +148,13 @@ input[type=number] {
 }
 
 .dial-image {
-    height: auto;
-    max-width: 150px;
+    max-height: 50%;
+    max-width: 50%;
 }
 
 .map-colors{
-    height: auto;
-    max-width: 50px;
+    max-height: 80%;
+    max-width: 80%;
 }
 
 .file-buttons {
@@ -170,6 +171,21 @@ input[type=number] {
 }
 
 .plus-minus {
-    width: 20;
-    height: 20;
+    max-width: 6%;
+    max-height: 6%;
+}
+
+.dial-numbers {
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.choose-file {
+    max-width: 50%;
+    max-height: 10%;
+}
+
+.submit-btn {
+    max-width: 10%;
+    max-height: 10%;
 }

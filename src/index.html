@@ -9,29 +9,22 @@
         <div class="grid-item grid-item-1">
             <h1>BSU SDP Knee Visualization App</h1>
         </div>
-        <form id= "form" enctype="multipart/form-data">
             <div class="grid-item grid-item-2">
-                <div class="file-buttons">
-                <input id="file" type="file" class="choose-file">
-                <button type="submit" class="submit-btn">Upload</button>
-                </div>
+                <form id= "form" enctype="multipart/form-data">
+                    <div class="file-buttons">
+                        <input id="file" type="file" class="choose-file">
+                        <button type="submit" class="submit-btn">Upload</button>
+                    </div>
+                </form>
+                <script src="js/upload.js"></script>
             </div>
-        </form>
-        <script src="js/upload.js"></script>
-        <!--
         <div class="grid-item grid-item-3-1">
-            <p>File Upload Buttons</p>
-            <input type="file">
-            <button type="button">Upload</button>
-        </div>
-        -->
-        <div class="grid-item grid-item-3">
             <div class="dial-buttons dial-buttons-1">
                 <p>Limb Alignment</p>
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
                     <button type="button" class="plus-minus">-</button>
-                    <input type="number" min="-100" max="100">
+                    <input type="number" min="-100" max="100" class="dial-numbers">
                     <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
@@ -42,7 +35,7 @@
                 <img src="assets/images/dial.png" alt="a grey dial" class="dial-image">
                 <div>
                     <button type="button" class="plus-minus">-</button>
-                    <input type="number" min="-100" max="100">
+                    <input type="number" min="-100" max="100" class="dial-numbers">
                     <button type="button" class="plus-minus">+</button>
                 </div>
             </div>
