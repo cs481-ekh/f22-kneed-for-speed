@@ -70,6 +70,7 @@ body {
     padding-top: 0;
 }
 
+    /*canvas section of the grid. holds the canvas-container*/
 .grid-item-5 {
     grid-column-start: 6;
     grid-column-end: 11;
