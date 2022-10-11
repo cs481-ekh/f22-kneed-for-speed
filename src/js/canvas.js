@@ -23,6 +23,7 @@ function drawKnee() {
     ctx.arc(0, 0, 100, 0, 2 * Math.PI, false);
     // Close path
     ctx.closePath();
+
     // Draw the outline of the circle/knee
     ctx.stroke();
     // Added just to see the elements better because they're so small, could fill a color of the heat map and add points onto it also
@@ -101,8 +102,10 @@ function drawElement() {
     // Coloring the new element
     ctx.stroke();
     ctx.fill();
-}
+  }
 
 // Calls function to draw the knee
 drawKnee();
+
+}
 
