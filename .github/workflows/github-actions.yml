@@ -12,24 +12,29 @@ on:
       - 'data/**'
       - 'img/**'
 
-#One job named build
+#One job named lint
 jobs:
-  #Runs the build.sh and test.sh files on our repository code
-  build:
+  #Runs the github Super-Linter and test.sh files on our repository code (linter runs only on newly submited code, change this by removing the line
+  #"VALIDATE_ALL_CODEBASE: false").
+  lint:
     #Run in a ubuntu container and timeout if the job isn't done after two minutes
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
 
     #Checkout the entire repository history
     steps:
       - name: Code Checkout
         uses: actions/checkout@v2
-        # with:
-        #   fetch-depth: 0
 
-      #Run the build.sh file using the container's commands
-      - name: Build
-        run: ./build.sh
+      #Run the super-linter on newly submitted code
+      - name: Super-Linter
+        uses: github/super-linter@v4.9.7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          #OUTPUT_FOLDER: Reports
+          OUTPUT_DETAILS: detailed
+          VALIDATE_ALL_CODEBASE: false
 
       #Run the test.sh file using the container's commands
       - name: Test
