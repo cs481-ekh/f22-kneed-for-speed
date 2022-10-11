@@ -170,6 +170,21 @@ input[type=number] {
 }
 
 .plus-minus {
-    width: 20;
-    height: 20;
+    max-width: 6%;
+    max-height: 6%;
+}
+
+.dial-numbers {
+    max-width: 10%;
+    max-height: 10%;
+}
+
+.choose-file {
+    max-width: 50%;
+    max-height: 10%;
+}
+
+.submit-btn {
+    max-width: 10%;
+    max-height: 10%;
 }
