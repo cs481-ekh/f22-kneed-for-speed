@@ -19,7 +19,7 @@ jobs:
   lint:
     #Run in a ubuntu container and timeout if the job isn't done after two minutes
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
 
     #Checkout the entire repository history
     steps:
