@@ -147,13 +147,13 @@ input[type=number] {
 }
 
 .dial-image {
-    height: auto;
+    max-height: 50%;
     max-width: 50%;
 }
 
 .map-colors{
-    height: auto;
-    max-width: 70%;
+    max-height: 80%;
+    max-width: 80%;
 }
 
 .file-buttons {
