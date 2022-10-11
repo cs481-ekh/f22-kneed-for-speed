@@ -3,8 +3,12 @@ name: Kneed for Speed Workflow
 
 #Run the workflow when there is a push or pull request for the main branch
 on: 
-  push: 
-    branches: [main]
+  # We shouldn't be committing anything directly to main without submitting
+  # pull requests. The workflow is currently setup to lint only on new code
+  # so its a bit silly to run the workflow on push when its already covered the
+  # code base being pushed in the pull request.
+  # push: 
+  #   branches: [main]
   pull_request:
     branches: [main]
     paths-ignore:
