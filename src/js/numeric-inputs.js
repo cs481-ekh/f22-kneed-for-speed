@@ -19,7 +19,7 @@ add1.onmousedown = function () {
     num1.innerHTML = count
     count++
     num1.stepUp()
-  }, 215); // speed of adding
+  }, 215) // speed of adding
 }
 
 // releasing mouse button resets hold counter and stops adding
@@ -38,7 +38,7 @@ sub1.onmousedown = function () {
     num1.innerHTML = count
     count++
     num1.stepDown()
-  }, 215); // speed of subtracting
+  }, 215) // speed of subtracting
 }
 
 // releasing mouse button resets hold counter and stops subtracting
@@ -62,7 +62,7 @@ add2.onmousedown = function () {
     num2.innerHTML = count
     count++
     num2.stepUp()
-  }, 250);
+  }, 250)
 }
 
 add2.onmouseup = function () {
@@ -78,7 +78,7 @@ sub2.onmousedown = function () {
     num2.innerHTML = count
     count++
     num2.stepDown()
-  }, 250);
+  }, 250)
 }
 
 sub2.onmouseup = function () {
