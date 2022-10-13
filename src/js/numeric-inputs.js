@@ -4,9 +4,9 @@ let count = 0
 
 /* Dial 1 */
 
-let num1 = document.getElementById('number-dial-1')
-let sub1 = document.getElementById('minus-dial-1')
-let add1 = document.getElementById('plus-dial-1')
+const num1 = document.getElementById('number-dial-1')
+const sub1 = document.getElementById('minus-dial-1')
+const add1 = document.getElementById('plus-dial-1')
 
 // single click adds 1
 add1.onclick = function () {
@@ -16,10 +16,10 @@ add1.onclick = function () {
 // holding mouse down continues to add 1
 add1.onmousedown = function () {
   counter = setInterval(function () {
-    num1.innerHTML = count;
-    count++;
-    num1.stepUp();
-  }, 215); //speed of adding
+    num1.innerHTML = count
+    count++
+    num1.stepUp()
+  }, 215); // speed of adding
 }
 
 // releasing mouse button resets hold counter and stops adding
@@ -35,9 +35,9 @@ sub1.onclick = function () {
 // holding mouse down continues to subtract 1
 sub1.onmousedown = function () {
   counter = setInterval(function () {
-    num1.innerHTML = count;
-    count++;
-    num1.stepDown();
+    num1.innerHTML = count
+    count++
+    num1.stepDown()
   }, 215); // speed of subtracting
 }
 
@@ -49,9 +49,9 @@ sub1.onmouseup = function () {
 /* Dial 2 */
 // Works same as dial above
 
-let num2 = document.getElementById('number-dial-2')
-let sub2 = document.getElementById('minus-dial-2')
-let add2 = document.getElementById('plus-dial-2')
+const num2 = document.getElementById('number-dial-2')
+const sub2 = document.getElementById('minus-dial-2')
+const add2 = document.getElementById('plus-dial-2')
 
 add2.onclick = function () {
   num2.stepUp()
@@ -59,9 +59,9 @@ add2.onclick = function () {
 
 add2.onmousedown = function () {
   counter = setInterval(function () {
-    num2.innerHTML = count;
-    count++;
-    num2.stepUp();
+    num2.innerHTML = count
+    count++
+    num2.stepUp()
   }, 250);
 }
 
@@ -75,9 +75,9 @@ sub2.onclick = function () {
 
 sub2.onmousedown = function () {
   counter = setInterval(function () {
-    num2.innerHTML = count;
-    count++;
-    num2.stepDown();
+    num2.innerHTML = count
+    count++
+    num2.stepDown()
   }, 250);
 }
 
