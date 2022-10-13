@@ -62,7 +62,7 @@ add2.onmousedown = function () {
     num2.innerHTML = count
     count++
     num2.stepUp()
-  }, 250)
+  }, 215)
 }
 
 add2.onmouseup = function () {
@@ -78,7 +78,7 @@ sub2.onmousedown = function () {
     num2.innerHTML = count
     count++
     num2.stepDown()
-  }, 250)
+  }, 215)
 }
 
 sub2.onmouseup = function () {
