@@ -1,42 +1,68 @@
 var fs = require('fs'); 
-const { parse } = require('csv-parse');
-var output = [];
-var filePath = 'test.csv'
+
+//var headers = 'element,time1,time2,time3,time4,time5,time6,time7,time8,time9,time10,time11,time12,time13,time14,time15,time16,time17,time18,time19,time20,time21,time22,time23,time24,time25,time26,time27,time28,time29,time30,time31,time32,time33,time34,time35,time36,time37,time38,time39,time40,time41,time42,time43,time44,time45,time46,time47,time48,time49,time50,time51,time52,time53,time54,time55,time56,time57,time58,time59,time60,time61,time62,time63,time64,time65,time66,time67,time68,time69,time70,time71,time72,time73,time74,time75,time76,time77,time78,time79,time80,time81,time82,time83,time84,time85,time86,time87,time88,time89,time90,time91,time92,time93,time94,time95,time96,time97,time98,time99,time100,time101,time102,time103,time104,time105,time106,time107,time108,time109,time110,time111,time112,time113,time114,time115,time116,time117,time118,time119,time120,time121,time122,time123,time124,time125,time126,time127,time128,time129,time130,time131,time132,time133,time134,time135,time136,time137,time138,time139,time140,time141,time142,time143,time144,time145,time146,time147,time148,time149,time150,time151,time152,time153,time154,time155,time156,time157,time158,time159,time160,time161,time162,time163,time164,time165,time166,time167,time168,time169,time170,time171,time172,time173,time174,time175,time176,time177,time178,time179,time180,time181,time182,time183,time184,time185,time186,time187,time188,time189,time190,time191,time192,time193,time194,time195,time196,time197,time198,time199,time200,time201,time202,time203,time204,time205,time206,time207,time208,time209,time210,time211,time212,time213,time214,time215,time216,time217,time218,time219,time220,time221,time222,time223,time224,time225,time226,time227,time228,time229,time230,time231,time232,time233,time234,time235,time236,time237,time238,time239,time240\n';
+
+const csv = require("fast-csv");
+
+// csv.write(readerStreamResults, {headers: ['element', 'time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'time7', 'time8', 'time9', 'time10', 'time11', 'time12', 'time13', 'time14', 'time15', 'time16', 'time17', 'time18', 'time19', 'time20', 'time21', 'time22', 'time23', 'time24', 'time25', 'time26', 'time27', 'time28', 'time29', 'time30', 'time31', 'time32', 'time33', 'time34', 'time35', 'time36', 'time37', 'time38', 'time39', 'time40', 'time41', 'time42', 'time43', 'time44', 'time45', 'time46', 'time47', 'time48', 'time49', 'time50', 'time51', 'time52', 'time53', 'time54', 'time55', 'time56', 'time57', 'time58', 'time59', 'time60', 'time61', 'time62', 'time63', 'time64', 'time65', 'time66', 'time67', 'time68', 'time69', 'time70', 'time71', 'time72', 'time73', 'time74', 'time75', 'time76', 'time77', 'time78', 'time79', 'time80', 'time81', 'time82', 'time83', 'time84', 'time85', 'time86', 'time87', 'time88', 'time89', 'time90', 'time91', 'time92', 'time93', 'time94', 'time95', 'time96', 'time97', 'time98', 'time99', 'time100', 'time101', 'time102', 'time103', 'time104', 'time105', 'time106', 'time107', 'time108', 'time109', 'time110', 'time111', 'time112', 'time113', 'time114', 'time115', 'time116', 'time117', 'time118', 'time119', 'time120', 'time121', 'time122', 'time123', 'time124', 'time125', 'time126', 'time127', 'time128', 'time129', 'time130', 'time131', 'time132', 'time133', 'time134', 'time135', 'time136', 'time137', 'time138', 'time139', 'time140', 'time141', 'time142', 'time143', 'time144', 'time145', 'time146', 'time147', 'time148', 'time149', 'time150', 'time151', 'time152', 'time153', 'time154', 'time155', 'time156', 'time157', 'time158', 'time159', 'time160', 'time161', 'time162', 'time163', 'time164', 'time165', 'time166', 'time167', 'time168', 'time169', 'time170', 'time171', 'time172', 'time173', 'time174', 'time175', 'time176', 'time177', 'time178', 'time179', 'time180', 'time181', 'time182', 'time183', 'time184', 'time185', 'time186', 'time187', 'time188', 'time189', 'time190', 'time191', 'time192', 'time193', 'time194', 'time195', 'time196', 'time197', 'time198', 'time199', 'time200', 'time201', 'time202', 'time203', 'time204', 'time205', 'time206', 'time207', 'time208', 'time209', 'time210', 'time211', 'time212', 'time213', 'time214', 'time215', 'time216', 'time217', 'time218', 'time219', 'time220', 'time221', 'time222', 'time223', 'time224', 'time225', 'time226', 'time227', 'time228', 'time229', 'time230', 'time231', 'time232', 'time233', 'time234', 'time235', 'time236', 'time237', 'time238', 'time239', 'time240']} ).pipe(ws);
+
+const file1 = 'headers.csv';
+const file2 = 'CART-TIBIA-LAT_LE.csv';
+const stream = fs.createReadStream(file1);
+const stream2 = fs.createReadStream(file2);
+const fileData1 = [];
+const fileData2 = [];
+const fileData3 = [];
 
 
-function pyCall(input) {
-	$.ajax ({
-		type: 'POST',
-		url: '/addHeaders.py',
-		data : {param: input}
-	});
-}
-pyCall(filePath)
-/*
-function fillArray (element,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,t30,t31,t32,t33,t34,t35,t36,t37,t38,t39,t40,t41,t42,t43,t44,t45,t46,t47,t48,t49,t50,t51,t52,t53,t54,t55,t56,t57,t58,t59,t60,t61,t62,t63,t64,t65,t66,t67,t68,t69,t70,t71,t72,t73,t74,t75,t76,t77,t78,t79,t80,t81,t82,t83,t84,t85,t86,t87,t88,t89,t90,t91,t92,t93,t94,t95,t96,t97,t98,t99,t100,t101,t102,t103,t104,t105,t106,t107,t108,t109,t110,t111,t112,t113,t114,t115,t116,t117,t118,t119,t120,t121,t122,t123,t124,t125,t126,t127,t128,t129,t130,t131,t132,t133,t134,t135,t136,t137,t138,t139,t140,t141,t142,t143,t144,t145,t146,t147,t148,t149,t150,t151,t152,t153,t154,t155,t156,t157,t158,t159,t160,t161,t162,t163,t164,t165,t166,t167,t168,t169,t170,t171,t172,t173,t174,t175,t176,t177,t178,t179,t180,t181,t182,t183,t184,t185,t186,t187,t188,t189,t190,t191,t192,t193,t194,t195,t196,t197,t198,t199,t200,t201,t202,t203,t204,t205,t206,t207,t208,t209,t210,t211,t212,t213,t214,t215,t216,t217,t218,t219,t220,t221,t222,t223,t224,t225,t226,t227,t228,t229,t230,t231,t232,t233,t234,t235,t236,t237,t238,t239,t240)
-{
-	let data = [element, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, t33, t34, t35, t36, t37, t38, t39, t40, t41, t42, t43, t44, t45, t46, t47, t48, t49, t50, t51, t52, t53, t54, t55, t56, t57, t58, t59, t60, t61, t62, t63, t64, t65, t66, t67, t68, t69, t70, t71, t72, t73, t74, t75, t76, t77, t78, t79, t80, t81, t82, t83, t84, t85, t86, t87, t88, t89, t90, t91, t92, t93, t94, t95, t96, t97, t98, t99, t100, t101, t102, t103, t104, t105, t106, t107, t108, t109, t110, t111, t112, t113, t114, t115, t116, t117, t118, t119, t120, t121, t122, t123, t124, t125, t126, t127, t128, t129, t130, t131, t132, t133, t134, t135, t136, t137, t138, t139, t140, t141, t142, t143, t144, t145, t146, t147, t148, t149, t150, t151, t152, t153, t154, t155, t156, t157, t158, t159, t160, t161, t162, t163, t164, t165, t166, t167, t168, t169, t170, t171, t172, t173, t174, t175, t176, t177, t178, t179, t180, t181, t182, t183, t184, t185, t186, t187, t188, t189, t190, t191, t192, t193, t194, t195, t196, t197, t198, t199, t200, t201, t202, t203, t204, t205, t206, t207, t208, t209, t210, t211, t212, t213, t214, t215, t216, t217, t218, t219, t220, t221, t222, t223, t224, t225, t226, t227, t228, t229, t230, t231, t232, t233, t234, t235, t236, t237, t238, t239, t240];
-	output.push(data);
-}
-
-var parser = parse({columns: true}, function (err, records) {
-	for(const row of records) {
-		//fillArray(row.element.substring(1), row.time1.substring(1), row.time2.substring(1), row.time3.substring(1), row.time4.substring(1), row.time5.substring(1), row.time6.substring(1), row.time7.substring(1), row.time8.substring(1), row.time9.substring(1), row.time10.substring(1), row.time11.substring(1), row.time12.substring(1), row.time13.substring(1), row.time14.substring(1), row.time15.substring(1), row.time16.substring(1), row.time17.substring(1), row.time18.substring(1), row.time19.substring(1), row.time20.substring(1), row.time21.substring(1), row.time22.substring(1), row.time23.substring(1), row.time24.substring(1), row.time25.substring(1), row.time26.substring(1), row.time27.substring(1), row.time28.substring(1), row.time29.substring(1), row.time30.substring(1), row.time31.substring(1), row.time32.substring(1), row.time33.substring(1), row.time34.substring(1), row.time35.substring(1), row.time36.substring(1), row.time37.substring(1), row.time38.substring(1), row.time39.substring(1), row.time40.substring(1), row.time41.substring(1), row.time42.substring(1), row.time43.substring(1), row.time44.substring(1), row.time45.substring(1), row.time46.substring(1), row.time47.substring(1), row.time48.substring(1), row.time49.substring(1), row.time50.substring(1), row.time51.substring(1), row.time52.substring(1), row.time53.substring(1), row.time54.substring(1), row.time55.substring(1), row.time56.substring(1), row.time57.substring(1), row.time58.substring(1), row.time59.substring(1), row.time60.substring(1), row.time61.substring(1), row.time62.substring(1), row.time63.substring(1), row.time64.substring(1), row.time65.substring(1), row.time66.substring(1), row.time67.substring(1), row.time68.substring(1), row.time69.substring(1), row.time70.substring(1), row.time71.substring(1), row.time72.substring(1), row.time73.substring(1), row.time74.substring(1), row.time75.substring(1), row.time76.substring(1), row.time77.substring(1), row.time78.substring(1), row.time79.substring(1), row.time80.substring(1), row.time81.substring(1), row.time82.substring(1), row.time83.substring(1), row.time84.substring(1), row.time85.substring(1), row.time86.substring(1), row.time87.substring(1), row.time88.substring(1), row.time89.substring(1), row.time90.substring(1), row.time91.substring(1), row.time92.substring(1), row.time93.substring(1), row.time94.substring(1), row.time95.substring(1), row.time96.substring(1), row.time97.substring(1), row.time98.substring(1), row.time99.substring(1), row.time100.substring(1), row.time101.substring(1), row.time102.substring(1), row.time103.substring(1), row.time104.substring(1), row.time105.substring(1), row.time106.substring(1), row.time107.substring(1), row.time108.substring(1), row.time109.substring(1), row.time110.substring(1), row.time111.substring(1), row.time112.substring(1), row.time113.substring(1), row.time114.substring(1), row.time115.substring(1), row.time116.substring(1), row.time117.substring(1), row.time118.substring(1), row.time119.substring(1), row.time120.substring(1), row.time121.substring(1), row.time122.substring(1), row.time123.substring(1), row.time124.substring(1), row.time125.substring(1), row.time126.substring(1), row.time127.substring(1), row.time128.substring(1), row.time129.substring(1), row.time130.substring(1), row.time131.substring(1), row.time132.substring(1), row.time133.substring(1), row.time134.substring(1), row.time135.substring(1), row.time136.substring(1), row.time137.substring(1), row.time138.substring(1), row.time139.substring(1), row.time140.substring(1), row.time141.substring(1), row.time142.substring(1), row.time143.substring(1), row.time144.substring(1), row.time145.substring(1), row.time146.substring(1), row.time147.substring(1), row.time148.substring(1), row.time149.substring(1), row.time150.substring(1), row.time151.substring(1), row.time152.substring(1), row.time153.substring(1), row.time154.substring(1), row.time155.substring(1), row.time156.substring(1), row.time157.substring(1), row.time158.substring(1), row.time159.substring(1), row.time160.substring(1), row.time161.substring(1), row.time162.substring(1), row.time163.substring(1), row.time164.substring(1), row.time165.substring(1), row.time166.substring(1), row.time167.substring(1), row.time168.substring(1), row.time169.substring(1), row.time170.substring(1), row.time171.substring(1), row.time172.substring(1), row.time173.substring(1), row.time174.substring(1), row.time175.substring(1), row.time176.substring(1), row.time177.substring(1), row.time178.substring(1), row.time179.substring(1), row.time180.substring(1), row.time181.substring(1), row.time182.substring(1), row.time183.substring(1), row.time184.substring(1), row.time185.substring(1), row.time186.substring(1), row.time187.substring(1), row.time188.substring(1), row.time189.substring(1), row.time190.substring(1), row.time191.substring(1), row.time192.substring(1), row.time193.substring(1), row.time194.substring(1), row.time195.substring(1), row.time196.substring(1), row.time197.substring(1), row.time198.substring(1), row.time199.substring(1), row.time200.substring(1), row.time201.substring(1), row.time202.substring(1), row.time203.substring(1), row.time204.substring(1), row.time205.substring(1), row.time206.substring(1), row.time207.substring(1), row.time208.substring(1), row.time209.substring(1), row.time210.substring(1), row.time211.substring(1), row.time212.substring(1), row.time213.substring(1), row.time214.substring(1), row.time215.substring(1), row.time216.substring(1), row.time217.substring(1), row.time218.substring(1), row.time219.substring(1), row.time220.substring(1), row.time221.substring(1), row.time222.substring(1), row.time223.substring(1), row.time224.substring(1), row.time225.substring(1), row.time226.substring(1), row.time227.substring(1), row.time228.substring(1), row.time229.substring(1), row.time230.substring(1), row.time231.substring(1), row.time232.substring(1), row.time233.substring(1), row.time234.substring(1), row.time235.substring(1), row.time236.substring(1), row.time237.substring(1), row.time238.substring(1), row.time239.substring(1), row.time240.substring(1));
-		console.log(row['0']);
-	}
-
+const file1Promise = new Promise((resolve) => {
+  csv
+      .parseFile(file1, {headers: false})
+      .on('data', function(data) {
+        fileData1.push(data);
+      })
+      .on('end', function() {
+		console.log('done');
+        resolve();
+      });
 });
 
-//element,time1,time2,time3,time4,time5,time6,time7,time8,time9,time10,time11,time12,time13,time14,time15,time16,time17,time18,time19,time20,time21,time22,time23,time24,time25,time26,time27,time28,time29,time30,time31,time32,time33,time34,time35,time36,time37,time38,time39,time40,time41,time42,time43,time44,time45,time46,time47,time48,time49,time50,time51,time52,time53,time54,time55,time56,time57,time58,time59,time60,time61,time62,time63,time64,time65,time66,time67,time68,time69,time70,time71,time72,time73,time74,time75,time76,time77,time78,time79,time80,time81,time82,time83,time84,time85,time86,time87,time88,time89,time90,time91,time92,time93,time94,time95,time96,time97,time98,time99,time100,time101,time102,time103,time104,time105,time106,time107,time108,time109,time110,time111,time112,time113,time114,time115,time116,time117,time118,time119,time120,time121,time122,time123,time124,time125,time126,time127,time128,time129,time130,time131,time132,time133,time134,time135,time136,time137,time138,time139,time140,time141,time142,time143,time144,time145,time146,time147,time148,time149,time150,time151,time152,time153,time154,time155,time156,time157,time158,time159,time160,time161,time162,time163,time164,time165,time166,time167,time168,time169,time170,time171,time172,time173,time174,time175,time176,time177,time178,time179,time180,time181,time182,time183,time184,time185,time186,time187,time188,time189,time190,time191,time192,time193,time194,time195,time196,time197,time198,time199,time200,time201,time202,time203,time204,time205,time206,time207,time208,time209,time210,time211,time212,time213,time214,time215,time216,time217,time218,time219,time220,time221,time222,time223,time224,time225,time226,time227,time228,time229,time230,time231,time232,time233,time234,time235,time236,time237,time238,time239,time240
-//0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241
 
-//OUTPUT USAGE: to print an elements time: output[element # + 1][time#]    (element # isnt csv value, it's the row value)
-fs.createReadStream('../../data/CART-TIBIA-MED_S.csv')
-													.pipe(parser)  // Path to csv goes here
-													.on('finish', function() {
-														//console.log(output); 
-														//console.log(output[0][0]);  									//any functions using the parsed data should be called in here
-													});
+const file2Promise = new Promise((resolve) => {
+
+  csv
+      .parseFile(file2, {headers: false})
+      .on('data', function(data) {
+        fileData2.push(data);
+      })
+      .on('end', function() {
+        console.log('done');
+        resolve();
+      });
+});
 
 
-*/
+
+
+Promise.all([
+  file1Promise,
+  file2Promise,
+])
+    .then(() => {
+      const fileData3 = fileData1.concat(fileData2);//fileData1.concat(fileData2);
+      //console.log(fileData);
+
+      const csvStream = csv.format({headers: true});
+      const writableStream = fs.createWriteStream('outputfile.csv');
+
+      writableStream.on('finish', function() {
+        console.log('DONE!');
+      });
+
+      csvStream.pipe(writableStream);
+      fileData3.forEach((data) => {
+        csvStream.write(data);
+      });
+      csvStream.end();
+    });
+
