@@ -9,11 +9,11 @@ const file1Promise = new Promise((resolve) => {
   csv
     .parseFile(file1, { headers: false })
     .on('data', function (data) {
-        fileData1.push(data)
+      fileData1.push(data)
     })
     .on('end', function () {
-        console.log('done')
-        resolve()
+      console.log('done')
+      resolve()
     })
 })
 
@@ -21,11 +21,11 @@ const file2Promise = new Promise((resolve) => {
   csv
     .parseFile(file2, { headers: false })
     .on('data', function (data) {
-        fileData2.push(data)
-    } )
+      fileData2.push(data)
+    })
     .on('end', function () {
-        console.log('done')
-        resolve()
+      console.log('done')
+      resolve()
     })
 })
 
@@ -42,10 +42,9 @@ Promise.all([
       console.log('DONE!')
     })
 
-    csvStream.pipe(writableStream);
-      fileData3.forEach((data) => {
-    csvStream.write(data)
-	})
-	csvStream.end()
+    csvStream.pipe(writableStream)
+    fileData3.forEach((data) => {
+      csvStream.write(data)
+    })
+    csvStream.end()
   })
-
