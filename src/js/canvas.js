@@ -8,6 +8,8 @@ window.onresize = function(){
     canvas.width = (parent.offsetWidth*.996);
     canvas.height = (parent.offsetHeight*.996);
     drawKnee();
+    element = new node(10, 10);
+    console.log(element.xVal);
 }
 
 function drawKnee() {
