@@ -2,56 +2,50 @@ const fs = require('fs')
 const csv = require('fast-csv')
 const file1 = 'headers.csv'
 const file2 = 'CART-TIBIA-LAT_LE.csv'
-const stream = fs.createReadStream(file1)
-const stream2 = fs.createReadStream(file2)
 const fileData1 = []
 const fileData2 = []
-const fileData3 = []
 
 const file1Promise = new Promise((resolve) => {
   csv
-    .parseFile(file1, { headers: false } )
-    .on('data', function(data) {
+    .parseFile(file1, { headers: false })
+    .on('data', function (data) {
         fileData1.push(data)
-    } )
-    .on('end', function() {
-		console.log('done')
+    })
+    .on('end', function () {
+        console.log('done')
         resolve()
-    } )
-} )
+    })
+})
 
 const file2Promise = new Promise((resolve) => {
   csv
-    .parseFile(file2, { headers: false } )
-    .on('data', function(data) {
+    .parseFile(file2, { headers: false })
+    .on('data', function (data) {
         fileData2.push(data)
     } )
-    .on('end', function() {
+    .on('end', function () {
         console.log('done')
         resolve()
-    } )
-} )
-
-
-
+    })
+})
 
 Promise.all([
   file1Promise,
-  file2Promise,
+  file2Promise
 ])
-    .then(() => {
-        const fileData3 = fileData1.concat(fileData2)
-        const csvStream = csv.format( { headers: true } )
-        const writableStream = fs.createWriteStream('outputfile.csv')
+  .then(() => {
+    const fileData3 = fileData1.concat(fileData2)
+    const csvStream = csv.format({ headers: true })
+    const writableStream = fs.createWriteStream('outputfile.csv')
 
-        writableStream.on('finish', function() {
-            console.log('DONE!')
-        } )
+    writableStream.on('finish', function () {
+      console.log('DONE!')
+    })
 
-        csvStream.pipe(writableStream);
-        fileData3.forEach((data) => {
-            csvStream.write(data)
-        } )
-	    csvStream.end()
-    } )
+    csvStream.pipe(writableStream);
+      fileData3.forEach((data) => {
+    csvStream.write(data)
+	})
+	csvStream.end()
+  })
 
