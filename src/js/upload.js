@@ -1,13 +1,13 @@
-const form = document.getElementById("form");
-const inputFile = document.getElementById("file");
+const form = document.getElementById('form')
+const inputFile = document.getElementById('file')
 
-const formData = new FormData();
+const formData = new FormData()
 
 const handleSubmit = (event) => {
-    event.preventDefault();
+  event.preventDefault()
 
-    for (const file of inputFile.files) {
-        formData.append("files", file);
-    }
-};
-form.addEventListener("submit", handleSubmit);
+  for (const file of inputFile.files) {
+    formData.append('files', file)
+  }
+}
+form.addEventListener('submit', handleSubmit)
