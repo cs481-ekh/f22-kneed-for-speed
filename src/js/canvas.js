@@ -8,8 +8,6 @@ window.onresize = function () {
   canvas.width = (parent.offsetWidth * 0.996)
   canvas.height = (parent.offsetHeight * 0.996)
   drawKnee()
-  const element = new Node(10, 10)
-  console.log(element.xVal)
 }
 
 function drawKnee () {
@@ -104,11 +102,16 @@ function drawElement () {
 }
 
 class Node {
-  constructor (xVal, yVal) {
+  constructor (id, xVal, yVal, force) {
+    this.id = id
     this.xVal = xVal
     this.yVal = yVal
+    this.force = force
   }
 }
 
 // Calls function to draw the knee
 drawKnee()
+const element = new Node(1, 10, 10, 0)
+console.log(element.id)
+
