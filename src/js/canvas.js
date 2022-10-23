@@ -114,3 +114,4 @@ class Node {
 drawKnee()
 const element = new Node(1, 10, 10, 0)
 console.log(element.id)
+
