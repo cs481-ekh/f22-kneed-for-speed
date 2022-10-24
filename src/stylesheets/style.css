@@ -201,3 +201,10 @@ input[type="number"] {
   width: 25px;
   border: 2px solid;
 }
+
+.box {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 2px solid;
+}
