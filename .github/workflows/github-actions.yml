@@ -44,7 +44,7 @@ jobs:
           OUTPUT_DETAILS: detailed
           VALIDATE_ALL_CODEBASE: false
 
-      #Run the test.sh file using the container's commands
+      #Create a node.js environment and run tests within that environment
       - name: Use node.js $ {{ matrix.nodeversion }}
         uses: actions/setup-node@v2
         with:
