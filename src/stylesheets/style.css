@@ -197,3 +197,10 @@ input[type=number] {
     max-height: 80%;
     max-width: 80%;
 }
+
+.box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 2px solid;
+  }
