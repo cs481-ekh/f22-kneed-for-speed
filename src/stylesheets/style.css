@@ -98,7 +98,7 @@ body {
 .map {
   background-color: white;
 
-/* border:1px solid #000000; */
+  /* border:1px solid #000000; */
 }
 
 .canvas-container {
@@ -112,7 +112,7 @@ body {
   max-width: 50%;
 }
 
-.dial-container { 
+.dial-container {
   content: "";
   position: relative;
   margin: 0 auto;
@@ -120,7 +120,7 @@ body {
   width: 48%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  border: .25vw solid black;
+  border: 0.25vw solid black;
   margin-bottom: 3%;
 }
 
@@ -138,19 +138,19 @@ body {
 
 /* DIAL INPUTS & BUTTONS */
 
-    /* Hide Arrows From Input Number -
-    Chrome, Safari, Edge, Opera */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+/* Hide Arrows From Input Number -
+   Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-    
-    /* Hide Arrows From Input Number - Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+
+/* Hide Arrows From Input Number - Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
-    
+
 .plus-minus {
   max-width: 6%;
   max-height: 6%;
@@ -191,7 +191,7 @@ input[type=number] {
   max-width: 150px;
   height: auto;
 }
-  
+
 .sdp-text {
   position: absolute;
   top: 0;
