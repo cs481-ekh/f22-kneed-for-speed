@@ -1,5 +1,6 @@
 const canvas = document.getElementById('map')
 const parent = document.getElementById('canvas-container')
+const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
 
@@ -70,6 +71,25 @@ function drawElement () {
   }
 }
 
+function heatmapKey (colorList) {
+  const heatmapKey = document.getElementById('heatmap')
+
+  for (const key in colorList) {
+    const boxContainer = document.createElement('div')
+    const box = document.createElement('div')
+    // var label = document.createElement("span")
+
+    // label.innerHTML = key
+    box.className = 'box'
+    box.style.backgroundColor = colorList[key]
+
+    boxContainer.appendChild(box)
+    // boxContainer.appendChild(label)
+
+    heatmapKey.appendChild(boxContainer)
+  }
+}
+
 class Node {
   constructor (id, xVal, yVal, force) {
     this.id = id
@@ -81,3 +101,5 @@ class Node {
 
 // Calls function to draw the knee
 drawKnee()
+// Calls function to create our heatmap key
+heatmapKey(colorList)
