@@ -25,10 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
-    strategy:
-      matrix:
-        node-version:  [16.x, 19.x]
-
     #Checkout the entire repository history
     steps:
       - name: Code Checkout
@@ -40,15 +36,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
-          #OUTPUT_FOLDER: Reports
           OUTPUT_DETAILS: detailed
           VALIDATE_ALL_CODEBASE: false
-
-      #Create a node.js environment and run tests within that environment
-      - name: Use node.js $ {{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
