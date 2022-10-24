@@ -1,5 +1,6 @@
 const canvas = document.getElementById('map')
 const parent = document.getElementById('canvas-container')
+const colorList = {red: '#FF0000', orange_red: 'FF4500', yellow: 'FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0'}
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
 
@@ -68,6 +69,25 @@ function drawElement () {
     ctx.stroke()
     ctx.fill()
   }
+}
+
+function heatmapKey(colorList) {
+    var heatmapKey = document.getElementById('headmap')
+
+    for (var key in colorList) {
+        var boxContainer = document.createElement("div")
+        var box = document.createElement("div")
+        //var label = document.createElement("span")
+
+        // label.innerHTML = key
+        box.className = "box"
+        box.style.backgroundColor = colorList[key]
+
+        boxContainer.appendChild(box)
+        //boxContainer.appendChild(label)
+
+        heatmapKey.appendChild(boxContainer)
+    }
 }
 
 class Node {
