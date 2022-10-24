@@ -53,6 +53,7 @@ Promise.all([
     })
     csvStream.end()
   })
+}
 
   function toArray(outputCSV) {
 
@@ -75,6 +76,7 @@ Promise.all([
 				resolve()
 			})
 		})
+
 }
 
 combineFiles('CART-TIBIA-LAT_LE.csv')
