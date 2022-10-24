@@ -70,7 +70,7 @@ body {
   padding-top: 0;
 }
 
-    /*canvas section of the grid. holds the canvas-container*/
+/* canvas section of the grid. holds the canvas-container */
 .grid-item-5 {
   grid-column-start: 6;
   grid-column-end: 11;
@@ -84,7 +84,7 @@ body {
   grid-row-start: 10;
   grid-row-end: 11;
   text-align: left;
-  padding: .5%;
+  padding: 0.5%;
 }
 
 .stretch-goal-buttons {
@@ -97,7 +97,8 @@ body {
 /* CANVAS */
 .map {
   background-color: white;
-  /* border:1px solid #000000; */
+
+/* border:1px solid #000000; */
 }
 
 .canvas-container {
@@ -112,7 +113,7 @@ body {
 }
 
 .dial-container { 
-  content: '';
+  content: "";
   position: relative;
   margin: 0 auto;
   background: #767676;
@@ -124,7 +125,7 @@ body {
 }
 
 .dial {
-  content: '';
+  content: "";
   position: relative;
   left: 50%;
   top: 5%;
@@ -134,7 +135,6 @@ body {
   height: 25%;
   background: black;
 }
-
 
 /* DIAL INPUTS & BUTTONS */
 
@@ -166,7 +166,7 @@ input[type=number] {
   height: 45%;
   width: 90%;
   padding-top: 3.5%;
-  padding-bottom: .5%;
+  padding-bottom: 0.5%;
   background-color: white;
 }
 
@@ -198,7 +198,7 @@ input[type=number] {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #0033A0;
+  background: #0033a0;
   color: white;
   text-align: center;
   visibility: hidden;
@@ -206,7 +206,7 @@ input[type=number] {
   overflow: scroll;
   overflow-x: hidden;
 }
-  
+
 .sdp-text-wrapper:hover .sdp-text {
   visibility: visible;
   opacity: 1;
@@ -214,7 +214,7 @@ input[type=number] {
 
 .sdp-text a {
   text-decoration: none;
-  color: #D64309;
+  color: #d64309;
 }
 
 /* IMAGES */
