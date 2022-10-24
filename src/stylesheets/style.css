@@ -1,138 +1,138 @@
 /* ENTIRE PAGE */
 body {
-    background-color: #eeeeee;
+  background-color: #eee;
 }
 
 /* GRID LAYOUT */
 .layout-grid-container {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    text-align: center;
-    height: 98vh; /*smaller than 100 to account for address and task bars*/
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  text-align: center;
+  height: 98vh; /* smaller than 100 to account for address and task bars */
 }
 
 .grid-item {
-    /* border: 1px solid black; */
-    background-color: #eeeeee;
+  /* border: 1px solid black; */
+  background-color: #eee;
 }
 
 .header {
-    grid-column-start: 1;
-    grid-column-end: -1;
-    grid-row-start: 1;
-    grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 .upload-buttons-container {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    padding-left: 8%;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 8%;
 }
 
 .dial-1-container {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 7;
 }
 
 .dial-2-container {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 7;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 7;
 }
 
 .dial-3-container {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 7;
-    grid-row-end: 10;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 10;
 }
 
 .dial-4-container {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 7;
-    grid-row-end: 10;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 7;
+  grid-row-end: 10;
 }
 
 .heat-map-container {
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 2;
-    grid-row-end: 10;
-    text-align: right;
-    padding: 10%;
-    padding-top: 0;
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 10;
+  text-align: right;
+  padding: 10%;
+  padding-top: 0;
 }
 
     /*canvas section of the grid. holds the canvas-container*/
 .grid-item-5 {
-    grid-column-start: 6;
-    grid-column-end: 11;
-    grid-row-start: 2;
-    grid-row-end: 10;
+  grid-column-start: 6;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 10;
 }
 
 .footer {
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 10;
-    grid-row-end: 11;
-    text-align: left;
-    padding: .5%;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 10;
+  grid-row-end: 11;
+  text-align: left;
+  padding: .5%;
 }
 
 .stretch-goal-buttons {
-    grid-column-start: 6;
-    grid-column-end: 11;
-    grid-row-start: 10;
-    grid-row-end: 11;
+  grid-column-start: 6;
+  grid-column-end: 11;
+  grid-row-start: 10;
+  grid-row-end: 11;
 }
 
 /* CANVAS */
 .map {
-    background-color: white;
-    /* border:1px solid #000000; */
+  background-color: white;
+  /* border:1px solid #000000; */
 }
 
 .canvas-container {
-    width: 99%;
-    height: 99%;
+  width: 99%;
+  height: 99%;
 }
 
 /* DIALS */
 .dial-image {
-    max-height: 50%;
-    max-width: 50%;
+  max-height: 50%;
+  max-width: 50%;
 }
 
 .dial-container { 
-    content: '';
-    position: relative;
-    margin: 0 auto;
-    background: #767676;
-    width: 48%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    border: .25vw solid black;
-    margin-bottom: 3%;
+  content: '';
+  position: relative;
+  margin: 0 auto;
+  background: #767676;
+  width: 48%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: .25vw solid black;
+  margin-bottom: 3%;
 }
 
 .dial {
-    content: '';
-    position: relative;
-    left: 50%;
-    top: 5%;
-    transform: translateX(-50%);
-    border-radius: 15%;
-    width: 3%;
-    height: 25%;
-    background: black;
+  content: '';
+  position: relative;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  border-radius: 15%;
+  width: 3%;
+  height: 25%;
+  background: black;
 }
 
 
@@ -152,73 +152,73 @@ input[type=number] {
 }
     
 .plus-minus {
-    max-width: 6%;
-    max-height: 6%;
+  max-width: 6%;
+  max-height: 6%;
 }
 
 .dial-numbers {
-    max-width: 10%;
-    max-height: 10%;
+  max-width: 10%;
+  max-height: 10%;
 }
 
 /* UPLOAD BUTTONS */
 .file-buttons {
-    height: 45%;
-    width: 90%;
-    padding-top: 3.5%;
-    padding-bottom: .5%;
-    background-color: white;
+  height: 45%;
+  width: 90%;
+  padding-top: 3.5%;
+  padding-bottom: .5%;
+  background-color: white;
 }
 
 .choose-file {
-    max-width: 50%;
-    max-height: 10%;
+  max-width: 50%;
+  max-height: 10%;
 }
 
 .submit-btn {
-    max-width: 25%;
-    max-height: 10%;
+  max-width: 25%;
+  max-height: 10%;
 }
 
 /* SDP Sticker */
 .sdp-sticker {
-    max-width: 150px;
-    height: auto;
+  max-width: 150px;
+  height: auto;
 }
 
 .sdp-text-wrapper {
-    position: relative;
-    max-width: 150px;
-    height: auto;
- }
+  position: relative;
+  max-width: 150px;
+  height: auto;
+}
   
 .sdp-text {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #0033A0;
-    color: white;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    overflow: scroll;
-    overflow-x: hidden;
-  }
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0033A0;
+  color: white;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+}
   
 .sdp-text-wrapper:hover .sdp-text {
-    visibility: visible;
-    opacity: 1;
-  }
+  visibility: visible;
+  opacity: 1;
+}
 
 .sdp-text a {
-    text-decoration: none;
-    color: #D64309;
+  text-decoration: none;
+  color: #D64309;
 }
 
 /* IMAGES */
 .map-colors {
-    max-height: 80%;
-    max-width: 80%;
+  max-height: 80%;
+  max-width: 80%;
 }
