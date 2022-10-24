@@ -25,6 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
+    strategy:
+      matrix:
+        node-version:  [14.x, 16.x, 19.x]
+
     #Checkout the entire repository history
     steps:
       - name: Code Checkout
@@ -41,5 +45,10 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
 
       #Run the test.sh file using the container's commands
-      - name: Test
-        run: ./test.sh
+      - name: Use node.js $ {{ matrix.nodeversion }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.nodeversion }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
