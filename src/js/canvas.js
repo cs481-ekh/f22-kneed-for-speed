@@ -36,69 +36,38 @@ function drawKnee () {
 function drawElement () {
   const ctx = canvas.getContext('2d')
 
-  // Drawing red element
-  ctx.strokeStyle = 'red'
-  ctx.fillStyle = 'red'
+  // Nodes to use as example
+  const e1 = new Node(1, -35.948081, 44.580554, 1)
+  const e2 = new Node(3, -36.626789, 40.016439, 2)
+  const e3 = new Node(4, -37.337202, 42.335068, 3)
 
-  // Connect x, y points given in data
-  ctx.beginPath()
-  ctx.moveTo(-35.948081, 44.580554)
-  ctx.lineTo(-35.948081, 44.580554)
-  ctx.lineTo(-36.626789, 42.016439)
-  ctx.lineTo(-37.337202, 42.335068)
-  ctx.closePath()
+  // Array of nodes
+  const elements = []
+  elements.push(e1)
+  elements.push(e2)
+  elements.push(e3)
 
-  // Coloring in the element
-  ctx.stroke()
-  ctx.fill()
+  // Loop through elements and draw each node
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].force <= 1) {
+      ctx.strokeStyle = 'blue'
+      ctx.fillStyle = 'blue'
+    } else if (elements[i].force <= 2) {
+      ctx.strokeStyle = 'green'
+      ctx.fillStyle = 'green'
+    } else {
+      ctx.strokeStyle = 'red'
+      ctx.fillStyle = 'red'
+    }
 
-  // Changing next element to be blue
-  ctx.strokeStyle = 'blue'
-  ctx.fillStyle = 'blue'
+    ctx.beginPath()
+    // Made radius bigger to make it easier to see to discuss how we want to move forward
+    ctx.arc(elements[i].xVal, elements[i].yVal, 10, 0, 2 * Math.PI, false)
+    ctx.closePath()
 
-  // Copying points from first element in data but moving the +/- around
-  ctx.beginPath()
-  ctx.moveTo(35.948081, 44.580554)
-  ctx.lineTo(35.948081, 44.580554)
-  ctx.lineTo(36.626789, 42.016439)
-  ctx.lineTo(37.337202, 42.335068)
-  ctx.closePath()
-
-  // Coloring the new element
-  ctx.stroke()
-  ctx.fill()
-
-  // Changing the next element to be green
-  ctx.strokeStyle = 'green'
-  ctx.fillStyle = 'green'
-
-  // Copying points from first element in data but moving the +/- around
-  ctx.beginPath()
-  ctx.moveTo(35.948081, -44.580554)
-  ctx.lineTo(35.948081, -44.580554)
-  ctx.lineTo(36.626789, -42.016439)
-  ctx.lineTo(37.337202, -42.335068)
-  ctx.closePath()
-
-  // Coloring the new element
-  ctx.stroke()
-  ctx.fill()
-
-  // Changing the next element to be yellow
-  ctx.strokeStyle = 'yellow'
-  ctx.fillStyle = 'yellow'
-
-  // Copying points from first element in data but moving the +/- around
-  ctx.beginPath()
-  ctx.moveTo(-35.948081, -44.580554)
-  ctx.lineTo(-35.948081, -44.580554)
-  ctx.lineTo(-36.626789, -42.016439)
-  ctx.lineTo(-37.337202, -42.335068)
-  ctx.closePath()
-
-  // Coloring the new element
-  ctx.stroke()
-  ctx.fill()
+    ctx.stroke()
+    ctx.fill()
+  }
 }
 
 class Node {
@@ -112,6 +81,3 @@ class Node {
 
 // Calls function to draw the knee
 drawKnee()
-const element = new Node(1, 10, 10, 0)
-console.log(element.id)
-
