@@ -45,10 +45,10 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
 
       #Create a node.js environment and run tests within that environment
-      - name: Use node.js $ {{ matrix.nodeversion }}
+      - name: Use node.js $ {{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.nodeversion }}
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
       - run: npm test
