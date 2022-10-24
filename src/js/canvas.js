@@ -101,3 +101,5 @@ class Node {
 
 // Calls function to draw the knee
 drawKnee()
+// Calls function to create our heatmap key
+heatmapKey(colorList)
