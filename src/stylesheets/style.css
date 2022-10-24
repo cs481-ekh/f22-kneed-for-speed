@@ -111,6 +111,31 @@ body {
     max-width: 50%;
 }
 
+.dial-container { 
+    content: '';
+    position: relative;
+    margin: 0 auto;
+    background: #767676;
+    width: 48%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: .25vw solid black;
+    margin-bottom: 3%;
+}
+
+.dial {
+    content: '';
+    position: relative;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    border-radius: 15%;
+    width: 3%;
+    height: 25%;
+    background: black;
+}
+
+
 /* DIAL INPUTS & BUTTONS */
 
     /* Hide Arrows From Input Number -
