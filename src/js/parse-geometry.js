@@ -1,6 +1,6 @@
 const input = document.getElementById('file')
 
-// const submit = document.getElementById('submit') Don't need this yet
+// const submit = document.getElementById('submit') // Don't need this yet
 
 const nodes = [[]]
 const elements = [[]]
@@ -24,7 +24,7 @@ input.addEventListener('change', () => {
     let count = 0 // using 0 indexing
     lines.forEach(element => {
       sessionStorage.setItem('line ' + count, element)
-      console.log(sessionStorage.getItem('line ' + count)) // statement for testing
+      // console.log(sessionStorage.getItem('line ' + count)) // statement for testing
       count++
     })
 
@@ -54,10 +54,10 @@ input.addEventListener('change', () => {
       }
 
       const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
-      console.log(temp) // statement for testing
+      // console.log(temp) // statement for testing
       temp.forEach(element => {
         nodes[index].push(element) // add each comma separated value to array
-        console.log(nodes) // statement for testing
+        // console.log(nodes) // statement for testing
       })
 
       index++
@@ -66,6 +66,8 @@ input.addEventListener('change', () => {
       line++
       count--
     }
+
+    console.log(nodes) // statement for testing
 
     index = 0 // reset array index for elements
 
@@ -77,18 +79,47 @@ input.addEventListener('change', () => {
       }
 
       const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
-      console.log(temp) // statement for testing
+      // console.log(temp) // statement for testing
       temp.forEach(element => {
         elements[index].push(element) // add each comma separated value to array
-        console.log(elements) // statement for testing
+        // console.log(elements) // statement for testing
       })
 
       index++
-      elements.push([]) // add new array for next node (creates multidemensional array)
+      elements.push([]) // add new array for next element (creates multidemensional array)
 
       line++
       count--
     }
+
+    console.log(elements) // statement for testing
+
+    index = 0 // reset array index for node session storage
+    let length = nodes.length // number of nodes in final node array
+    console.log(length) // statement for testing
+
+    while (length > 1) { 
+      sessionStorage.setItem('node ' + nodes[index][0] + ' x', nodes[index][1])
+      // console.log(sessionStorage.getItem('node ' + nodes[index][0] + ' x')) // statement for testing
+
+      sessionStorage.setItem('node ' + nodes[index][0] + ' y', nodes[index][2])
+      // console.log(sessionStorage.getItem('node ' + nodes[index][0] + ' y')) // statement for testing
+
+      sessionStorage.setItem('node ' + nodes[index][0] + ' z', nodes[index][3])
+      // console.log(sessionStorage.getItem('node ' + nodes[index][0] + ' z')) // statement for testing
+
+      console.log(nodes[index][0] + sessionStorage.getItem('node ' + nodes[index][0] + ' x') + sessionStorage.getItem('node ' + nodes[index][0] + ' y') 
+      + sessionStorage.getItem('node ' + nodes[index][0] + ' z')) // statement for testing
+
+      index++
+      length --
+    }
+
+    
+
+    length = elements.length // reset length to number of element in final element array
+    console.log(length) // statement for testing
+
   }
   reader.onerror = (e) => alert(e.target.error.name)
 })
