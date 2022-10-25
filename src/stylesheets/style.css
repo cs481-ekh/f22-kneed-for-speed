@@ -195,15 +195,9 @@ input[type="number"] {
   color: #d64309;
 }
 
-/* IMAGES */
-.map-colors {
-  max-height: 80%;
-  max-width: 80%;
-}
-
 .box {
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   border: 2px solid;
 }
