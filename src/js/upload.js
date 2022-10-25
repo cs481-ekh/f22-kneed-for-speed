@@ -4,31 +4,31 @@ input.addEventListener('change', () => {
     let files = input.files;
 
     if(files.length == 0) {
-      alert("No files chosen");
+      alert("No files chosen")
       return;
     }
 
     const file = files[0];
 
     // validation
-    let filename = file.name.toLowerCase();
-    var regex = new RegExp("(.*?)\.(csv)$"); 
+    let filename = file.name.toLowerCase()
+    var regex = new RegExp("(.*?)\.(csv)$")
     if(!(regex.test(filename))){
-      alert("Invalid file. Please upload a csv file.");
-      return false;
+      alert("Invalid file. Please upload a csv file.")
+      return false
     }
 
-    let reader = new FileReader();
+    let reader = new FileReader()
 
     reader.onload = (e) => {
         const file = e.target.result;
-        const lines = file.split(/\r\n|\n/);
-        textarea.value = lines.join('\n');
-    };
+        const lines = file.split(/\r\n|\n/)
+        textarea.value = lines.join('\n')
+    }
 
-    reader.onerror = (e) => alert(e.target.error.name);
+    reader.onerror = (e) => alert(e.target.error.name)
 
-    reader.readAsText(file); 
+    reader.readAsText(file) 
     
 });
 
