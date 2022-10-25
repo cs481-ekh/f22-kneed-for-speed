@@ -124,7 +124,7 @@ input.addEventListener('change', () => {
     while (length > 1) {
       sessionStorage.setItem('element ' + index + 'node 1', elements[index][0])
       // console.log(sessionStorage.getItem('element ' + index + 'node 1')) // for testing
-  
+
       sessionStorage.setItem('element ' + index + 'node 2', elements[index][1])
       // console.log(sessionStorage.getItem('element ' + index + 'node 2')) // for testing
 
