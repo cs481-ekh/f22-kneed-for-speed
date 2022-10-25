@@ -1,3 +1,5 @@
+//let input = document.querySelector('input'); // declared in upload.js
+
 let nodes = [[]]
 let nodeIndex = 0
 let elements = [[]]
@@ -27,7 +29,7 @@ input.addEventListener('change', () => {
   reader.readAsText(file)
   let lineIndex = 0
   reader.onload = (e) => {
-    const file = e.target.result;
+    const file = e.target.result;                           
     const lines = file.split(/\r\n|\n/)
     lines.forEach(line => {
       sessionStorage.setItem('lines[' + lineIndex + ']', line)
@@ -35,18 +37,18 @@ input.addEventListener('change', () => {
       lineIndex++
     })
     let numOfLines = lineIndex
-    console.log('numOfLines=', numOfLines)
+
     /* find start lineIndex of a Node section */
     lineIndex = 0
     while (lineIndex < numOfLines) {
       if (sessionStorage.getItem('lines[' + lineIndex + ']').search(/node/i) !== (-1)) {
-        console.log('matched node on lines[' + lineIndex + ']') 
+        //console.log('matched node on lines[' + lineIndex + ']') 
         lineIndex++
         break
       }
       lineIndex++
     }
-    
+
     /* store Node section until Element section begins */
     while (lineIndex < numOfLines) {
       if (sessionStorage.getItem('lines[' + lineIndex + ']').search(/element/i) !== (-1)) {
