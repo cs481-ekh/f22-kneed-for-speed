@@ -119,27 +119,26 @@ input.addEventListener('change', () => {
 
     index = 0 // reset array index for element session storage
     length = elements.length // reset length to number of element in final element array
-    console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + length  + '\n' + 'node 1, node 2, node 3, node 4' + '\n') // for testing
+    console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + length + '\n' + 'node 1, node 2, node 3, node 4' + '\n') // for testing
 
-    while (length > 1) { 
+    while (length > 1) {
       sessionStorage.setItem('element ' + index + 'node 1', elements[index][0])
       // console.log(sessionStorage.getItem('element ' + index + 'node 1')) // for testing
   
-      sessionStorage.setItem('element '  + index + 'node 2', elements[index][1])
+      sessionStorage.setItem('element ' + index + 'node 2', elements[index][1])
       // console.log(sessionStorage.getItem('element ' + index + 'node 2')) // for testing
 
-      sessionStorage.setItem('element '  + index + 'node 3', elements[index][2])
+      sessionStorage.setItem('element ' + index + 'node 3', elements[index][2])
       // console.log(sessionStorage.getItem('element ' + index + 'node 3')) // for testing
 
-      sessionStorage.setItem('element '  + index + 'node 4', elements[index][3])
+      sessionStorage.setItem('element ' + index + 'node 4', elements[index][3])
       // console.log(sessionStorage.getItem('element ' + index + 'node 4')) // for testing
 
       console.log(sessionStorage.getItem('element ' + index + 'node 1') + sessionStorage.getItem('element ' + index + 'node 2') + sessionStorage.getItem('element ' + index + 'node 3') + sessionStorage.getItem('element ' + index + 'node 4')) // for testing
-  
+
       index++
       length--
     }
-
   }
   reader.onerror = (e) => alert(e.target.error.name)
 })
