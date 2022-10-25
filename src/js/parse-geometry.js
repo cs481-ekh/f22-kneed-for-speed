@@ -3,7 +3,7 @@ const input = document.getElementById('file')
 // const submit = document.getElementById('submit') Don't need this yet
 
 const nodes = [[]]
-// const elements = [[]] Don't need this yet
+const elements = [[]]
 
 // runs as soon as a user selects a file - needs some additional file-type safety
 input.addEventListener('change', () => {
@@ -75,6 +75,17 @@ input.addEventListener('change', () => {
         console.log('matched end of file on line ' + line) // statement for testing
         break
       }
+
+      const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
+      console.log(temp) // statement for testing
+      temp.forEach(element => {
+        elements[index].push(element) // add each comma separated value to array
+        console.log(elements) // statement for testing
+      })
+
+      index++
+      elements.push([]) // add new array for next node (creates multidemensional array)
+
       line++
       count--
     }
