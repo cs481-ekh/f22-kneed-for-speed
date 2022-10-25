@@ -46,7 +46,7 @@ input.addEventListener('change', () => {
       }
       lineIndex++
     }
-    console.log('start lineIndex of a Node section is ', lineIndex)
+    
     /* store Node section until Element section begins */
     while (lineIndex < numOfLines) {
       if (sessionStorage.getItem('lines[' + lineIndex + ']').search(/element/i) !== (-1)) {
@@ -107,6 +107,24 @@ input.addEventListener('change', () => {
         nodeIndex++
     }
 
+    console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + elements.length + '\n' + 'node 1, node 2, node 3, node 4' + '\n')
+    elementIndex = 0
+    while (elementIndex < elements.length) {
+        sessionStorage.setItem('element ' + elementIndex + 'node 1', elements[elementIndex][0])
+        // console.log(sessionStorage.getItem('element ' + elementIndex + 'node 1')) 
+
+        sessionStorage.setItem('element ' + elementIndex + 'node 2', elements[elementIndex][1])
+        // console.log(sessionStorage.getItem('element ' + elementIndex + 'node 2')) 
+
+        sessionStorage.setItem('element ' + elementIndex + 'node 3', elements[elementIndex][2])
+        // console.log(sessionStorage.getItem('element ' + elementIndex + 'node 3')) 
+
+        sessionStorage.setItem('element ' + elementIndex + 'node 4', elements[elementIndex][3])
+        // console.log(sessionStorage.getItem('element ' + elementIndex + 'node 4')) 
+
+        console.log(sessionStorage.getItem('element ' + elementIndex + 'node 1') + sessionStorage.getItem('element ' + elementIndex + 'node 2') + sessionStorage.getItem('element ' + elementIndex + 'node 3') + sessionStorage.getItem('element ' + elementIndex + 'node 4')) 
+        elementIndex++
+    }
   } // end of reader.onload
   reader.onerror = (e) => alert(e.target.error.name) 
 
