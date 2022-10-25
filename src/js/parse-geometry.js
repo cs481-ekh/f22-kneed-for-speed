@@ -47,7 +47,7 @@ input.addEventListener('change', () => {
     // Store Node elements until Element section begins
     while (count >= 0) {
       if (sessionStorage.getItem('line ' + line).search(/element/i) !== (-1)) {
-        console.log('matched element on line '+ line) // statement for testing
+        console.log('matched element on line ' + line) // statement for testing
         line++
         count--
         break
@@ -61,7 +61,7 @@ input.addEventListener('change', () => {
       })
 
       index++
-        nodes.push([]) // add new array for next node (creates multidemensional array)
+      nodes.push([]) // add new array for next node (creates multidemensional array)
 
       line++
       count--
@@ -69,7 +69,7 @@ input.addEventListener('change', () => {
 
     index = 0 // reset array index for elements
 
-    //Store Element elements until end of file
+    // Store Element elements until end of file
     while (count >= 0) {
       if (sessionStorage.getItem('line ' + line).search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
         console.log('matched end of file on line ' + line) // statement for testing
