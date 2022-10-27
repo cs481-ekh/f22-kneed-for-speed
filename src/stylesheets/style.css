@@ -203,7 +203,7 @@ input[type="number"] {
 }
 
 .save-button {
-  height: 5%px;
+  height: 5%;
   width: 6%;
   float: right;
   position: absolute;
