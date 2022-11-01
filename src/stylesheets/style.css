@@ -201,3 +201,13 @@ input[type="number"] {
   width: 25px;
   border: 2px solid;
 }
+
+.save-button {
+  height: 3%;
+  width: 6%;
+  float: right;
+  position: absolute;
+  size: 80%;
+  right: 2%;
+  top: 86%;
+}
