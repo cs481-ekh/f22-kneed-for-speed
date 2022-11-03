@@ -142,7 +142,7 @@ input[type="number"] {
 /* UPLOAD BUTTONS */
 .file-buttons {
   height: 45%;
-  width: 90%;
+  width: 95%;
   padding-top: 3.5%;
   padding-bottom: 0.5%;
   background-color: white;
@@ -210,4 +210,8 @@ input[type="number"] {
   size: 80%;
   right: 2%;
   top: 86%;
+}
+
+th {
+  padding-bottom: 1em;
 }
