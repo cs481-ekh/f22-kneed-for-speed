@@ -1,4 +1,4 @@
-const input = document.getElementById('file')
+const input = document.getElementById('file1')
 
 // const submit = document.getElementById('submit') // Don't need this yet
 
