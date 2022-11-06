@@ -1,17 +1,21 @@
 const input = document.getElementById('file1')
 
-// const submit = document.getElementById('submit') // Don't need this yet
-
 const nodes = [[]]
 const elements = [[]]
 
-// runs as soon as a user selects a file - needs some additional file-type safety
+// runs as soon as a user selects a file
 input.addEventListener('change', () => {
   const files = input.files
 
-  if (files.length === 0) return
+  if (files.length === 0) return //check for empty files
 
   const file = files[0]
+  const filename = file.name
+  const fileExt = filename.split('.').pop() // splits the string on '.' and returns the last array element, which will be the file extension/type
+
+  if (fileExt !== 'inp') { // ensures that files are .inp files before attempting to parse them
+    return
+  }
 
   const reader = new FileReader()
 
