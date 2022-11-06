@@ -14,6 +14,7 @@ input.addEventListener('change', () => {
   const fileExt = filename.split('.').pop() // splits the string on '.' and returns the last array element, which will be the file extension/type
 
   if (fileExt !== 'inp') { // ensures that files are .inp files before attempting to parse them
+    alert('Geometry files must be in .inp format') // alerts the user if files are not .inp
     return
   }
 
