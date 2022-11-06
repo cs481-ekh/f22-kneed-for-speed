@@ -101,6 +101,10 @@ input.addEventListener('change', () => {
 
     index = 0 // reset array index for node session storage
     let length = nodes.length // number of nodes in final node array
+
+    sessionStorage.setItem('total nodes', length) // store total number of nodes in session data
+    sessionStorage.setItem('initial node number', nodes[index][0]) // store initial node number in session data
+
     console.log('NODES SESSION DATA' + '\n' + 'total nodes: ' + length + '\n' + 'node number, x, y, z' + '\n') // for testing
 
     while (length > 1) {
