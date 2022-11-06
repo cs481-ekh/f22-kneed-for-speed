@@ -50,6 +50,7 @@ input.addEventListener('change', () => {
         console.log('matched element on line ' + line) // for testing
         line++
         count--
+        nodes.splice(index, 1); // removes extra array that gets created in final loop but never filled because elements section is found
         break
       }
 
@@ -75,6 +76,7 @@ input.addEventListener('change', () => {
     while (count >= 0) {
       if (sessionStorage.getItem('line ' + line).search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
         console.log('matched end of file on line ' + line) // for testing
+        elements.splice(index, 1); // removes extra array that gets created in final loop but never filled because end of file is found
         break
       }
 
