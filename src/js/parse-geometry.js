@@ -56,7 +56,7 @@ input.addEventListener('change', () => {
       const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
       // console.log(temp) // for testing
       temp.forEach(element => {
-        nodes[index].push(element) // add each comma separated value to array
+        nodes[index].push(element.trim()) // add each comma separated value to array
         // console.log(nodes) // for testing
       })
 
@@ -81,7 +81,7 @@ input.addEventListener('change', () => {
       const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
       // console.log(temp) // for testing
       temp.forEach(element => {
-        elements[index].push(element) // add each comma separated value to array
+        elements[index].push(element.trim()) // add each comma separated value to array
         // console.log(elements) // for testing
       })
 
@@ -111,7 +111,7 @@ input.addEventListener('change', () => {
       sessionStorage.setItem('node ' + nodes[index][0] + ' z', nodes[index][3])
       // console.log(sessionStorage.getItem('node ' + nodes[index][0] + ' z')) // for testing
 
-      console.log(nodes[index][0] + sessionStorage.getItem('node ' + nodes[index][0] + ' x') + sessionStorage.getItem('node ' + nodes[index][0] + ' y') + sessionStorage.getItem('node ' + nodes[index][0] + ' z')) // for testing */
+      console.log(nodes[index][0] + ' ' + sessionStorage.getItem('node ' + nodes[index][0] + ' x') + ' ' + sessionStorage.getItem('node ' + nodes[index][0] + ' y') + ' ' + sessionStorage.getItem('node ' + nodes[index][0] + ' z')) // for testing */
 
       index++
       length--
@@ -134,7 +134,7 @@ input.addEventListener('change', () => {
       sessionStorage.setItem('element ' + index + 'node 4', elements[index][3])
       // console.log(sessionStorage.getItem('element ' + index + 'node 4')) // for testing
 
-      console.log(sessionStorage.getItem('element ' + index + 'node 1') + sessionStorage.getItem('element ' + index + 'node 2') + sessionStorage.getItem('element ' + index + 'node 3') + sessionStorage.getItem('element ' + index + 'node 4')) // for testing
+      console.log(sessionStorage.getItem('element ' + index + 'node 1') + ' ' + sessionStorage.getItem('element ' + index + 'node 2') + ' ' + sessionStorage.getItem('element ' + index + 'node 3') + ' ' + sessionStorage.getItem('element ' + index + 'node 4')) // for testing
 
       index++
       length--
