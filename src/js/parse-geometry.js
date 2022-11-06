@@ -105,7 +105,8 @@ input.addEventListener('change', () => {
     sessionStorage.setItem('total nodes', length) // store total number of nodes in session data
     sessionStorage.setItem('initial node number', nodes[index][0]) // store initial node number in session data
 
-    console.log('NODES SESSION DATA' + '\n' + 'total nodes: ' + length + '\n' + 'node number, x, y, z' + '\n') // for testing
+    console.log('NODES SESSION DATA' + '\n' + 'total nodes: ' + sessionStorage.getItem('total nodes') + '\n' + 'node number, x, y, z' + '\n') // for testing
+    console.log('starting node number: ' + sessionStorage.getItem('initial node number') + '\n') // for testing
 
     while (length > 1) {
       sessionStorage.setItem('node ' + nodes[index][0] + ' x', nodes[index][1])
