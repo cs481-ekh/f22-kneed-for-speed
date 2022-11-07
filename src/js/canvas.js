@@ -26,57 +26,47 @@ function drawKnee () {
   console.log(elements) // eslint-disable-line
   console.log(resultOutput) // eslint-disable-line
   const ctx = canvas.getContext('2d')
-  ctx.translate(canvas.width / 2, canvas.height / 2)
-
-  // Define what color the outline of our circle/knee is going to be
-  ctx.strokeStyle = 'black'
-
-  // Begin path
-  ctx.beginPath()
-  // Creates the size of the circle/knee we're going to draw
-  ctx.arc(0, 0, 100, 0, 2 * Math.PI, false)
-  // Close path
-  ctx.closePath()
-
-  // Draw the outline of the circle/knee
-  ctx.stroke()
-  // Added just to see the elements better because they're so small, could fill a color of the heat map and add points onto it also
-  ctx.fill()
+  ctx.translate(canvas.width / 1.7, canvas.height / 20)
 
   // Hardcoding some elements in circle
+  ctx.scale(6, 6)
   drawElement()
 }
 
 function drawElement () {
   const ctx = canvas.getContext('2d')
 
-  // Nodes to use as example
-  const e1 = new Node(1, -35.948081, 44.580554, 1)
-  const e2 = new Node(3, -36.626789, 40.016439, 2)
-  const e3 = new Node(4, -37.337202, 42.335068, 3)
-
-  // Array of nodes
-  const elements = []
-  elements.push(e1)
-  elements.push(e2)
-  elements.push(e3)
-
-  // Loop through elements and draw each node
-  for (let i = 0; i < elements.length; i++) {
-    if (elements[i].force <= 1) {
-      ctx.strokeStyle = 'blue'
-      ctx.fillStyle = 'blue'
-    } else if (elements[i].force <= 2) {
-      ctx.strokeStyle = 'green'
-      ctx.fillStyle = 'green'
+  // Loop through createdNodes and draw each node
+  for (let i = 0; i < createdNodes.length; i++) {
+    if (createdNodes[i].force <= 0.5) {
+      ctx.strokeStyle = '#0000F0'
+      ctx.fillStyle = '#0000F0'
+    } else if (createdNodes[i].force <= 0.6) {
+      ctx.strokeStyle = '#ADD8E0'
+      ctx.fillStyle = '#ADD8E0'
+    } else if (createdNodes[i].force <= 0.7) {
+      ctx.strokeStyle = '#008080'
+      ctx.fillStyle = '#008080'
+    } else if (createdNodes[i].force <= 0.75) {
+      ctx.strokeStyle = '#008000'
+      ctx.fillStyle = '#008000'
+    } else if (createdNodes[i].force <= 0.8) {
+      ctx.strokeStyle = '#ADFF20'
+      ctx.fillStyle = '#ADFF20'
+    } else if (createdNodes[i].force <= 0.85) {
+      ctx.strokeStyle = '#FFFF00'
+      ctx.fillStyle = '#FFFF00'
+    } else if (createdNodes[i].force <= 0.9) {
+      ctx.strokeStyle = '#FF4500'
+      ctx.fillStyle = '#FF4500'
     } else {
-      ctx.strokeStyle = 'red'
-      ctx.fillStyle = 'red'
+      ctx.strokeStyle = '#FF0000'
+      ctx.fillStyle = '#FF0000'
     }
 
     ctx.beginPath()
     // Made radius bigger to make it easier to see to discuss how we want to move forward
-    ctx.arc(elements[i].xVal, elements[i].yVal, 10, 0, 2 * Math.PI, false)
+    ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3)
     ctx.closePath()
 
     ctx.stroke()
