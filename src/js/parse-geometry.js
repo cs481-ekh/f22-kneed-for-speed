@@ -7,7 +7,7 @@ const elements = [[]]
 input.addEventListener('change', () => {
   const files = input.files
 
-  if (files.length === 0) return //check for empty files
+  if (files.length === 0) return // check for empty files
 
   const file = files[0]
   const filename = file.name
