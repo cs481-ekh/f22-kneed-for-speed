@@ -131,7 +131,12 @@ input.addEventListener('change', () => {
 
     index = 0 // reset array index for element session storage
     length = elements.length // reset length to number of element in final element array
-    console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + length + '\n' + 'node 1, node 2, node 3, node 4' + '\n') // for testing
+
+    sessionStorage.setItem('total elements', length) // store total number of elements in session data
+    sessionStorage.setItem('initial element number', elements[index][0]) // store initial element number in session data
+
+    console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + sessionStorage.getItem('total elements') + '\n' + 'element number, node 1, node 2, node 3' + '\n') // for testing
+    console.log('starting element number: ' + sessionStorage.getItem('initial element number') + '\n') // for testing
 
     while (length > 1) {
       sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
@@ -144,7 +149,7 @@ input.addEventListener('change', () => {
       // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
 
       console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
-      
+
       index++
       length--
     }
