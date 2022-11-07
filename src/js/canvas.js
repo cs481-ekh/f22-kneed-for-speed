@@ -19,6 +19,7 @@ draw.onclick = function () {
 }
 
 function drawKnee () {
+  console.log(nodes)
   const ctx = canvas.getContext('2d')
   ctx.translate(canvas.width / 2, canvas.height / 2)
 
