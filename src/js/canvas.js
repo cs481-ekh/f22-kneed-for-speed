@@ -19,6 +19,9 @@ draw.onclick = function () {
 }
 
 function drawKnee () {
+  console.log(nodes) // eslint-disable-line
+  console.log(elements) // eslint-disable-line
+  console.log(resultOutput) // eslint-disable-line
   const ctx = canvas.getContext('2d')
   ctx.translate(canvas.width / 2, canvas.height / 2)
 
