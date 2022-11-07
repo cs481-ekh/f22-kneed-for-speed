@@ -15,6 +15,9 @@ window.onresize = function () {
 
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
+  // if (resultOutput != null) {
+  //   console.log("NOT NULL")
+  // }
   draw.remove()
   drawKnee()
 }
