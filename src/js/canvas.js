@@ -50,23 +50,12 @@ function drawKnee () {
 function drawElement () {
   const ctx = canvas.getContext('2d')
 
-  // Nodes to use as example
-  const e1 = new Node(1, -35.948081, 44.580554, 1)
-  const e2 = new Node(3, -36.626789, 40.016439, 2)
-  const e3 = new Node(4, -37.337202, 42.335068, 3)
-
-  // Array of nodes
-  const elements = []
-  elements.push(e1)
-  elements.push(e2)
-  elements.push(e3)
-
-  // Loop through elements and draw each node
-  for (let i = 0; i < elements.length; i++) {
-    if (elements[i].force <= 1) {
+  // Loop through createdNodes and draw each node
+  for (let i = 0; i < createdNodes.length; i++) {
+    if (createdNodes[i].force <= 1) {
       ctx.strokeStyle = 'blue'
       ctx.fillStyle = 'blue'
-    } else if (elements[i].force <= 2) {
+    } else if (createdNodes[i].force <= 2) {
       ctx.strokeStyle = 'green'
       ctx.fillStyle = 'green'
     } else {
