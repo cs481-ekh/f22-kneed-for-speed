@@ -84,9 +84,9 @@ function drawElement () {
   }
 }
 
-function createNodes() {
-  for (let i = 0; i < nodes.length; i++) {
-    const n = new Node(nodes[i][0], nodes[i][1], nodes[i][2], Math.random())
+function createNodes () {
+  for (let i = 0; i < nodes.length; i++) { // eslint-disable-line
+    const n = new Node(nodes[i][0], nodes[i][1], nodes[i][2], Math.random()) // eslint-disable-line
     createdNodes.push(n)
   }
 }
