@@ -12,6 +12,12 @@ window.onresize = function () {
   drawKnee()
 }
 
+// Draws on canvas when draw button is pushed after selecting files
+draw.onclick = function () {
+  draw.remove()
+  drawKnee()
+}
+
 function drawKnee () {
   const ctx = canvas.getContext('2d')
   ctx.translate(canvas.width / 2, canvas.height / 2)
