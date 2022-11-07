@@ -142,7 +142,7 @@ input.addEventListener('change', () => {
       sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
       // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
 
-      sessionStorage.setItem('element ' + elements[index][0]  + ' node 2', elements[index][2])
+      sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
       // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
 
       sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
