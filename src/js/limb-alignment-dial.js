@@ -1,10 +1,10 @@
-const dial1 = document.getElementById("limb-alignment")
+const dial1 = document.getElementById('limb-alignment')
 
 // track x and y of mouse positions
 let prevX1 = 0
 let prevY1 = 0
 
-function parameterDial1(e) {
+function parameterDial1 (e) {
   // calculate 1/2 of dial wodith and height
   const width = (dial1.clientWidth / 2)
   const height = (dial1.clientHeight / 2)
@@ -15,52 +15,52 @@ function parameterDial1(e) {
 
   // calculate delta values
   const deltaX = (width - x)
-  const deltaY = (height -y)
+  const deltaY = (height - y)
 
   // calculate mouse position in radians
   const rad = Math.atan2(deltaY, deltaX)
-  //convert to degrees
-  let deg = rad * (180 / Math.PI)
+  // convert to degrees
+  const deg = rad * (180 / Math.PI)
 
   // track mouse in each quarter of the dial
-  if (y < height && x > width){ // top right quarter
+  if (y < height && x > width) { // top right quarter
     // increasing
-    if (prevX1 <= x && prevY1 <= y){
-      console.log("incrementing")
+    if (prevX1 <= x && prevY1 <= y) {
+      console.log('incrementing')
     }
     // decreasing
-    else if (prevX1 >= x && prevY1 >= y){
-      console.log("decreasing")
+    else if (prevX1 >= x && prevY1 >= y) {
+      console.log('decreasing')
     }
   }
-  else if (y > height && x > width){ // bottom right quarter
+  else if (y > height && x > width) { // bottom right quarter
     // increasing
-    if (prevX1 >= x && prevY1 <= y){
-      console.log("incrementing")
+    if (prevX1 >= x && prevY1 <= y) {
+      console.log('incrementing')
     }
     // decreasing
-    else if (prevX1 <= x && prevY1 >= y){
-        console.log("decreasing")
+    else if (prevX1 <= x && prevY1 >= y) {
+        console.log('decreasing')
       }
   }
-  else if (y < height && x < width){ // top left quarter
+  else if (y < height && x < width) { // top left quarter
     // increasing
-    if (prevX1 <= x && prevY1 >= y){
-      console.log("incrementing")
+    if (prevX1 <= x && prevY1 >= y) {
+      console.log('incrementing')
     }
     // decreasing
-    else if (prevX1 >= x && prevY1 <= y){
-        console.log("decreasing")
+    else if (prevX1 >= x && prevY1 <= y) {
+        console.log('decreasing')
       }
   }
-  else if (y > height && x < width){ // bottom left quarter
+  else if (y > height && x < width) { // bottom left quarter
     // increasing
-    if (prevX1 >= x && prevY1 >= y){
-      console.log("incrementing")
+    if (prevX1 >= x && prevY1 >= y) {
+      console.log('incrementing')
     }
     // decreasing
-    else if (prevX1 <= x && prevY1 <= y){
-        console.log("decreasing")
+    else if (prevX1 <= x && prevY1 <= y) {
+        console.log('decreasing')
       }
   }
 
@@ -77,18 +77,18 @@ function rotate1(e) {
     const result = Math.floor(parameterDial1(e)-80)
     
     // rotate the dial based on final calculation
-    dial1.style.transform = "rotate(" + result+ "deg)"
+    dial1.style.transform = 'rotate(' + result+ 'deg)'
 }
 
 // When to rotate
 function rotateStart1() {
-    window.addEventListener("mousemove", rotate1)
-    window.addEventListener("mouseup", rotateEnd1)
+    window.addEventListener('mousemove', rotate1)
+    window.addEventListener('mouseup', rotateEnd1)
 }
 
 function rotateEnd1() {
-    window.removeEventListener("mousemove", rotate1)
+    window.removeEventListener('mousemove', rotate1)
 }
 
 // Add event listener to dial
-dial1.addEventListener("mousedown", rotateStart1)
+dial1.addEventListener('mousedown', rotateStart1)
