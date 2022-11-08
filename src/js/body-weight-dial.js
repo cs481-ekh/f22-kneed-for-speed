@@ -1,4 +1,5 @@
 const dial2 = document.getElementById('body-weight')
+const val2 = document.getElementById('number-dial-2')
 
 // track x and y of mouse positions
 let prevX2 = 0
@@ -25,27 +26,27 @@ function parameterDial2 (e) {
   // track mouse in each quarter of the dial
   if (y < height && x > width) { // top right quarter
     if (prevX2 <= x && prevY2 <= y) { // increasing
-      console.log('incrementing')
+      val2.stepUp()
     } else if (prevX2 >= x && prevY2 >= y) { // decreasing
-      console.log('decreasing')
+      val2.stepDown()
     }
   } else if (y > height && x > width) { // bottom right quarter
     if (prevX2 >= x && prevY2 <= y) { // increasing
-      console.log('incrementing')
+      val2.stepUp()
     } else if (prevX2 <= x && prevY2 >= y) { // decreasing
-      console.log('decreasing')
+      val2.stepDown()
     }
   } else if (y < height && x < width) { // top left quarter
     if (prevX2 <= x && prevY2 >= y) { // increasing
-      console.log('incrementing')
+      val2.stepUp()
     } else if (prevX2 >= x && prevY2 <= y) { // decreasing
-      console.log('decreasing')
+      val2.stepDown()
     }
   } else if (y > height && x < width) { // bottom left quarter
     if (prevX2 >= x && prevY2 >= y) { // increasing
-      console.log('incrementing')
+      val2.stepUp()
     } else if (prevX2 <= x && prevY2 <= y) { // decreasing
-      console.log('decreasing')
+      val2.stepDown()
     }
   }
 
