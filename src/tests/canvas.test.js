@@ -1,4 +1,7 @@
-const canvas = require('./js/canvas');
+/**
+ * @jest-environment jsdom
+ */
+const canvas = require('../js/canvas');
 
 test('Heatmap', () => {
     test('colors', () => {
