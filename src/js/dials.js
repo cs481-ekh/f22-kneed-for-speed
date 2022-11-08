@@ -1,4 +1,4 @@
-const dial = document.querySelector(".dial")
+const dial = document.querySelector(".dial-container")
 
 // track x and y of mouse positions
 let prevX = 0
