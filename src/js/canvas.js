@@ -15,23 +15,15 @@ window.onresize = function () {
 
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
-  // if (resultOutput != null) {
-  //   console.log("NOT NULL")
-  // }
   draw.remove()
   drawKnee()
 }
 
 function drawKnee () {
   createNodes()
-  console.log(createdNodes)
-  console.log(nodes) // eslint-disable-line
-  console.log(elements) // eslint-disable-line
-  console.log(resultOutput) // eslint-disable-line
   const ctx = canvas.getContext('2d')
   ctx.translate(canvas.width / 1.7, canvas.height / 20)
 
-  // Hardcoding some elements in circle
   ctx.scale(6, 6)
   drawElement()
 }
