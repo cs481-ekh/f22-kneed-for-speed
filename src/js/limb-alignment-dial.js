@@ -29,15 +29,13 @@ function parameterDial1 (e) {
     } else if (prevX1 >= x && prevY1 >= y) { // decreasing
       console.log('decreasing')
     }
-  }
-  else if (y > height && x > width) { // bottom right quarter
+  } else if (y > height && x > width) { // bottom right quarter
     if (prevX1 >= x && prevY1 <= y) { // increasing
       console.log('incrementing')
     } else if (prevX1 <= x && prevY1 >= y) { // decreasing
       console.log('decreasing')
     }
-  }
-  else if (y < height && x < width) { // top left quarter
+  } else if (y < height && x < width) { // top left quarter
     if (prevX1 <= x && prevY1 >= y) { // increasing
       console.log('incrementing')
     } else if (prevX1 >= x && prevY1 <= y) { // decreasing
