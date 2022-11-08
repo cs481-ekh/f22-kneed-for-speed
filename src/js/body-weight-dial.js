@@ -1,0 +1,79 @@
+const dial2 = document.getElementById('body-weight')
+
+// track x and y of mouse positions
+let prevX2 = 0
+let prevY2 = 0
+
+function parameterDial2 (e) {
+  // calculate 1/2 of dial wodith and height
+  const width = (dial2.clientWidth / 2)
+  const height = (dial2.clientHeight / 2)
+
+  // get current mouse coordinates
+  const x = (e.clientX - dial2.offsetLeft)
+  const y = (e.clientY - dial2.offsetTop)
+
+  // calculate delta values
+  const deltaX = (width - x)
+  const deltaY = (height - y)
+
+  // calculate mouse position in radians
+  const rad = Math.atan2(deltaY, deltaX)
+  // convert to degrees
+  const deg = rad * (180 / Math.PI)
+
+  // track mouse in each quarter of the dial
+  if (y < height && x > width) { // top right quarter
+    if (prevX2 <= x && prevY2 <= y) { // increasing
+      console.log('incrementing')
+    } else if (prevX2 >= x && prevY2 >= y) { // decreasing
+      console.log('decreasing')
+    }
+  } else if (y > height && x > width) { // bottom right quarter
+    if (prevX2 >= x && prevY2 <= y) { // increasing
+      console.log('incrementing')
+    } else if (prevX2 <= x && prevY2 >= y) { // decreasing
+      console.log('decreasing')
+    }
+  } else if (y < height && x < width) { // top left quarter
+    if (prevX2 <= x && prevY2 >= y) { // increasing
+      console.log('incrementing')
+    } else if (prevX2 >= x && prevY2 <= y) { // decreasing
+      console.log('decreasing')
+    }
+  } else if (y > height && x < width) { // bottom left quarter
+    if (prevX2 >= x && prevY2 >= y) { // increasing
+      console.log('incrementing')
+    } else if (prevX2 <= x && prevY2 <= y) { // decreasing
+      console.log('decreasing')
+    }
+  }
+
+  // update x and y values
+  prevX2 = x
+  prevY2 = y
+
+  return deg
+}
+
+// Dial rotation
+function rotate2 (e) {
+  // final calculations for the mouse position
+  const result = Math.floor(parameterDial2(e) - 80)
+
+  // rotate the dial based on final calculation
+  dial2.style.transform = 'rotate(' + result + 'deg)'
+}
+
+// When to rotate
+function rotateStart2 () {
+  window.addEventListener('mousemove', rotate2)
+  window.addEventListener('mouseup', rotateEnd2)
+}
+
+function rotateEnd2 () {
+  window.removeEventListener('mousemove', rotate2)
+}
+
+// Add event listener to dial
+dial2.addEventListener('mousedown', rotateStart2)
