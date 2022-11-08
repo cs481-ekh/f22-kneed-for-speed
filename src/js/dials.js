@@ -77,7 +77,7 @@ function rotate(e) {
     const result = Math.floor(parameterDial(e)-80)
     
     // rotate the dial based on final calculation
-    dial.style.transform = 'rotate(${result}deg)'
+    dial.style.transform = "rotate(" + result+ "deg)"
 }
 
 // When to rotate
