@@ -1,4 +1,4 @@
-const canvas = require('../js/canvas');
+const canvas = require('./js/canvas');
 
 test('Heatmap', () => {
     test('colors', () => {
