@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo Stubbed test command"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/cs481-ekh/f22-kneed-for-speed/issues"
   },
-  "homepage": "https://github.com/cs481-ekh/f22-kneed-for-speed#readme"
+  "homepage": "https://github.com/cs481-ekh/f22-kneed-for-speed#readme",
+  "devDependencies": {
+    "jest": "^29.3.0"
+  }
 }

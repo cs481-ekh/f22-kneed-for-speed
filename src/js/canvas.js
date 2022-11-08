@@ -111,3 +111,5 @@ class Node {
 
 // Calls function to create our heatmap key
 heatmapKey(colorList)
+
+exports.canvas = canvas;
