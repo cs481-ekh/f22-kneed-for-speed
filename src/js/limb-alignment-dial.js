@@ -25,27 +25,27 @@ function parameterDial1 (e) {
   // track mouse in each quarter of the dial
   if (y < height && x > width) { // top right quarter
     if (prevX1 <= x && prevY1 <= y) { // increasing
-      console.log('incrementing')
+      num1.stepUp()
     } else if (prevX1 >= x && prevY1 >= y) { // decreasing
-      console.log('decreasing')
+      num1.stepDown()
     }
   } else if (y > height && x > width) { // bottom right quarter
     if (prevX1 >= x && prevY1 <= y) { // increasing
-      console.log('incrementing')
+      num1.stepUp()
     } else if (prevX1 <= x && prevY1 >= y) { // decreasing
-      console.log('decreasing')
+      num1.stepDown()
     }
   } else if (y < height && x < width) { // top left quarter
     if (prevX1 <= x && prevY1 >= y) { // increasing
-      console.log('incrementing')
+      num1.stepUp()
     } else if (prevX1 >= x && prevY1 <= y) { // decreasing
-      console.log('decreasing')
+      num1.stepDown()
     }
   } else if (y > height && x < width) { // bottom left quarter
     if (prevX1 >= x && prevY1 >= y) { // increasing
-      console.log('incrementing')
+      num1.stepUp()
     } else if (prevX1 <= x && prevY1 <= y) { // decreasing
-      console.log('decreasing')
+      num1.stepDown()
     }
   }
 
