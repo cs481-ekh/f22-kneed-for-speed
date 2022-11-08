@@ -19,8 +19,8 @@ function parameterDial2 (e) {
 
   // calculate mouse position in radians
   const rad = Math.atan2(deltaY, deltaX)
-  //convert to degrees
-  let deg = rad * (180 / Math.PI)
+  // convert to degrees
+  const deg = rad * (180 / Math.PI)
 
   // track mouse in each quarter of the dial
   if (y < height && x > width) { // top right quarter
@@ -60,20 +60,20 @@ function parameterDial2 (e) {
 function rotate2 (e) {
   // final calculations for the mouse position
   const result = Math.floor(parameterDial2(e) - 80)
-    
+ 
   // rotate the dial based on final calculation
-  dial2.style.transform = "rotate(" + result + "deg)"
+  dial2.style.transform = 'rotate(' + result + 'deg)'
 }
 
 // When to rotate
 function rotateStart2 () {
-  window.addEventListener("mousemove", rotate2)
-  window.addEventListener("mouseup", rotateEnd2)
+  window.addEventListener('mousemove', rotate2)
+  window.addEventListener('mouseup', rotateEnd2)
 }
 
 function rotateEnd2 () {
-  window.removeEventListener("mousemove", rotate2)
+  window.removeEventListener('mousemove', rotate2)
 }
 
 // Add event listener to dial
-dial2.addEventListener("mousedown", rotateStart2)
+dial2.addEventListener('mousedown', rotateStart2)
