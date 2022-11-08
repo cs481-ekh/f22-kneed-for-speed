@@ -24,44 +24,31 @@ function parameterDial1 (e) {
 
   // track mouse in each quarter of the dial
   if (y < height && x > width) { // top right quarter
-    // increasing
-    if (prevX1 <= x && prevY1 <= y) {
+    if (prevX1 <= x && prevY1 <= y) { // increasing
       console.log('incrementing')
-    }
-    // decreasing
-    else if (prevX1 >= x && prevY1 >= y) {
+    } else if (prevX1 >= x && prevY1 >= y) { // decreasing
       console.log('decreasing')
     }
   }
   else if (y > height && x > width) { // bottom right quarter
-    // increasing
-    if (prevX1 >= x && prevY1 <= y) {
+    if (prevX1 >= x && prevY1 <= y) { // increasing
       console.log('incrementing')
-    }
-    // decreasing
-    else if (prevX1 <= x && prevY1 >= y) {
+    } else if (prevX1 <= x && prevY1 >= y) { // decreasing
       console.log('decreasing')
     }
   }
   else if (y < height && x < width) { // top left quarter
-    // increasing
-    if (prevX1 <= x && prevY1 >= y) {
+    if (prevX1 <= x && prevY1 >= y) { // increasing
       console.log('incrementing')
-    }
-    // decreasing
-    else if (prevX1 >= x && prevY1 <= y) {
+    } else if (prevX1 >= x && prevY1 <= y) { // decreasing
       console.log('decreasing')
     }
-  }
-  else if (y > height && x < width) { // bottom left quarter
-    // increasing
-    if (prevX1 >= x && prevY1 >= y) {
+  } else if (y > height && x < width) { // bottom left quarter
+    if (prevX1 >= x && prevY1 >= y) { // increasing
       console.log('incrementing')
+    } else if (prevX1 <= x && prevY1 <= y) { // decreasing
+      console.log('decreasing')
     }
-    // decreasing
-    else if (prevX1 <= x && prevY1 <= y) {
-        console.log('decreasing')
-      }
   }
 
   // update x and y values
@@ -75,7 +62,7 @@ function parameterDial1 (e) {
 function rotate1 (e) {
   // final calculations for the mouse position
   const result = Math.floor(parameterDial1(e) - 80)
-   
+
   // rotate the dial based on final calculation
   dial1.style.transform = 'rotate(' + result + 'deg)'
 }
