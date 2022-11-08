@@ -60,7 +60,7 @@ function parameterDial2 (e) {
 function rotate2 (e) {
   // final calculations for the mouse position
   const result = Math.floor(parameterDial2(e) - 80)
- 
+
   // rotate the dial based on final calculation
   dial2.style.transform = 'rotate(' + result + 'deg)'
 }
