@@ -40,8 +40,8 @@ function parameterDial1 (e) {
     }
     // decreasing
     else if (prevX1 <= x && prevY1 >= y) {
-        console.log('decreasing')
-      }
+      console.log('decreasing')
+    }
   }
   else if (y < height && x < width) { // top left quarter
     // increasing
@@ -50,8 +50,8 @@ function parameterDial1 (e) {
     }
     // decreasing
     else if (prevX1 >= x && prevY1 <= y) {
-        console.log('decreasing')
-      }
+      console.log('decreasing')
+    }
   }
   else if (y > height && x < width) { // bottom left quarter
     // increasing
@@ -72,22 +72,22 @@ function parameterDial1 (e) {
 }
 
 // Dial rotation
-function rotate1(e) {
-    // final calculations for the mouse position
-    const result = Math.floor(parameterDial1(e)-80)
-    
-    // rotate the dial based on final calculation
-    dial1.style.transform = 'rotate(' + result+ 'deg)'
+function rotate1 (e) {
+  // final calculations for the mouse position
+  const result = Math.floor(parameterDial1(e) - 80)
+   
+  // rotate the dial based on final calculation
+  dial1.style.transform = 'rotate(' + result + 'deg)'
 }
 
 // When to rotate
-function rotateStart1() {
-    window.addEventListener('mousemove', rotate1)
-    window.addEventListener('mouseup', rotateEnd1)
+function rotateStart1 () {
+  window.addEventListener('mousemove', rotate1)
+  window.addEventListener('mouseup', rotateEnd1)
 }
 
-function rotateEnd1() {
-    window.removeEventListener('mousemove', rotate1)
+function rotateEnd1 () {
+  window.removeEventListener('mousemove', rotate1)
 }
 
 // Add event listener to dial
