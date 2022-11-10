@@ -20,9 +20,9 @@
                         </tr>
                         <tr>
                             <th>Results File: <input type="file" class="choose-file" id="file2"></th>
-                        </tr> 
-                    </table> 
-                    <button class="draw-btn" id="draw">Draw</button>  
+                        </tr>
+                    </table>
+                    <button class="draw-btn" id="draw">Draw</button>
                 </div>
             </form>
             <script src="js/parse-geometry.js"></script>
@@ -60,6 +60,9 @@
         <div class="grid-item heat-map-container" id="heatmap">
         </div>
         <div class="grid-item grid-item-5" id="grid-item-5">
+            <div id="buttonWrapper">
+                <input type="button" id="plus" value="+"><input type="button" id="minus" value="-">
+            </div>
             <div class="canvas-container" id="canvas-container">
                 <canvas class="map" id="map"></canvas>
                 <script src="js/canvas.js"></script>
@@ -84,7 +87,7 @@
             </div>
         </div>
         <div class="grid-item stretch-goal-buttons">
-            <button class="save-button" id="save" onclick="downloadImage()">Save</button> 
+            <button class="save-button" id="save" onclick="downloadImage()">Save</button>
             <script>
                 function downloadImage() {
                     var canvas = document.getElementById("map");
