@@ -3,6 +3,17 @@ body {
   background-color: #eee;
 }
 
+/* TITLE */
+@font-face {
+  font-family: "Metropolis_Bold";
+  src: url("Metropolis-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Metropolis_Regular";
+  src: url("Metropolis-Regular.woff") format("woff");
+}
+
 /* GRID LAYOUT */
 .layout-grid-container {
   display: grid;
