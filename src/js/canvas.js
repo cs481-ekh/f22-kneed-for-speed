@@ -2,14 +2,16 @@ const canvas = document.getElementById('map')
 const parent = document.getElementById('canvas-container')
 const draw = document.getElementById('draw')
 const createdNodes = [[]]
+// let highestForce
+// let lowestForce
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
 
 // creating the force spreads
-// let n = 8
-// let rangeDiff = ((highestForce - lowestForce) / (n - 1))
-// let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+let n = 8
+let rangeDiff = ((highestForce - lowestForce) / (n - 1))
+let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
 
 // Canvas will resize itself when window is resized
 window.onresize = function () {
@@ -30,14 +32,13 @@ function drawKnee () {
   ctx.translate(canvas.width / 1.7, canvas.height / 20)
 
   ctx.scale(6, 6)
-  recalculateHeatmapForces()
   drawElement()
+  recalculateHeatmapForces()
 }
 
 function recalculateHeatmapForces () {
-  const n = 8
-  const rangeDiff = ((highestForce - lowestForce) / (n - 1))
-  const forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+  rangeDiff = ((highestForce - lowestForce) / (n - 1))
+  forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
   heatmapKey(colorList)
 }
 
@@ -95,13 +96,13 @@ function heatmapKey (colorList) {
   for (const key in colorList) {
     const boxContainer = document.createElement('div')
     const box = document.createElement('div')
-    const label = document.createElement('span') //
+    var label = document.createElement('span') //
 
     label.innerHTML = key //
     box.className = 'box'
     box.style.backgroundColor = colorList[key]
 
-    if (i === 0 || i === 7) {
+    if (i == 0 || i == 7) {
       const forceLabel = forceRanges[i].toFixed(5)
       boxContainer.append(forceLabel + ' ')
     }
@@ -123,3 +124,4 @@ class Node {
 
 // Calls function to create our heatmap key
 // heatmapKey(colorList)
+
