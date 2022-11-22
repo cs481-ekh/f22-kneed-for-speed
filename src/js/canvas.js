@@ -7,9 +7,9 @@ canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas s
 canvas.height = (parent.offsetHeight * 0.996)
 
 // creating the force spreads
-let n = 8
-let rangeDiff = ((highestForce - lowestForce) / (n - 1))
-let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+// let n = 8
+// let rangeDiff = ((highestForce - lowestForce) / (n - 1))
+// let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
 
 // Canvas will resize itself when window is resized
 window.onresize = function () {
@@ -30,13 +30,14 @@ function drawKnee () {
   ctx.translate(canvas.width / 1.7, canvas.height / 20)
 
   ctx.scale(6, 6)
-  drawElement()
   recalculateHeatmapForces()
+  drawElement()
 }
 
 function recalculateHeatmapForces () {
-  rangeDiff = ((highestForce - lowestForce) / (n - 1))
-  forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+  const n = 8
+  const rangeDiff = ((highestForce - lowestForce) / (n - 1))
+  const forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
   heatmapKey(colorList)
 }
 
