@@ -3,8 +3,15 @@ const parent = document.getElementById('canvas-container')
 const draw = document.getElementById('draw')
 const createdNodes = [[]]
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
+const highestForce = 0.9 // NEED TO CHANGE THIS WHEN #228 GETS MERGED
+const lowestForce = .1 // NEED TO CHANGE THIS WHEN #228 GETS MERGED
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
+
+// creating the force spreads
+let n = 8
+const rangeDiff = ((highestForce - lowestForce) / (n - 1))
+const forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
 
 // Canvas will resize itself when window is resized
 window.onresize = function () {
@@ -78,20 +85,22 @@ function createNodes () {
 
 function heatmapKey (colorList) {
   const heatmapKey = document.getElementById('heatmap')
-
+  let i = 0
   for (const key in colorList) {
     const boxContainer = document.createElement('div')
     const box = document.createElement('div')
-    // var label = document.createElement("span")
+    var label = document.createElement("span") //
+    const forceLabel = forceRanges[i].toFixed(2)
 
-    // label.innerHTML = key
+    label.innerHTML = key //
     box.className = 'box'
     box.style.backgroundColor = colorList[key]
 
+    boxContainer.append(forceLabel + " ") // this is where force values go
     boxContainer.appendChild(box)
-    // boxContainer.appendChild(label)
 
     heatmapKey.appendChild(boxContainer)
+    i++
   }
 }
 
