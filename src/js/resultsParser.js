@@ -14,7 +14,7 @@ resultInput.addEventListener('change', () => {
   resultReader.onload = (e) => {
     const resFile = e.target.result
     const resLines = resFile.split(/\r\/|\n/)
-    //console.log(resLines.length)
+    // console.log(resLines.length)
     let indexCount = resLines.length
 
     let index = 0
@@ -29,22 +29,22 @@ resultInput.addEventListener('change', () => {
     }
 
     // finding the highest force value in the first row and column for canvas.js to use
-    let rowLength = resultOutput[0].length
+    const rowLength = resultOutput[0].length
     let resultHighestVal = 0
     let resultColumnToUse = 0
     let resultLowestVal = Number.MAX_SAFE_INTEGER
 
-    for (i = 1; i < rowLength; i++) {
+    for (let i = 1; i < rowLength; i++) {
       if (resultOutput[0][i] > resultHighestVal) {
         resultHighestVal = resultOutput[0][i]
         resultColumnToUse = i
       }
     }
 
-    //finding the lowest value in columnToUse
-    for(i = 0; i < index; i++) {
+    // finding the lowest value in columnToUse
+    for (let i = 0; i < index; i++) {
       if (resultOutput[i][resultColumnToUse] < resultLowestVal) {
-        resultLowestVal = resultOutput[i][resultColumnToUse];
+        resultLowestVal = resultOutput[i][resultColumnToUse]
       }
     }
   }
