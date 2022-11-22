@@ -15,7 +15,7 @@ window.onresize = function () {
 
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
-  draw.remove()
+  draw.disabled = true
   drawKnee()
 }
 
