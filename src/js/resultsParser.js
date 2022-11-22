@@ -50,5 +50,7 @@ resultInput.addEventListener('change', () => {
     }
     highestForce = resultHighestVal
     lowestForce = resultLowestVal
+    console.log(highestForce)
+    console.log(lowestForce)
   }
 })
