@@ -14,22 +14,38 @@ resultInput.addEventListener('change', () => {
   resultReader.onload = (e) => {
     const resFile = e.target.result
     const resLines = resFile.split(/\r\/|\n/)
-    console.log(resLines.length)
+    //console.log(resLines.length)
     let indexCount = resLines.length
 
     let index = 0
     while (indexCount > 0) {
       const placehold = resLines[index].split(',')
       placehold.forEach(element => {
-        resultOutput[index].push(element)
+        resultOutput[index].push(parseFloat(element.slice(1))) // turning strings into ints, trimming off extra spaces
       })
       resultOutput.push([])
       index++
       indexCount--
     }
-    console.log('First elements results: ' + resultOutput[0])
-    console.log('Element Num ' + resultOutput[0][0])
-    console.log('first time ' + resultOutput[0][1])
-    console.log('last time ' + resultOutput[0][240])
+
+    // finding the highest force value in the first row and column for canvas.js to use
+    let rowLength = resultOutput[0].length
+    let resultHighestVal = 0
+    let resultColumnToUse = 0
+    let resultLowestVal = Number.MAX_SAFE_INTEGER
+
+    for (i = 1; i < rowLength; i++) {
+      if (resultOutput[0][i] > resultHighestVal) {
+        resultHighestVal = resultOutput[0][i]
+        resultColumnToUse = i
+      }
+    }
+
+    //finding the lowest value in columnToUse
+    for(i = 0; i < index; i++) {
+      if (resultOutput[i][resultColumnToUse] < resultLowestVal) {
+        resultLowestVal = resultOutput[i][resultColumnToUse];
+      }
+    }
   }
 })
