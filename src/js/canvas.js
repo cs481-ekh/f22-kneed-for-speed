@@ -96,7 +96,7 @@ function heatmapKey (colorList) {
   for (const key in colorList) {
     const boxContainer = document.createElement('div')
     const box = document.createElement('div')
-    var label = document.createElement('span') //
+    const label = document.createElement('span') //
 
     label.innerHTML = key //
     box.className = 'box'
@@ -121,7 +121,3 @@ class Node {
     this.force = force
   }
 }
-
-// Calls function to create our heatmap key
-// heatmapKey(colorList)
-
