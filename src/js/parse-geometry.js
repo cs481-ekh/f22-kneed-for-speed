@@ -7,8 +7,8 @@ const elements = [[]]
 input.addEventListener('change', () => {
   const files = input.files
 
-  if (draw.disabled) {
-    draw.disabled = false
+  if (draw.disabled) { // eslint-disable-line
+    draw.disabled = false // eslint-disable-line
   }
 
   if (files.length === 0) return // check for empty files

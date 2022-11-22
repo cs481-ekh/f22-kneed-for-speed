@@ -5,8 +5,8 @@ const resultOutput = [[]]
 resultInput.addEventListener('change', () => {
   const resultFiles = resultInput.files
 
-  if (draw.disabled) {
-    draw.disabled = false
+  if (draw.disabled) { // eslint-disable-line
+    draw.disabled = false // eslint-disable-line
   }
 
   if (resultFiles.length === 0) return
