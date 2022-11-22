@@ -5,6 +5,10 @@ const resultOutput = [[]]
 resultInput.addEventListener('change', () => {
   const resultFiles = resultInput.files
 
+  if (draw.disabled) {
+    draw.disabled = false
+  }
+
   if (resultFiles.length === 0) return
 
   const file = resultFiles[0]

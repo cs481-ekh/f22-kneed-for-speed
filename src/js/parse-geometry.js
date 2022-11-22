@@ -7,6 +7,10 @@ const elements = [[]]
 input.addEventListener('change', () => {
   const files = input.files
 
+  if (draw.disabled) {
+    draw.disabled = false
+  }
+
   if (files.length === 0) return // check for empty files
 
   const file = files[0]
