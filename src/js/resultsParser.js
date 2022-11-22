@@ -5,6 +5,10 @@ const resultOutput = [[]]
 resultInput.addEventListener('change', () => {
   const resultFiles = resultInput.files
 
+  if (draw.disabled) { // eslint-disable-line
+    draw.disabled = false // eslint-disable-line
+  }
+
   if (resultFiles.length === 0) return
 
   const file = resultFiles[0]
