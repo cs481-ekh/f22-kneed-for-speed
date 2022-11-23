@@ -92,6 +92,9 @@ function createNodes () {
 
 function heatmapKey (colorList) {
   const heatmapKey = document.getElementById('heatmap')
+  while (heatmapKey.firstChild) {
+    heatmapKey.removeChild(heatmapKey.firstChild)
+  }
   let i = 0
   for (const key in colorList) {
     const boxContainer = document.createElement('div')
