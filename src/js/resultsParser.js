@@ -1,6 +1,7 @@
-
 const resultInput = document.getElementById('file2')
 const resultOutput = [[]]
+let highestForce = 0.9
+let lowestForce = 0.1
 
 resultInput.addEventListener('change', () => {
   const resultFiles = resultInput.files
@@ -51,5 +52,9 @@ resultInput.addEventListener('change', () => {
         resultLowestVal = resultOutput[i][resultColumnToUse]
       }
     }
+    highestForce = resultHighestVal
+    lowestForce = resultLowestVal
+    console.log(highestForce)
+    console.log(lowestForce)
   }
 })
