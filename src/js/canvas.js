@@ -9,7 +9,7 @@ canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas s
 canvas.height = (parent.offsetHeight * 0.996)
 
 // creating the force spreads
-let n = 8
+const n = 8
 let rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
 let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
 
