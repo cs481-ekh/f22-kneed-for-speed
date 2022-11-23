@@ -10,8 +10,8 @@ canvas.height = (parent.offsetHeight * 0.996)
 
 // creating the force spreads
 let n = 8
-let rangeDiff = ((highestForce - lowestForce) / (n - 1))
-let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+let rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
+let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
 
 // Canvas will resize itself when window is resized
 window.onresize = function () {
@@ -37,8 +37,8 @@ function drawKnee () {
 }
 
 function recalculateHeatmapForces () {
-  rangeDiff = ((highestForce - lowestForce) / (n - 1))
-  forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]
+  rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
+  forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
   heatmapKey(colorList)
 }
 
@@ -102,7 +102,7 @@ function heatmapKey (colorList) {
     box.className = 'box'
     box.style.backgroundColor = colorList[key]
 
-    if (i == 0 || i == 7) {
+    if (i === 0 || i === 7) {
       const forceLabel = forceRanges[i].toFixed(5)
       boxContainer.append(forceLabel + ' ')
     }
