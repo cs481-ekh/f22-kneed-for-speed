@@ -1,5 +1,5 @@
 const resultInput = document.getElementById('file2')
-const resultOutput = [[]]
+let resultOutput = [[]]
 let highestForce = 0.9
 let lowestForce = 0.1
 
@@ -9,6 +9,9 @@ resultInput.addEventListener('change', () => {
   if (draw.disabled) { // eslint-disable-line
     draw.disabled = false // eslint-disable-line
   }
+
+  // Clearing data from resultOutput if input file is changed
+  resultOutput = [[]]
 
   if (resultFiles.length === 0) return
 

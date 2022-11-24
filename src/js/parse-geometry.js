@@ -1,7 +1,6 @@
 const input = document.getElementById('file1')
-
-const nodes = [[]]
-const elements = [[]]
+let nodes = [[]]
+let elements = [[]]
 
 // runs as soon as a user selects a file
 input.addEventListener('change', () => {
@@ -10,6 +9,10 @@ input.addEventListener('change', () => {
   if (draw.disabled) { // eslint-disable-line
     draw.disabled = false // eslint-disable-line
   }
+
+  // Clearing nodes and element data if input file is changed
+  nodes = [[]]
+  elements = [[]]
 
   if (files.length === 0) return // check for empty files
 
