@@ -101,9 +101,6 @@ function heatmapKey (colorList) {
     const box = document.createElement('div')
     const label = document.createElement('span')
 
-    label.innerHTML = key
-    const label = document.createElement('span') 
-
     label.innerHTML = key 
     box.className = 'box'
     box.style.backgroundColor = colorList[key]
