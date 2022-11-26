@@ -32,6 +32,9 @@ input.addEventListener('change', () => {
     isCart = true
   } else if (filename.toLowerCase().includes('bone')) { // makes filename case insensitive & checks for bone file naming convention
     isBone = true
+  } else {
+    alert('File name does not specify whether it is a bone or cartilage file') // alerts the user if file does not follow expected file naming conventions
+    return
   }
 
   console.log('isCart = ' + isCart) // for testing
