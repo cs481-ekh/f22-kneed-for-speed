@@ -17,6 +17,9 @@ input.addEventListener('change', () => {
   elements = [[]]
   sessionStorage.clear()
 
+  isCart = false
+  isBone = false
+
   if (files.length === 0) return // check for empty files
 
   const file = files[0]
