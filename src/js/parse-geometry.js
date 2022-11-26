@@ -13,6 +13,7 @@ input.addEventListener('change', () => {
   // Clearing nodes and element data if input file is changed
   nodes = [[]]
   elements = [[]]
+  sessionStorage.clear()
 
   if (files.length === 0) return // check for empty files
 
