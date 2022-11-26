@@ -1,6 +1,8 @@
 const input = document.getElementById('file1')
 let nodes = [[]]
 let elements = [[]]
+let isCart = false
+let isBone = false
 
 // runs as soon as a user selects a file
 input.addEventListener('change', () => {
@@ -25,6 +27,15 @@ input.addEventListener('change', () => {
     alert('Geometry files must be in .inp format') // alerts the user if files are not .inp
     return
   }
+
+  if (filename.toLowerCase().includes('cart')) { // makes filename case insensitive & checks for cartilage file naming convention
+    isCart = true
+  } else if (filename.toLowerCase().includes('bone')) { // makes filename case insensitive & checks for bone file naming convention
+    isBone = true
+  }
+
+  console.log('isCart = ' + isCart) // for testing
+  console.log('isBone = ' + isBone) // for testing
 
   const reader = new FileReader()
 
