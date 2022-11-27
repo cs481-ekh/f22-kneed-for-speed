@@ -51,12 +51,12 @@ body {
 
 .dial-3-container {
   grid-column: 1 / 3;
-  grid-row: 7 / 10;
+  grid-row: 7 / 9;
 }
 
 .dial-4-container {
   grid-column: 3 / 5;
-  grid-row: 7 / 10;
+  grid-row: 7 / 9;
 }
 
 .heat-map-container {
@@ -183,7 +183,6 @@ input[type="number"] {
 
 .sdp-text {
   position: absolute;
-  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -192,18 +191,20 @@ input[type="number"] {
   text-align: center;
   visibility: hidden;
   opacity: 0;
-  overflow: scroll;
-  overflow-x: hidden;
+  height: auto;
+  width: fit-content;
 }
 
 .sdp-text-wrapper:hover .sdp-text {
   visibility: visible;
+  z-index: 1;
   opacity: 1;
 }
 
 .sdp-text a {
   text-decoration: none;
   color: #d64309;
+  font-weight: bold;
 }
 
 .box {
@@ -225,4 +226,16 @@ input[type="number"] {
 
 th {
   padding-bottom: 1em;
+}
+
+h1 {
+  padding-top: 0.4em;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+h2 {
+  padding-top: 0.4em;
+  padding-bottom: 0.7em;
+  margin: 0;
 }
