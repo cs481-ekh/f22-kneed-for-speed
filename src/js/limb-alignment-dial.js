@@ -71,7 +71,7 @@ function rotate1 (e) {
   const result = Math.floor(parameterDial1(e) - 80)
 
   // rotate the dial based on final calculation
-  if ((val1.value != maxVal1) && (val1.value != 0)){ // do not rotate further if value is at 0 or max
+  if ((val1.value != maxVal1) && (val1.value != 0)) { // do not rotate further if value is at 0 or max
     // console.log(val1.value) // for testing
     dial1.style.transform = 'rotate(' + result + 'deg)'
   }
