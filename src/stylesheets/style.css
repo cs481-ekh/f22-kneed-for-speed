@@ -202,9 +202,12 @@ input[type="number"] {
 }
 
 .sdp-text a {
-  text-decoration: none;
   color: #d64309;
   font-weight: bold;
+}
+
+.sdp-names {
+  color: #d64309;
 }
 
 .box {
