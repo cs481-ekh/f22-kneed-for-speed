@@ -110,17 +110,17 @@ input.addEventListener('change', () => {
           elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because end of file is found
           break
         }
-  
+
         const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
         // console.log(temp) // for testing
         temp.forEach(element => {
           elements[index].push(element.trim()) // add each comma separated value to array
           // console.log(elements) // for testing
         })
-  
+
         index++
         elements.push([]) // add new array for next element (creates multidemensional array)
-  
+
         line++
         count--
       }
@@ -171,15 +171,15 @@ input.addEventListener('change', () => {
       while (length > 1) {
         sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
         // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
-  
+
         sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
         // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
-  
+
         sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
         // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
-  
+
         console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
-  
+
         index++
         length--
       }
