@@ -41,7 +41,7 @@ function drawKnee () {
   recalculateHeatmapForces()
 }
 
-// Changes the heatmap values based on data passed in 
+// Changes the heatmap values based on data passed in
 function recalculateHeatmapForces () {
   rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
   forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
@@ -114,7 +114,7 @@ function heatmapKey (colorList) {
   // Variable
   const heatmapKey = document.getElementById('heatmap')
 
-  // Looping through and clearing any child nodes of the variable we created. 
+  // Looping through and clearing any child nodes of the variable we created
   while (heatmapKey.firstChild) {
     heatmapKey.removeChild(heatmapKey.firstChild)
   }
