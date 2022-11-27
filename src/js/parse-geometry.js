@@ -155,7 +155,7 @@ input.addEventListener('change', () => {
     }
 
     index = 0 // reset array index for element session storage
-    length = elements.length // reset length to number of element in final element array
+    length = elements.length // reset length to number of elements in final element array
 
     sessionStorage.setItem('total elements', length) // store total number of elements in session data
     sessionStorage.setItem('initial element number', elements[index][0]) // store initial element number in session data
@@ -163,20 +163,24 @@ input.addEventListener('change', () => {
     console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + sessionStorage.getItem('total elements') + '\n' + 'element number, node 1, node 2, node 3' + '\n') // for testing
     console.log('starting element number: ' + sessionStorage.getItem('initial element number') + '\n') // for testing
 
-    while (length > 1) {
-      sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
-      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
-
-      sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
-      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
-
-      sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
-      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
-
-      console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
-
-      index++
-      length--
+    if (isBone) {
+      while (length > 1) {
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
+        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
+  
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
+        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
+  
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
+        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
+  
+        console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
+  
+        index++
+        length--
+      }
+    } else if (isCart) {
+      console.log('CARTILAGE FILE') // for testing
     }
   }
   reader.onerror = (e) => alert(e.target.error.name)
