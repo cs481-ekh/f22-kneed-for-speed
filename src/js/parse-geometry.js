@@ -103,29 +103,33 @@ input.addEventListener('change', () => {
     index = 0 // reset array index for elements
 
     // Store Element elements until end of file
-    if (isBone) {
-      while (count >= 0) {
+    while (count >= 0) {
+      if (isBone) { 
         if (sessionStorage.getItem('line ' + line).search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
           console.log('matched end of file on line ' + line) // for testing
           elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because end of file is found
           break
         }
-
-        const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
-        // console.log(temp) // for testing
-        temp.forEach(element => {
-          elements[index].push(element.trim()) // add each comma separated value to array
-          // console.log(elements) // for testing
-        })
-
-        index++
-        elements.push([]) // add new array for next element (creates multidemensional array)
-
-        line++
-        count--
+      } else if (isCart) { 
+        if (sessionStorage.getItem('line ' + line).search(/side/i) !== (-1)) {
+          console.log('start of side nodes ' + line) // for testing
+          elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because start of side nodes is found
+          break
+        }
       }
-    } else if (isCart) {
-      console.log('CARTILAGE FILE') // for testing
+
+      const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
+      // console.log(temp) // for testing
+      temp.forEach(element => {
+        elements[index].push(element.trim()) // add each comma separated value to array
+        // console.log(elements) // for testing
+      })
+
+      index++
+      elements.push([]) // add new array for next element (creates multidemensional array)
+
+      line++
+      count--
     }
 
     console.log('FINAL NODE ARRAY' + '\n') // for testing
