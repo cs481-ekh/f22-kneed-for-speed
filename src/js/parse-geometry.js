@@ -104,13 +104,13 @@ input.addEventListener('change', () => {
 
     // Store Element elements until end of file
     while (count >= 0) {
-      if (isBone) { 
+      if (isBone) { // bone files do not have any sections after the elements section. end point is end of file
         if (sessionStorage.getItem('line ' + line).search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
           console.log('matched end of file on line ' + line) // for testing
           elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because end of file is found
           break
         }
-      } else if (isCart) { 
+      } else if (isCart) { // cartilage files have addtional sections of side nodes that we are currently ignoring, so the first side node section can act as EOF
         if (sessionStorage.getItem('line ' + line).search(/side/i) !== (-1)) {
           console.log('start of side nodes ' + line) // for testing
           elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because start of side nodes is found
