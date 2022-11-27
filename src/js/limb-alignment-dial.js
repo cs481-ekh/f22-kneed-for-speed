@@ -6,8 +6,8 @@ const maxVal1 = val1.getAttribute('max')
 let prevX1 = 0
 let prevY1 = 0
 
-// track qhich quarter of the dial the mouse is in
-let q = 0
+// track qhich quarter of the dial the mouse is in - not needed yet
+// let q = 0
 
 function parameterDial1 (e) {
   // calculate 1/2 of dial wodith and height
@@ -29,28 +29,28 @@ function parameterDial1 (e) {
 
   // track mouse in each quarter of the dial
   if (y < height && x > width) { // top right quarter
-    q = 1
+    // q = 1 - not needed yet
     if (prevX1 <= x && prevY1 <= y) { // increasing
       val1.stepUp()
     } else if (prevX1 >= x && prevY1 >= y) { // decreasing
       val1.stepDown()
     }
   } else if (y > height && x > width) { // bottom right quarter
-    q = 2
+    // q = 2 - not needed yet
     if (prevX1 >= x && prevY1 <= y) { // increasing
       val1.stepUp()
     } else if (prevX1 <= x && prevY1 >= y) { // decreasing
       val1.stepDown()
     }
   } else if (y < height && x < width) { // top left quarter
-    q = 3
+    // q = 3 - not needed yet
     if (prevX1 <= x && prevY1 >= y) { // increasing
       val1.stepUp()
     } else if (prevX1 >= x && prevY1 <= y) { // decreasing
       val1.stepDown()
     }
   } else if (y > height && x < width) { // bottom left quarter
-    q = 4
+    // q = 4 - not needed yet
     if (prevX1 >= x && prevY1 >= y) { // increasing
       val1.stepUp()
     } else if (prevX1 <= x && prevY1 <= y) { // decreasing
@@ -71,11 +71,10 @@ function rotate1 (e) {
   const result = Math.floor(parameterDial1(e) - 80)
 
   // rotate the dial based on final calculation
-  if ((val1.value != maxVal1) && (val1.value != 0)) { // do not rotate further if value is at 0 or max
+  if ((val1.value !== maxVal1) && (val1.value !== 0)) { // do not rotate further if value is at 0 or max
     // console.log(val1.value) // for testing
     dial1.style.transform = 'rotate(' + result + 'deg)'
   }
-  
 }
 
 // When to rotate
