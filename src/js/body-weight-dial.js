@@ -63,8 +63,8 @@ function rotate2 (e) {
   // final calculations for the mouse position
   const result = Math.floor(parameterDial2(e) - 80)
 
-  // rotate the dial based on final calculation
-  if ((val2.value !== maxVal2) && (val2.value != 0)) { // eslint-disable-line, do not rotate further if value is at 0 or max
+  // rotate the dial based on final calculation - do not rotate further if value is at 0 or max
+  if ((val2.value !== maxVal2) && (val2.value != 0)) { // eslint-disable-line
     dial2.style.transform = 'rotate(' + result + 'deg)'
   }
 }

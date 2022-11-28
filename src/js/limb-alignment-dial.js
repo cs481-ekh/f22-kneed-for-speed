@@ -70,8 +70,8 @@ function rotate1 (e) {
   // final calculations for the mouse position
   const result = Math.floor(parameterDial1(e) - 80)
 
-  // rotate the dial based on final calculation
-  if ((val1.value !== maxVal1) && (val1.value != 0)) { // eslint-disable-line, do not rotate further if value is at 0 or max. Line disabled because linter did not like '!=' operator
+  // rotate the dial based on final calculation - do not rotate further if value is at 0 or max
+  if ((val1.value !== maxVal1) && (val1.value != 0)) { // eslint-disable-line
     // console.log(val1.value) // for testing
     dial1.style.transform = 'rotate(' + result + 'deg)'
   }
