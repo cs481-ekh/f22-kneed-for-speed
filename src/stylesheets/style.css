@@ -1,7 +1,7 @@
 /* ENTIRE PAGE */
 body {
   background-color: #eee;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
 
 /* FONTS */
@@ -19,7 +19,7 @@ h1 {
   padding-top: 0.4em;
   padding-bottom: 0;
   margin: 0;
-  font-family: Metropolis_Bold; 
+  font-family: "Metropolis_Bold";
   font-size:3vw; 
   color:#0033a0;
 }
@@ -160,14 +160,14 @@ input[type="number"] {
 .plus-minus {
   max-width: 6%;
   max-height: 6%;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
   
 }
 
 .dial-numbers {
   max-width: 10%;
   max-height: 10%;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
 
 /* UPLOAD & DRAW BUTTONS */
@@ -182,17 +182,17 @@ input[type="number"] {
 .choose-file {
   max-width: 50%;
   max-height: 10%;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
 
 input[type=file]::file-selector-button {
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
 
 .draw-btn {
   max-width: 25%;
   max-height: 10%;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
 
 th {
@@ -257,5 +257,5 @@ th {
   size: 80%;
   right: 2%;
   top: 86%;
-  font-family: Metropolis_Regular; 
+  font-family: "Metropolis_Regular";
 }
