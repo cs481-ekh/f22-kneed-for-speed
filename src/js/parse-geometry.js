@@ -185,9 +185,9 @@ input.addEventListener('change', () => {
         console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
       } else if (isCart) { // only cartilage files have more than 3 nodes per element
         sessionStorage.setItem('element ' + elements[index][0] + ' node 4', elements[index][4])
-  
+
         sessionStorage.setItem('element ' + elements[index][0] + ' node 5', elements[index][5])
-  
+
         sessionStorage.setItem('element ' + elements[index][0] + ' node 6', elements[index][6])
 
         sessionStorage.setItem('element ' + elements[index][0] + ' node 7', elements[index][7])
@@ -196,7 +196,7 @@ input.addEventListener('change', () => {
 
         console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 4') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 5') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 6') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 7') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 8')) // for testing
       }
-        
+      
       index++
       length--
     }
