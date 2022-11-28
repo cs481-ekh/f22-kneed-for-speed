@@ -63,7 +63,7 @@ input.addEventListener('change', () => {
     // find start of NODE section
     while (count >= 0) {
       if (sessionStorage.getItem('line ' + line).search(/node/i) !== (-1)) {
-        console.log('matched node on line ' + line) // for testing
+        console.log('matched node on line ' + (line + 1)) // for testing, +1 to account for 0 indexing
         line++
         count--
         break
@@ -77,7 +77,7 @@ input.addEventListener('change', () => {
     // Store Node elements until Element section begins
     while (count >= 0) {
       if (sessionStorage.getItem('line ' + line).search(/element/i) !== (-1)) {
-        console.log('matched element on line ' + line) // for testing
+        console.log('matched element on line ' + (line + 1)) // for testing, +1 to account for 0 indexing
         line++
         count--
         nodes.splice(index, 1) // removes extra array that gets created in final loop but never filled because elements section is found
@@ -103,29 +103,33 @@ input.addEventListener('change', () => {
     index = 0 // reset array index for elements
 
     // Store Element elements until end of file
-    if (isBone) {
-      while (count >= 0) {
+    while (count >= 0) {
+      if (isBone) { // bone files do not have any sections after the elements section. end point is end of file
         if (sessionStorage.getItem('line ' + line).search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
-          console.log('matched end of file on line ' + line) // for testing
+          console.log('matched end of file on line ' + (line + 1)) // for testing, +1 to account for 0 indexing
           elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because end of file is found
           break
         }
-
-        const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
-        // console.log(temp) // for testing
-        temp.forEach(element => {
-          elements[index].push(element.trim()) // add each comma separated value to array
-          // console.log(elements) // for testing
-        })
-
-        index++
-        elements.push([]) // add new array for next element (creates multidemensional array)
-
-        line++
-        count--
+      } else if (isCart) { // cartilage files have addtional sections of side nodes that we are currently ignoring, so the first side node section can act as EOF
+        if (sessionStorage.getItem('line ' + line).search(/side/i) !== (-1)) {
+          console.log('start of side nodes ' + (line + 1)) // for testing, +1 to account for 0 indexing
+          elements.splice(index, 1) // removes extra array that gets created in final loop but never filled because start of side nodes is found
+          break
+        }
       }
-    } else if (isCart) {
-      console.log('CARTILAGE FILE') // for testing
+
+      const temp = sessionStorage.getItem('line ' + line).split(',') // split current line on commas
+      // console.log(temp) // for testing
+      temp.forEach(element => {
+        elements[index].push(element.trim()) // add each comma separated value to array
+        // console.log(elements) // for testing
+      })
+
+      index++
+      elements.push([]) // add new array for next element (creates multidemensional array)
+
+      line++
+      count--
     }
 
     console.log('FINAL NODE ARRAY' + '\n') // for testing
@@ -142,7 +146,7 @@ input.addEventListener('change', () => {
     console.log('NODES SESSION DATA' + '\n' + 'total nodes: ' + sessionStorage.getItem('total nodes') + '\n' + 'node number, x, y, z' + '\n') // for testing
     console.log('starting node number: ' + sessionStorage.getItem('initial node number') + '\n') // for testing
 
-    while (length > 1) {
+    while (length >= 1) {
       sessionStorage.setItem('node ' + nodes[index][0] + ' x', nodes[index][1])
       // console.log(sessionStorage.getItem('node ' + nodes[index][0] + ' x')) // for testing
 
@@ -168,7 +172,7 @@ input.addEventListener('change', () => {
     console.log('starting element number: ' + sessionStorage.getItem('initial element number') + '\n') // for testing
 
     if (isBone) {
-      while (length > 1) {
+      while (length >= 1) {
         sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
         // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
 
