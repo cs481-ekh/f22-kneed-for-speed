@@ -89,7 +89,7 @@ sub2.onmousedown = function () {
       num2.innerHTML = count
       count++
       num2.stepDown()
-    }, 100)
+    }, 75)
   }, 300)
 }
 
