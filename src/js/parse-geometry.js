@@ -196,7 +196,7 @@ input.addEventListener('change', () => {
 
         console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 4') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 5') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 6') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 7') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 8')) // for testing
       }
-      
+
       index++
       length--
     }
