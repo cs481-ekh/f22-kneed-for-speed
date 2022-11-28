@@ -64,7 +64,7 @@ function rotate2 (e) {
   const result = Math.floor(parameterDial2(e) - 80)
 
   // rotate the dial based on final calculation
-  if ((val2.value !== maxVal2) && (val2.value != 0)) { // do not rotate further if value is at 0 or max
+  if ((val2.value !== maxVal2) && (val2.value != 0)) { // eslint-disable-line, do not rotate further if value is at 0 or max
     dial2.style.transform = 'rotate(' + result + 'deg)'
   }
 }
