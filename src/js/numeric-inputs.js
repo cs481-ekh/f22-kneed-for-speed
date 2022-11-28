@@ -90,7 +90,7 @@ sub2.onmousedown = function () {
 sub2.addEventListener('mouseup', clearTimers)
 sub2.addEventListener('mouseleave', clearTimers)
 
-function clearTimers() {
+function clearTimers () {
   clearInterval(counter)
   clearTimeout(timeout)
 }
