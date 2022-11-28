@@ -26,10 +26,8 @@ add1.onmousedown = function () {
 }
 
 // releasing mouse button resets hold counter and stops adding
-add1.onmouseup = function () {
-  clearInterval(counter)
-  clearTimeout(timeout)
-}
+add1.addEventListener('mouseup', clearTimers)
+add1.addEventListener('mouseleave', clearTimers)
 
 // single click subtracts 1
 sub1.onclick = function () {
@@ -48,10 +46,8 @@ sub1.onmousedown = function () {
 }
 
 // releasing mouse button resets hold counter and stops subtracting
-sub1.onmouseup = function () {
-  clearInterval(counter)
-  clearTimeout(timeout)
-}
+sub1.addEventListener('mouseup', clearTimers)
+sub1.addEventListener('mouseleave', clearTimers)
 
 /* Dial 2 */
 // Works same as dial above
@@ -74,10 +70,8 @@ add2.onmousedown = function () {
   }, 300)
 }
 
-add2.onmouseup = function () {
-  clearInterval(counter)
-  clearTimeout(timeout)
-}
+add2.addEventListener('mouseup', clearTimers)
+add2.addEventListener('mouseleave', clearTimers)
 
 sub2.onclick = function () {
   num2.stepDown()
@@ -93,7 +87,10 @@ sub2.onmousedown = function () {
   }, 300)
 }
 
-sub2.onmouseup = function () {
+sub2.addEventListener('mouseup', clearTimers)
+sub2.addEventListener('mouseleave', clearTimers)
+
+function clearTimers() {
   clearInterval(counter)
   clearTimeout(timeout)
 }
