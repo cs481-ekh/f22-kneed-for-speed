@@ -16,12 +16,12 @@ add1.onclick = function () {
 
 // holding mouse down continues to add 1
 add1.onmousedown = function () {
-  timeout = setTimeout(function() {
-    counter = setInterval(function() {
+  timeout = setTimeout(function () {
+    counter = setInterval(function () {
       num1.innerHTML = count
       count++
       num1.stepUp()
-    }, 100) // speed of adding 
+    }, 100) // speed of adding
   }, 300) // speed of timeout
 }
 
@@ -36,8 +36,8 @@ sub1.onclick = function () {
 
 // holding mouse down continues to subtract 1
 sub1.onmousedown = function () {
-  timeout = setTimeout(function() {
-    counter = setInterval(function() {
+  timeout = setTimeout(function () {
+    counter = setInterval(function () {
       num1.innerHTML = count
       count++
       num1.stepDown()
@@ -61,8 +61,8 @@ add2.onclick = function () {
 }
 
 add2.onmousedown = function () {
-  timeout = setTimeout(function() {
-    counter = setInterval(function() {
+  timeout = setTimeout(function () {
+    counter = setInterval(function () {
       num2.innerHTML = count
       count++
       num2.stepUp()
@@ -78,8 +78,8 @@ sub2.onclick = function () {
 }
 
 sub2.onmousedown = function () {
-  timeout = setTimeout(function() {
-    counter = setInterval(function() {
+  timeout = setTimeout(function () {
+    counter = setInterval(function () {
       num2.innerHTML = count
       count++
       num2.stepDown()
