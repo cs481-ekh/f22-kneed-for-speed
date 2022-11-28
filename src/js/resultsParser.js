@@ -57,7 +57,7 @@ resultInput.addEventListener('change', () => {
         resultLowestVal = resultOutput[i][resultColumnToUse]
       }
     }
-    console.log("INDEX: " + index)
+    console.log('INDEX: ' + index)
     highestForce = resultHighestVal
     lowestForce = resultLowestVal
     console.log(highestForce)
