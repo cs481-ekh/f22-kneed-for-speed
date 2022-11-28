@@ -171,24 +171,34 @@ input.addEventListener('change', () => {
     console.log('ELEMENTS SESSION DATA' + '\n' + 'total elements: ' + sessionStorage.getItem('total elements') + '\n' + 'element number, node 1, node 2, node 3' + '\n') // for testing
     console.log('starting element number: ' + sessionStorage.getItem('initial element number') + '\n') // for testing
 
-    if (isBone) {
-      while (length >= 1) {
-        sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
-        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
+    while (length >= 1) {
+      sessionStorage.setItem('element ' + elements[index][0] + ' node 1', elements[index][1])
+      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 1')) // for testing
 
-        sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
-        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
+      sessionStorage.setItem('element ' + elements[index][0] + ' node 2', elements[index][2])
+      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 2')) // for testing
 
-        sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
-        // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
+      sessionStorage.setItem('element ' + elements[index][0] + ' node 3', elements[index][3])
+      // console.log(sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
 
+      if (isBone) { // this test statement is only helpful for bone files
         console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3')) // for testing
+      } else if (isCart) { // only cartilage files have more than 3 nodes per element
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 4', elements[index][4])
+  
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 5', elements[index][5])
+  
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 6', elements[index][6])
 
-        index++
-        length--
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 7', elements[index][7])
+
+        sessionStorage.setItem('element ' + elements[index][0] + ' node 8', elements[index][8])
+
+        console.log(elements[index][0] + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 1') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 2') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 3') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 4') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 5') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 6') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 7') + ' ' + sessionStorage.getItem('element ' + elements[index][0] + ' node 8')) // for testing
       }
-    } else if (isCart) {
-      console.log('CARTILAGE FILE') // for testing
+        
+      index++
+      length--
     }
   }
   reader.onerror = (e) => alert(e.target.error.name)
