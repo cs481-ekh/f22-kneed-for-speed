@@ -1,9 +1,10 @@
 /* ENTIRE PAGE */
 body {
   background-color: #eee;
+  font-family: "Metropolis_Regular", sans-serif;
 }
 
-/* TITLE */
+/* FONTS */
 @font-face {
   font-family: "Metropolis_Bold";
   src: url("Metropolis-Bold.woff") format("woff");
@@ -12,6 +13,22 @@ body {
 @font-face {
   font-family: "Metropolis_Regular";
   src: url("Metropolis-Regular.woff") format("woff");
+}
+
+h1 {
+  padding-top: 0.4em;
+  padding-bottom: 0;
+  margin: 0;
+  font-family: "Metropolis_Bold", sans-serif;
+  font-size: 3vw;
+  color: #0033a0;
+}
+
+h2 {
+  padding-top: 0.4em;
+  padding-bottom: 1em;
+  margin: 0;
+  font-size: 1.1vw;
 }
 
 /* GRID LAYOUT */
@@ -143,14 +160,16 @@ input[type="number"] {
 .plus-minus {
   max-width: 6%;
   max-height: 6%;
+  font-family: "Metropolis_Regular", sans-serif;
 }
 
 .dial-numbers {
   max-width: 10%;
   max-height: 10%;
+  font-family: "Metropolis_Regular", sans-serif;
 }
 
-/* UPLOAD BUTTONS */
+/* UPLOAD & DRAW BUTTONS */
 .file-buttons {
   height: 45%;
   width: 95%;
@@ -162,11 +181,29 @@ input[type="number"] {
 .choose-file {
   max-width: 50%;
   max-height: 10%;
+  font-family: "Metropolis_Regular", sans-serif;
 }
 
-.submit-btn {
+input[type="file"]::file-selector-button {
+  font-family: "Metropolis_Regular", sans-serif;
+}
+
+.draw-btn {
   max-width: 25%;
   max-height: 10%;
+  font-family: "Metropolis_Regular", sans-serif;
+}
+
+th {
+  padding-bottom: 1em;
+}
+
+/* HEAT MAP KEY */
+.box {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border: 2px solid;
 }
 
 /* SDP Sticker */
@@ -193,6 +230,8 @@ input[type="number"] {
   opacity: 0;
   height: auto;
   width: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .sdp-text-wrapper:hover .sdp-text {
@@ -210,13 +249,7 @@ input[type="number"] {
   color: #d64309;
 }
 
-.box {
-  display: inline-block;
-  height: 25px;
-  width: 25px;
-  border: 2px solid;
-}
-
+/* SAVE BUTTON */
 .save-button {
   height: 3%;
   width: 6%;
@@ -225,20 +258,5 @@ input[type="number"] {
   size: 80%;
   right: 2%;
   top: 86%;
-}
-
-th {
-  padding-bottom: 1em;
-}
-
-h1 {
-  padding-top: 0.4em;
-  padding-bottom: 0;
-  margin: 0;
-}
-
-h2 {
-  padding-top: 0.4em;
-  padding-bottom: 0.7em;
-  margin: 0;
+  font-family: "Metropolis_Regular", sans-serif;
 }
