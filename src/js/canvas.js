@@ -41,9 +41,10 @@ function drawKnee () {
   recalculateHeatmapForces()
 }
 
-// Changes the heatmap values based on data passed in
+// Changes the heatmap values based on data passed in, also draws the map on press of Draw (called in drawKnee())
 function recalculateHeatmapForces () {
   rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
+  // forceRanges is created and populated with evenly spaced values between the highest and lowest force values found in resultsParser
   forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
   heatmapKey(colorList)
 }
@@ -131,6 +132,7 @@ function heatmapKey (colorList) {
     box.style.backgroundColor = colorList[key]
 
     // Setting the max and min values in the heatmap legend
+    // Had to switch the indexes, cant figure out why but this is what works so I wont question it
     if (i === 0 || i === 7) {
       const forceLabel = forceRanges[i].toFixed(5)
       boxContainer.append(forceLabel + ' ')
