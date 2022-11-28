@@ -139,7 +139,7 @@ function heatmapKey (colorList) {
       const forceLabel = forceRanges[0].toFixed(5)
       boxContainer.append(forceLabel + ' ')
     }
-    
+
     boxContainer.appendChild(box)
 
     heatmapKey.appendChild(boxContainer)
