@@ -5,6 +5,20 @@ body {
   font-family: "Metropolis_Regular", sans-serif;
 }
 
+.button:hover {
+  background-color: #0033a0;
+  color: #fff;
+  border: 2px solid #0033a0;
+  border-radius: 2px;
+}
+
+.button:active {
+  background: #d64309;
+  color: #fff;
+  border: 2px solid #d64309;
+  border-radius: 2px;
+}
+
 /* FONTS */
 @font-face {
   font-family: "Metropolis_Bold";
@@ -105,6 +119,51 @@ h2 {
   grid-row: 10 / 11;
 }
 
+/* UPLOAD & DRAW BUTTONS */
+.file-buttons {
+  height: 45%;
+  width: 95%;
+  padding-top: 3.5%;
+  padding-bottom: 0.5%;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+  margin-bottom: 2%;
+}
+
+.choose-file {
+  max-width: 50%;
+  max-height: 10%;
+  font-family: "Metropolis_Regular", sans-serif;
+}
+
+th {
+  padding-bottom: 1em;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: "Metropolis_Regular", sans-serif;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #0033a0;
+  color: #fff;
+  border: 2px solid #0033a0;
+  border-radius: 2px;
+}
+
+input[type="file"]::file-selector-button:active {
+  background: #d64309;
+  color: #fff;
+  border: 2px solid #d64309;
+  border-radius: 2px;
+}
+
+.draw-btn {
+  max-width: 25%;
+  max-height: 10%;
+  font-family: "Metropolis_Regular", sans-serif;
+}
+
 /* CANVAS */
 .map {
   background-color: white;
@@ -173,37 +232,6 @@ input[type="number"] {
   max-width: 10%;
   max-height: 10%;
   font-family: "Metropolis_Regular", sans-serif;
-}
-
-/* UPLOAD & DRAW BUTTONS */
-.file-buttons {
-  height: 45%;
-  width: 95%;
-  padding-top: 3.5%;
-  padding-bottom: 0.5%;
-  background-color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
-  margin-bottom: 2%;
-}
-
-.choose-file {
-  max-width: 50%;
-  max-height: 10%;
-  font-family: "Metropolis_Regular", sans-serif;
-}
-
-input[type="file"]::file-selector-button {
-  font-family: "Metropolis_Regular", sans-serif;
-}
-
-.draw-btn {
-  max-width: 25%;
-  max-height: 10%;
-  font-family: "Metropolis_Regular", sans-serif;
-}
-
-th {
-  padding-bottom: 1em;
 }
 
 /* HEAT MAP KEY */
