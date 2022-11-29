@@ -105,21 +105,16 @@ h2 {
 /* CANVAS */
 .map {
   background-color: white;
-
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   /* border:1px solid #000000; */
 }
 
 .canvas-container {
-  width: 99%;
-  height: 99%;
+  width: 97%;
+  height: 97%;
 }
 
 /* DIALS */
-.dial-image {
-  max-height: 50%;
-  max-width: 50%;
-}
-
 .dial-container {
   content: "";
   position: relative;
@@ -176,6 +171,8 @@ input[type="number"] {
   padding-top: 3.5%;
   padding-bottom: 0.5%;
   background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin-bottom: 2%;
 }
 
 .choose-file {
@@ -254,7 +251,7 @@ th {
   float: right;
   position: relative;
   top: 5%;
-  right: 2%;
+  right: 3%;
   width: 12%;
   height: 30%;
   font-family: "Metropolis_Regular", sans-serif;
