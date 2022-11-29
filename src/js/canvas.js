@@ -11,7 +11,7 @@ const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', gr
 // };
 
 var scale = 1.0
-var scaleMultiplier = 0.05
+var scaleMultiplier = 0.2
 
 document.getElementById("plus").addEventListener("click", function() {
   scale /= scaleMultiplier;
@@ -100,12 +100,14 @@ function drawElement (scale) {
 
     // Can begin drawing
     // ctx.translate(translatePos.x, translatePos.y)
+    ctx.save();
     ctx.scale(scale, scale)
     ctx.beginPath()
     // Using rectangles to draw our knee on the canvas
     ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3)
     // Stop drawing
     ctx.closePath()
+    ctx.restore();
 
     // Colors the rectangle on canvas
     ctx.stroke()
