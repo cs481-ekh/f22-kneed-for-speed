@@ -5,7 +5,7 @@ body {
   font-family: "Metropolis_Regular", sans-serif;
 }
 
-.button:hover { 
+.button:hover {
   background-color: #0033a0;
   color: #fff;
   border: 2px solid #0033a0;
@@ -144,7 +144,7 @@ input[type="file"]::file-selector-button {
   font-family: "Metropolis_Regular", sans-serif;
 }
 
-input[type="file"]::file-selector-button:hover { 
+input[type="file"]::file-selector-button:hover {
   background-color: #0033a0;
   color: #fff;
   border: 2px solid #0033a0;
