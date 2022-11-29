@@ -5,39 +5,81 @@ const draw = document.getElementById('draw')
 let createdNodes = [[]]
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 
+const translatePos = {
+  x: canvas.width,
+  y: canvas.height / 16
+}
+
+let mouseDown = false
+const dragOffset = {}
+
+let scale = 6.0
+const scaleMultiplier = 0.8
+
+document.getElementById('plus').addEventListener('click', function () {
+  scale /= scaleMultiplier
+  drawKnee(scale, translatePos)
+})
+
+document.getElementById('minus').addEventListener('click', function () {
+  scale *= scaleMultiplier
+  drawKnee(scale, translatePos)
+})
+
+canvas.addEventListener('mousedown', function (evt) {
+  mouseDown = true
+  dragOffset.x = evt.clientX - translatePos.x
+  dragOffset.y = evt.clientY - translatePos.y
+})
+
+canvas.addEventListener('mouseup', function (evt) {
+  mouseDown = false
+})
+
+canvas.addEventListener('mouseover', function (evt) {
+  mouseDown = false
+})
+
+canvas.addEventListener('mouseout', function (evt) {
+  mouseDown = false
+})
+
+canvas.addEventListener('mousemove', function (evt) {
+  if (mouseDown) {
+    translatePos.x = evt.clientX - dragOffset.x
+    translatePos.y = evt.clientY - dragOffset.y
+    drawKnee(scale, translatePos)
+  }
+})
+
 // Adjusting width and height of canvas
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
 
-// Moving 0, 0 to middle of canvas and making drawing bigger and easier to view
-const ctx = canvas.getContext('2d')
-ctx.translate(canvas.width / 2, 0)
-ctx.scale(6, 6)
-
 // creating the force spreads
 const n = 8
-let rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
-let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
+let rangeDiff = ((highestForce - lowestForce) / (n - 1)); // eslint-disable-line
+let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]; // eslint-disable-line
 
 // Canvas will resize itself when window is resized
 window.onresize = function () {
   // Adjusting canvas width and height
   canvas.width = (parent.offsetWidth * 0.996)
   canvas.height = (parent.offsetHeight * 0.996)
-  drawKnee()
+  drawKnee(scale, translatePos)
 }
 
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
   draw.disabled = true
-  drawKnee()
+  drawKnee(scale, translatePos)
 }
 
 // Clears the canvas and draws the knee with data from files selected to canvas
-function drawKnee () {
+function drawKnee (scale, translatePos) {
   clearCanvas()
   createNodes()
-  drawElement()
+  drawElement(scale, translatePos)
   recalculateHeatmapForces()
 }
 
@@ -49,7 +91,7 @@ function recalculateHeatmapForces () {
 }
 
 // Draws each element from data on the canvas
-function drawElement () {
+function drawElement (scale, translatePos) {
   const ctx = canvas.getContext('2d')
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
@@ -81,11 +123,15 @@ function drawElement () {
     }
 
     // Can begin drawing
+    ctx.save()
+    ctx.translate(translatePos.x, translatePos.y)
+    ctx.scale(scale, scale)
     ctx.beginPath()
     // Using rectangles to draw our knee on the canvas
     ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3)
     // Stop drawing
     ctx.closePath()
+    ctx.restore()
 
     // Colors the rectangle on canvas
     ctx.stroke()
@@ -105,7 +151,7 @@ function createNodes () {
 function clearCanvas () {
   const ctx = canvas.getContext('2d')
 
-  ctx.clearRect(-canvas.width / 2, 0, canvas.width, canvas.height)
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
   createdNodes = [[]]
 }
 
