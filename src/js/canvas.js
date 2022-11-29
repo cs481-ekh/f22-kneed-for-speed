@@ -33,9 +33,8 @@ draw.onclick = function () {
   drawKnee();
 }
 
-// Clears the canvas and draws the knee with data from files selected to canvas
-function drawKnee () {
-  clearCanvas();
+// Draws the knee with data from files selected to canvas
+function drawKnee (scale, translatePos) {
   createNodes();
   drawElement(scale, translatePos);
   recalculateHeatmapForces();
@@ -49,11 +48,9 @@ function recalculateHeatmapForces () {
 }
 
 // Draws each element from data on the canvas
-function drawElement () {
+function drawElement (scale, translatePos) {
   const ctx = canvas.getContext("2d");
-
-  // Clear the canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  clearCanvas();
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 0; i < createdNodes.length; i++) {
@@ -84,6 +81,9 @@ function drawElement () {
     }
 
     // Can begin drawing
+    ctx.save();
+    ctx.translate(translatePos.x, translatePos.y);
+    ctx.scale(scale, scale);
     ctx.beginPath();
     // Using rectangles to draw our knee on the canvas
     ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3);
@@ -158,4 +158,28 @@ class Node {
     this.yVal = yVal;
     this.force = force;
   }
+}
+
+window.onload = function() {
+  var canvas = document.getElementById("map");
+
+  var translatePos = {
+    x: canvas.width / 2,
+    y: canvas.height / 2
+  };
+
+  var scale = 1.0;
+  var scaleMultiplier = 0.8;
+  var dragOffset = {};
+  var mouseDown = false;
+
+  document.getElementById("plus").addEventListener("click", function() {
+    scale /= scaleMultiplier;
+    drawKnee(scale, translatePos);
+  }, false);
+
+  document.getElementById("minus").addEventListener("click", function() {
+    scale *= scaleMultiplier;
+    drawKnee(scale, translatePos);
+  }, false);
 }
