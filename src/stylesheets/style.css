@@ -210,6 +210,20 @@ input[type="file"]::file-selector-button {
   font-family: "Metropolis_Regular", sans-serif;
 }
 
+input[type="file"]::file-selector-button:hover { 
+  background-color: #0033a0;
+  color: #fff;
+  border: 2px solid #0033a0;
+  border-radius: 2px;
+}
+
+input[type="file"]::file-selector-button:active {
+  background: #d64309;
+  color: #fff;
+  border: 2px solid #d64309;
+  border-radius: 2px;
+}
+
 .draw-btn {
   max-width: 25%;
   max-height: 10%;
