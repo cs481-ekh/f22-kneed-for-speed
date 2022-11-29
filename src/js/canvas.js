@@ -156,7 +156,7 @@ function createNodes () {
 function clearCanvas () {
   const ctx = canvas.getContext('2d');
 
-  ctx.clearRect(-canvas.width / 2, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   createdNodes = [[]];
 }
 
