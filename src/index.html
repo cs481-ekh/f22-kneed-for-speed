@@ -20,10 +20,10 @@
                             <th>Geometry File: <input type="file" class="choose-file" id="file1" accept=".inp"></th>
                         </tr>
                         <tr>
-                            <th>Results File: <input type="file" class="choose-file" id="file2" accept=".results"></th>
+                            <th>Results File: <input type="file" class="choose-file" id="file2" accept=".csv"></th>
                         </tr> 
                     </table> 
-                    <button class="draw-btn" id="draw">Draw</button>  
+                    <button class="draw-btn button" id="draw">Draw</button>  
                 </div>
             </form>
             <script src="js/parse-geometry.js"></script>
@@ -32,26 +32,30 @@
         <div class="grid-item dial-1-container">
             <div class="dial-buttons dial-buttons-1">
                 <p>Limb Alignment (&deg;)</p>
-                <div class="dial-container" id="limb-alignment">
-                    <div class="dial"></div>
+                <div class="dial-shadow">
+                    <div class="dial-container" id="limb-alignment">
+                        <div class="dial"></div>
+                    </div>
                 </div>
                 <div class="numeric-input" id="numeric-input-dial-1">
-                    <button type="button" class="plus-minus" id="minus-dial-1">-</button>
+                    <button type="button" class="plus-minus button" id="minus-dial-1">-</button>
                     <input type="number" min="0" max="15" step="0.1" value="0" class="dial-numbers" id="number-dial-1">
-                    <button type="button" class="plus-minus" id="plus-dial-1">+</button>
+                    <button type="button" class="plus-minus button" id="plus-dial-1">+</button>
                 </div>
             </div>
         </div>
         <div class="grid-item dial-2-container">
             <div class="dial-buttons dial-buttons-2">
                 <p>Body Weight (kg)</p>
-                <div class="dial-container" id="body-weight">
-                    <div class="dial"></div>
+                <div class="dial-shadow">
+                    <div class="dial-container" id="body-weight">
+                        <div class="dial"></div>
+                    </div>
                 </div>
                 <div class="numeric-input" id="numeric-input-dial-2">
-                    <button type="button" class="plus-minus" id="minus-dial-2">-</button>
+                    <button type="button" class="plus-minus button" id="minus-dial-2">-</button>
                     <input type="number" min="0" max="136" value="0" class="dial-numbers" id="number-dial-2">
-                    <button type="button" class="plus-minus" id="plus-dial-2">+</button>
+                    <button type="button" class="plus-minus button" id="plus-dial-2">+</button>
                 </div>
             </div>
         </div>
@@ -85,7 +89,7 @@
             </div>
         </div>
         <div class="grid-item stretch-goal-buttons">
-            <button class="save-button" id="save" onclick="downloadImage()">Save</button> 
+            <button class="save-button button" id="save" onclick="downloadImage()">Save</button> 
             <script>
                 function downloadImage() {
                     var canvas = document.getElementById("map");

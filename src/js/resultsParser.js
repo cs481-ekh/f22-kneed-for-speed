@@ -45,10 +45,12 @@ resultInput.addEventListener('change', () => {
     let resultLowestVal = Number.MAX_SAFE_INTEGER
     // Double for loop finds highest force value in the file and the column that value belongs to
 
-    for (let i = 1; i < rowLength; i++) {
-      if (resultOutput[0][i] > resultHighestVal) {
-        resultHighestVal = resultOutput[0][i]
-        resultColumnToUse = i
+    for (let j = 0; j < index; j++) {
+      for (let i = 1; i < rowLength; i++) {
+        if (resultOutput[j][i] > resultHighestVal) {
+          resultHighestVal = resultOutput[j][i]
+          resultColumnToUse = i
+        }
       }
     }
 
@@ -59,9 +61,11 @@ resultInput.addEventListener('change', () => {
       }
     }
     // These values are assigned here and referenced in canvas.js
+    console.log('INDEX: ' + index)
     highestForce = resultHighestVal
     lowestForce = resultLowestVal
     console.log(highestForce)
     console.log(lowestForce)
+    console.log(resultColumnToUse)
   }
 })
