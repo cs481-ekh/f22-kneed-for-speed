@@ -5,46 +5,46 @@ const draw = document.getElementById('draw')
 let createdNodes = [[]]
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 
-let translatePos = {
+const translatePos = {
   x: canvas.width,
   y: canvas.height / 16
 }
 
 let mouseDown = false
-let dragOffset = {}
+const dragOffset = {}
 
 let scale = 6.0
-let scaleMultiplier = 0.8
+const scaleMultiplier = 0.8
 
-document.getElementById("plus").addEventListener("click", function() {
+document.getElementById('plus').addEventListener('click', function() {
   scale /= scaleMultiplier
   drawKnee(scale, translatePos)
 });
 
-document.getElementById("minus").addEventListener("click", function() {
-  scale *= scaleMultiplier;
+document.getElementById('minus').addEventListener('click', function() {
+  scale *= scaleMultiplier
   drawKnee(scale, translatePos)
 })
 
-canvas.addEventListener("mousedown", function(evt) {
+canvas.addEventListener('mousedown', function(evt) {
   mouseDown = true
   dragOffset.x = evt.clientX - translatePos.x
   dragOffset.y = evt.clientY - translatePos.y
 })
 
-canvas.addEventListener("mouseup", function(evt) {
+canvas.addEventListener('mouseup', function(evt) {
   mouseDown = false
 })
 
-canvas.addEventListener("mouseover", function(evt) {
+canvas.addEventListener('mouseover', function(evt) {
   mouseDown = false
 })
 
-canvas.addEventListener("mouseout", function(evt) {
+canvas.addEventListener('mouseout', function(evt) {
   mouseDown = false
 })
 
-canvas.addEventListener("mousemove", function(evt) {
+canvas.addEventListener('mousemove', function(evt) {
   if (mouseDown) {
     translatePos.x = evt.clientX - dragOffset.x;
     translatePos.y = evt.clientY - dragOffset.y;
@@ -55,11 +55,6 @@ canvas.addEventListener("mousemove", function(evt) {
 // Adjusting width and height of canvas
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
-
-// Moving 0, 0 to middle of canvas and making drawing bigger and easier to view
-const ctx = canvas.getContext('2d')
-// ctx.translate(translatePos.x, translatePos.y);
-// ctx.scale(6, 6)
 
 // creating the force spreads
 const n = 8;
