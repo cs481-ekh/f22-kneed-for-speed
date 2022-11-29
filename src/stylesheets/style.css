@@ -120,11 +120,21 @@ h2 {
   position: relative;
   margin: 0 auto;
   background: #767676;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-bottom: 3%;
+}
+
+.dial-shadow {
+  content: "";
+  position: relative;
+  margin: 0 auto;
   width: 48%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  border: 0.25vw solid black;
   margin-bottom: 3%;
+  box-shadow: 5px 5px 10px #b6afaf, -5px -5px 10px #ffffff;
 }
 
 .dial {
