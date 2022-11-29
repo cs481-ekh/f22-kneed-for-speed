@@ -128,7 +128,6 @@ h2 {
 
 .dial-shadow {
   content: "";
-  position: relative;
   margin: 0 auto;
   width: 48%;
   aspect-ratio: 1 / 1;
