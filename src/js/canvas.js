@@ -131,10 +131,15 @@ function heatmapKey (colorList) {
     box.style.backgroundColor = colorList[key]
 
     // Setting the max and min values in the heatmap legend
-    if (i === 0 || i === 7) {
-      const forceLabel = forceRanges[i].toFixed(5)
+    if (i === 0) {
+      const forceLabel = forceRanges[7].toFixed(5)
       boxContainer.append(forceLabel + ' ')
     }
+    if (i === 7) {
+      const forceLabel = forceRanges[0].toFixed(5)
+      boxContainer.append(forceLabel + ' ')
+    }
+
     boxContainer.appendChild(box)
 
     heatmapKey.appendChild(boxContainer)
