@@ -135,6 +135,7 @@ function heatmapKey (colorList) {
     // Had to switch the indexes, cant figure out why but this is what works so I wont question it
     if (i === 7) {
       const forceLabel = forceRanges[0].toFixed(5)
+    }
     if (i === 0) {
       const forceLabel = forceRanges[7].toFixed(5)
       boxContainer.append(forceLabel + ' ')
