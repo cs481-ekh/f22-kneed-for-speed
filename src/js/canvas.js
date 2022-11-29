@@ -16,38 +16,38 @@ const dragOffset = {}
 let scale = 6.0
 const scaleMultiplier = 0.8
 
-document.getElementById('plus').addEventListener('click', function() {
+document.getElementById('plus').addEventListener('click', function () {
   scale /= scaleMultiplier
   drawKnee(scale, translatePos)
-});
+})
 
-document.getElementById('minus').addEventListener('click', function() {
+document.getElementById('minus').addEventListener('click', function () {
   scale *= scaleMultiplier
   drawKnee(scale, translatePos)
 })
 
-canvas.addEventListener('mousedown', function(evt) {
+canvas.addEventListener('mousedown', function (evt) {
   mouseDown = true
   dragOffset.x = evt.clientX - translatePos.x
   dragOffset.y = evt.clientY - translatePos.y
 })
 
-canvas.addEventListener('mouseup', function(evt) {
+canvas.addEventListener('mouseup', function (evt) {
   mouseDown = false
 })
 
-canvas.addEventListener('mouseover', function(evt) {
+canvas.addEventListener('mouseover', function (evt) {
   mouseDown = false
 })
 
-canvas.addEventListener('mouseout', function(evt) {
+canvas.addEventListener('mouseout', function (evt) {
   mouseDown = false
 })
 
-canvas.addEventListener('mousemove', function(evt) {
+canvas.addEventListener('mousemove', function (evt) {
   if (mouseDown) {
-    translatePos.x = evt.clientX - dragOffset.x;
-    translatePos.y = evt.clientY - dragOffset.y;
+    translatePos.x = evt.clientX - dragOffset.x
+    translatePos.y = evt.clientY - dragOffset.y
     drawKnee(scale, translatePos)
   }
 })
@@ -57,7 +57,7 @@ canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas s
 canvas.height = (parent.offsetHeight * 0.996)
 
 // creating the force spreads
-const n = 8;
+const n = 8
 let rangeDiff = ((highestForce - lowestForce) / (n - 1)); // eslint-disable-line
 let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]; // eslint-disable-line
 
