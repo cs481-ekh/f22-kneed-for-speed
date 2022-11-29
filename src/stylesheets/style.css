@@ -1,5 +1,6 @@
 /* ENTIRE PAGE */
 body {
+  background-image: url("grey-background.jpg");
   background-color: #eee;
   font-family: "Metropolis_Regular", sans-serif;
 }
@@ -41,10 +42,11 @@ h2 {
   height: 98vh; /* smaller than 100 to account for address and task bars */
 }
 
+/* this style/class mainly for testing and outlining each grid item when modifying grid layout
 .grid-item {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   background-color: #eee;
-}
+} */
 
 .header {
   grid-column: 1 / -1;
