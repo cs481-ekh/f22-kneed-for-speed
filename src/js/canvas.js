@@ -5,22 +5,51 @@ const draw = document.getElementById('draw')
 let createdNodes = [[]]
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 
-// var translatePos = {
-//   x: canvas.width / 2,
-//   y: canvas.height / 2
-// };
+var translatePos = {
+  x: canvas.width,
+  y: canvas.height / 16
+};
 
-var scale = 1.0
-var scaleMultiplier = 0.2
+var mouseDown = false;
+var dragOffset = {};
+
+var scale = 6.0
+var scaleMultiplier = 0.8
 
 document.getElementById("plus").addEventListener("click", function() {
   scale /= scaleMultiplier;
-  drawKnee(scale);
-});
+  drawKnee(scale, translatePos);
+}, false);
 
 document.getElementById("minus").addEventListener("click", function() {
   scale *= scaleMultiplier;
-  drawKnee(scale);
+  drawKnee(scale, translatePos);
+}, false);
+
+canvas.addEventListener("mousedown", function(evt) {
+  mouseDown = true;
+  dragOffset.x = evt.clientX - translatePos.x;
+  dragOffset.y = evt.clientY - translatePos.y;
+});
+
+canvas.addEventListener("mouseup", function(evt) {
+  mouseDown = false;
+});
+
+canvas.addEventListener("mouseover", function(evt) {
+  mouseDown = false;
+});
+
+canvas.addEventListener("mouseout", function(evt) {
+  mouseDown = false;
+});
+
+canvas.addEventListener("mousemove", function(evt) {
+  if (mouseDown) {
+    translatePos.x = evt.clientX - dragOffset.x;
+    translatePos.y = evt.clientY - dragOffset.y;
+    drawKnee(scale, translatePos);
+  }
 });
 
 // Adjusting width and height of canvas
@@ -29,8 +58,8 @@ canvas.height = (parent.offsetHeight * 0.996)
 
 // Moving 0, 0 to middle of canvas and making drawing bigger and easier to view
 const ctx = canvas.getContext('2d')
-ctx.translate(canvas.width / 2, 0)
-ctx.scale(6, 6)
+// ctx.translate(translatePos.x, translatePos.y);
+// ctx.scale(6, 6)
 
 // creating the force spreads
 const n = 8
@@ -42,20 +71,20 @@ window.onresize = function () {
   // Adjusting canvas width and height
   canvas.width = (parent.offsetWidth * 0.996)
   canvas.height = (parent.offsetHeight * 0.996)
-  drawKnee(scale);
+  drawKnee(scale, translatePos);
 }
 
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
   draw.disabled = true
-  drawKnee(scale)
+  drawKnee(scale, translatePos)
 }
 
 // Clears the canvas and draws the knee with data from files selected to canvas
-function drawKnee (scale) {
+function drawKnee (scale, translatePos) {
   clearCanvas()
   createNodes()
-  drawElement(scale)
+  drawElement(scale, translatePos)
   recalculateHeatmapForces()
 }
 
@@ -67,7 +96,7 @@ function recalculateHeatmapForces () {
 }
 
 // Draws each element from data on the canvas
-function drawElement (scale) {
+function drawElement (scale, translatePos) {
   const ctx = canvas.getContext('2d')
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
@@ -99,8 +128,8 @@ function drawElement (scale) {
     }
 
     // Can begin drawing
-    // ctx.translate(translatePos.x, translatePos.y)
     ctx.save();
+    ctx.translate(translatePos.x, translatePos.y);
     ctx.scale(scale, scale)
     ctx.beginPath()
     // Using rectangles to draw our knee on the canvas
