@@ -1,5 +1,6 @@
 /* ENTIRE PAGE */
 body {
+  background-image: url("grey-background.jpg");
   background-color: #eee;
   font-family: "Metropolis_Regular", sans-serif;
 }
@@ -22,6 +23,7 @@ h1 {
   font-family: "Metropolis_Bold", sans-serif;
   font-size: 3vw;
   color: #0033a0;
+  text-shadow: 4px 4px 2px rgb(0 0 0 / 7%);
 }
 
 h2 {
@@ -40,10 +42,11 @@ h2 {
   height: 98vh; /* smaller than 100 to account for address and task bars */
 }
 
+/* this style/class mainly for testing and outlining each grid item when modifying grid layout
 .grid-item {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   background-color: #eee;
-}
+} */
 
 .header {
   grid-column: 1 / -1;
@@ -105,31 +108,34 @@ h2 {
 /* CANVAS */
 .map {
   background-color: white;
-
-  /* border:1px solid #000000; */
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
 }
 
 .canvas-container {
-  width: 99%;
-  height: 99%;
+  width: 97%;
+  height: 97%;
 }
 
 /* DIALS */
-.dial-image {
-  max-height: 50%;
-  max-width: 50%;
-}
-
 .dial-container {
   content: "";
   position: relative;
   margin: 0 auto;
   background: #767676;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-bottom: 3%;
+}
+
+.dial-shadow {
+  content: "";
+  margin: 0 auto;
   width: 48%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  border: 0.25vw solid black;
   margin-bottom: 3%;
+  box-shadow: 5px 5px 10px #b6afaf, -5px -5px 10px #fff;
 }
 
 .dial {
@@ -176,6 +182,8 @@ input[type="number"] {
   padding-top: 3.5%;
   padding-bottom: 0.5%;
   background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+  margin-bottom: 2%;
 }
 
 .choose-file {
@@ -251,12 +259,11 @@ th {
 
 /* SAVE BUTTON */
 .save-button {
-  height: 3%;
-  width: 6%;
   float: right;
-  position: absolute;
-  size: 80%;
-  right: 2%;
-  top: 86%;
+  position: relative;
+  top: 5%;
+  right: 3%;
+  width: 12%;
+  height: 30%;
   font-family: "Metropolis_Regular", sans-serif;
 }
