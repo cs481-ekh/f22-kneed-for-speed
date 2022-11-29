@@ -251,12 +251,11 @@ th {
 
 /* SAVE BUTTON */
 .save-button {
-  height: 3%;
-  width: 6%;
   float: right;
-  position: absolute;
-  size: 80%;
+  position: relative;
+  top: 5%;
   right: 2%;
-  top: 86%;
+  width: 12%;
+  height: 30%;
   font-family: "Metropolis_Regular", sans-serif;
 }
