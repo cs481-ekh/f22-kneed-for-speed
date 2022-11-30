@@ -4,7 +4,7 @@ const parent = document.getElementById('canvas-container')
 const draw = document.getElementById('draw')
 let createdNodes = [[]]
 let createdElements = [[]]
-const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
+const colorList = { red: '#E30000', orange: '#FF8400', yellow: '#FFFF00', green: '#A6FF58', green_blue: '#40FFBF', light_blue: '#00E5FF', medium_blue: '#0033FF', blue: '#00008B' }
 
 const translatePos = {
   x: canvas.width,
@@ -102,30 +102,30 @@ function drawElement (scale, translatePos) {
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 1; i < createdElements.length; i++) {
-    if (createdElements[i].force <= forceRanges[0]) {
-      ctx.strokeStyle = '#0000F0'
-      ctx.fillStyle = '#0000F0'
-    } else if (createdElements[i].force <= forceRanges[1]) {
-      ctx.strokeStyle = '#ADD8E0'
-      ctx.fillStyle = '#ADD8E0'
+    if (createdElements[i].force <= forceRanges[1]) {
+      ctx.strokeStyle = '#00008B'
+      ctx.fillStyle = '#00008B'
     } else if (createdElements[i].force <= forceRanges[2]) {
-      ctx.strokeStyle = '#008080'
-      ctx.fillStyle = '#008080'
+      ctx.strokeStyle = '#0033FF'
+      ctx.fillStyle = '#0033FF'
     } else if (createdElements[i].force <= forceRanges[3]) {
-      ctx.strokeStyle = '#008000'
-      ctx.fillStyle = '#008000'
+      ctx.strokeStyle = '#00E5FF'
+      ctx.fillStyle = '#00E5FF'
     } else if (createdElements[i].force <= forceRanges[4]) {
-      ctx.strokeStyle = '#ADFF20'
-      ctx.fillStyle = '#ADFF20'
+      ctx.strokeStyle = '#40FFBF'
+      ctx.fillStyle = '#40FFBF'
     } else if (createdElements[i].force <= forceRanges[5]) {
+      ctx.strokeStyle = '#A6FF58'
+      ctx.fillStyle = '#A6FF58'
+    } else if (createdElements[i].force <= forceRanges[6]) {
       ctx.strokeStyle = '#FFFF00'
       ctx.fillStyle = '#FFFF00'
-    } else if (createdElements[i].force <= forceRanges[6]) {
-      ctx.strokeStyle = '#FF4500'
-      ctx.fillStyle = '#FF4500'
+    } else if (createdElements[i].force <= forceRanges[7]) {
+      ctx.strokeStyle = '#FF8400'
+      ctx.fillStyle = '#FF8400'
     } else {
-      ctx.strokeStyle = '#FF0000'
-      ctx.fillStyle = '#FF0000'
+      ctx.strokeStyle = '#E30000'
+      ctx.fillStyle = '#E30000'
     }
 
     // Can begin drawing
