@@ -146,7 +146,7 @@ function drawElement (scale, translatePos) {
 // Loops through the data from file passed in creating nodes to be drawn on canvas
 function createNodes () {
   for (let i = 0; i < nodes.length; i++) { // eslint-disable-line
-    const n = new Node(nodes[i][0], nodes[i][1], nodes[i][2], Math.random()) // eslint-disable-line
+    const n = new Node(nodes[i][0], nodes[i][1], nodes[i][2]) // eslint-disable-line
     createdNodes.push(n)
   }
 }
@@ -200,10 +200,18 @@ function heatmapKey (colorList) {
 
 // Node class
 class Node {
-  constructor (id, xVal, yVal, force) {
+  constructor (id, xVal, yVal) {
     this.id = id
     this.xVal = xVal
     this.yVal = yVal
-    this.force = force
   }
 }
+
+// Element class
+class Element { // eslint-disable-line
+  constructor (id, nodes, force) { // eslint-disable-line
+    this.id = id // eslint-disable-line
+    this.nodes = nodes // eslint-disable-line
+    this.force = force // eslint-disable-line
+  } // eslint-disable-line
+} // eslint-disable-line
