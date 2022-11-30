@@ -83,9 +83,6 @@ function drawKnee (scale, translatePos) {
   createElements(createdNodes)
   drawElement(scale, translatePos)
   recalculateHeatmapForces()
-  // Can access result of forces
-  console.log(resultOutput) // eslint-disable-line
-  console.log(resultColumnToUse) // eslint-disable-line
 }
 
 // Changes the heatmap values based on data passed in, also draws the map on press of Draw (called in drawKnee())
@@ -196,7 +193,6 @@ function createElements (nodes) {
     const e = new Element(id, temp, f)
     createdElements.push(e)
   }
-  console.log(createdElements)
 }
 
 // Clears the canvas of a drawing and clears the data of nodes we created
