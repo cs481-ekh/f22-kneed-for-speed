@@ -20,7 +20,7 @@
                             <th>Geometry File: <input type="file" class="choose-file" id="file1" accept=".inp"></th>
                         </tr>
                         <tr>
-                            <th>Results File: <input type="file" class="choose-file" id="file2" accept=".csv"></th>
+                            <th>&ensp;&emsp;Results File: <input type="file" class="choose-file" id="file2" accept=".csv"></th>
                         </tr> 
                     </table> 
                     <button class="draw-btn button" id="draw">Draw</button>  
@@ -32,6 +32,7 @@
         <div class="grid-item dial-1-container">
             <div class="dial-buttons dial-buttons-1">
                 <p>Limb Alignment (&deg;)</p>
+                <span class="dial-min-max">15</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max">0&nbsp;</span>
                 <div class="dial-shadow">
                     <div class="dial-container" id="limb-alignment">
                         <div class="dial"></div>
@@ -47,6 +48,7 @@
         <div class="grid-item dial-2-container">
             <div class="dial-buttons dial-buttons-2">
                 <p>Body Weight (kg)</p>
+                <span class="dial-min-max">136</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max">0&emsp;</span>
                 <div class="dial-shadow">
                     <div class="dial-container" id="body-weight">
                         <div class="dial"></div>
@@ -66,12 +68,24 @@
         </div>
         <div class="grid-item grid-item-5" id="grid-item-5">
             <div class="canvas-container" id="canvas-container">
-                <div id="button-wrapper">
-                    <input type="button" id="plus" value="+">
-                    <input type="button" id="minus" value="-">
-                  </div>
                 <canvas class="map" id="map"></canvas>
-                <script src="js/canvas.js"></script>
+                <div id="button-wrapper" class="zoom-button-wrapper">
+                    <input type="button" class="button zoom-button" id="minus" value="-">
+                    &ensp;Zoom&ensp;
+                    <input type="button" class="button zoom-button" id="plus" value="+">
+                    <button class="save-button button" id="save" onclick="downloadImage()">Save</button> 
+                    <script>
+                        function downloadImage() {
+                            var canvas = document.getElementById("map");
+                            image = canvas.toDataURL("image/png");
+                            var link = document.createElement('a');
+                            link.download = "my-image.png";
+                            link.href = image;
+                            link.click();
+                        }
+                    </script>
+                </div>
+                <script src="js/canvas.js"></script> 
             </div>
         </div>
         <div class="grid-item footer">
@@ -91,19 +105,6 @@
                         href="https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/">https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/</a>
                 </div>
             </div>
-        </div>
-        <div class="grid-item stretch-goal-buttons">
-            <button class="save-button button" id="save" onclick="downloadImage()">Save</button> 
-            <script>
-                function downloadImage() {
-                    var canvas = document.getElementById("map");
-                    image = canvas.toDataURL("image/png");
-                    var link = document.createElement('a');
-                    link.download = "my-image.png";
-                    link.href = image;
-                    link.click();
-                }
-            </script>
         </div>
     </div>
 </body>
