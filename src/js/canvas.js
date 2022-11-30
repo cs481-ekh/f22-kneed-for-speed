@@ -67,7 +67,7 @@ window.onresize = function () {
   // Adjusting canvas width and height
   canvas.width = (parent.offsetWidth * 0.996)
   canvas.height = (parent.offsetHeight * 0.996)
-  drawKnee(scale, translatePos)
+  drawElement(scale, translatePos)
 }
 
 // Draws on canvas when draw button is pushed after selecting files
@@ -101,7 +101,7 @@ function drawElement (scale, translatePos) {
   const ctx = canvas.getContext('2d')
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
-  for (let i = 0; i < createdElements.length; i++) {
+  for (let i = 1; i < createdElements.length; i++) {
     if (createdElements[i].force <= forceRanges[0]) {
       ctx.strokeStyle = '#0000F0'
       ctx.fillStyle = '#0000F0'
@@ -133,8 +133,17 @@ function drawElement (scale, translatePos) {
     ctx.translate(translatePos.x, translatePos.y)
     ctx.scale(scale, scale)
     ctx.beginPath()
-    // Using rectangles to draw our knee on the canvas
-    ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3)
+
+    // Drawing each element
+    for (let j = 0; j < createdElements[i].nodes.length; j++) {
+      // Checking to see if j = 0, if so, we need to use moveTo. If not, use lineTo
+      if (j === 0) {
+        ctx.moveTo(createdElements[i].nodes[j].xVal, createdElements[i].nodes[j].yVal)
+      } else {
+        ctx.lineTo(createdElements[i].nodes[j].xVal, createdElements[i].nodes[j].yVal)
+      }
+    }
+
     // Stop drawing
     ctx.closePath()
     ctx.restore()
@@ -155,14 +164,14 @@ function createNodes () {
 
 // Loops through the data of elements and creates each element of nodes
 function createElements (nodes) {
-  // Variable to store our nodes for each element
-  const temp = []
   // Loop through elements array
   for (let i = 0; i < elements.length; i++) { // eslint-disable-line
+    // Variable to store nodes
+    const temp = []
     // Loop through each array at array position i
     for (let j = 0; j < elements[i].length; j++) { // eslint-disable-line
       // Loop through nodes to add the nodes to the correct elements
-      for (let k = 0; k < nodes.lenght; k++) {
+      for (let k = 0; k < nodes.length; k++) {
         // If j = 0, just add the id for our element
         if (j === 0) {
           var id = elements[i][j] // eslint-disable-line
@@ -187,6 +196,7 @@ function createElements (nodes) {
     const e = new Element(id, temp, f)
     createdElements.push(e)
   }
+  console.log(createdElements)
 }
 
 // Clears the canvas of a drawing and clears the data of nodes we created
