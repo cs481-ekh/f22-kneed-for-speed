@@ -208,10 +208,10 @@ class Node {
 }
 
 // Element class
-class Element {
-  constructor (id, nodes, force) {
-    this.id = id
-    this.nodes = nodes
-    this.force = force
-  }
-}
+class Element { // eslint-disable-line
+  constructor (id, nodes, force) { // eslint-disable-line
+    this.id = id // eslint-disable-line
+    this.nodes = nodes // eslint-disable-line
+    this.force = force // eslint-disable-line
+  } // eslint-disable-line
+} // eslint-disable-line
