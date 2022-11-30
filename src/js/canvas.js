@@ -100,25 +100,25 @@ function drawElement (scale, translatePos) {
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 0; i < createdNodes.length; i++) {
-    if (createdNodes[i].force <= 0.5) {
+    if (createdNodes[i].force <= forceRanges[0]) {
       ctx.strokeStyle = '#0000F0'
       ctx.fillStyle = '#0000F0'
-    } else if (createdNodes[i].force <= 0.6) {
+    } else if (createdNodes[i].force <= forceRanges[1]) {
       ctx.strokeStyle = '#ADD8E0'
       ctx.fillStyle = '#ADD8E0'
-    } else if (createdNodes[i].force <= 0.7) {
+    } else if (createdNodes[i].force <= forceRanges[2]) {
       ctx.strokeStyle = '#008080'
       ctx.fillStyle = '#008080'
-    } else if (createdNodes[i].force <= 0.75) {
+    } else if (createdNodes[i].force <= forceRanges[3]) {
       ctx.strokeStyle = '#008000'
       ctx.fillStyle = '#008000'
-    } else if (createdNodes[i].force <= 0.8) {
+    } else if (createdNodes[i].force <= forceRanges[4]) {
       ctx.strokeStyle = '#ADFF20'
       ctx.fillStyle = '#ADFF20'
-    } else if (createdNodes[i].force <= 0.85) {
+    } else if (createdNodes[i].force <= forceRanges[5]) {
       ctx.strokeStyle = '#FFFF00'
       ctx.fillStyle = '#FFFF00'
-    } else if (createdNodes[i].force <= 0.9) {
+    } else if (createdNodes[i].force <= forceRanges[6]) {
       ctx.strokeStyle = '#FF4500'
       ctx.fillStyle = '#FF4500'
     } else {
