@@ -3,6 +3,7 @@ let resultOutput = [[]]
 let highestForce = 0.9
 let lowestForce = 0.1
 
+// Event listener listening to the choose file button for Results file. Code is executed on press of that button, not Draw
 resultInput.addEventListener('change', () => {
   const resultFiles = resultInput.files
 
@@ -19,6 +20,7 @@ resultInput.addEventListener('change', () => {
   const resultReader = new FileReader()
   resultReader.readAsText(file)
 
+  // Reader opens file and parses all values, force and element number, into 2d array
   resultReader.onload = (e) => {
     const resFile = e.target.result
     const resLines = resFile.split(/\r\/|\n/)
@@ -41,6 +43,7 @@ resultInput.addEventListener('change', () => {
     let resultHighestVal = 0
     let resultColumnToUse = 0
     let resultLowestVal = Number.MAX_SAFE_INTEGER
+    // Double for loop finds highest force value in the file and the column that value belongs to
 
     for (let j = 0; j < index; j++) {
       for (let i = 1; i < rowLength; i++) {
@@ -57,6 +60,7 @@ resultInput.addEventListener('change', () => {
         resultLowestVal = resultOutput[i][resultColumnToUse]
       }
     }
+    // These values are assigned here and referenced in canvas.js
     console.log('INDEX: ' + index)
     highestForce = resultHighestVal
     lowestForce = resultLowestVal
