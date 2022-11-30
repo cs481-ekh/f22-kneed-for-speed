@@ -81,6 +81,9 @@ function drawKnee (scale, translatePos) {
   createNodes()
   drawElement(scale, translatePos)
   recalculateHeatmapForces()
+  // Can access result of forces
+  console.log(resultOutput)
+  console.log(resultColumnToUse)
 }
 
 // Changes the heatmap values based on data passed in, also draws the map on press of Draw (called in drawKnee())
