@@ -68,12 +68,13 @@ function parameterDial1 (e) {
 // Dial rotation
 function rotate1 (e) {
   // final calculations for the mouse position
-  const result = Math.floor(parameterDial1(e) - 80)
+  parameterDial1(e)
+  let value1 = val1.value * (360/maxVal1)
 
   // rotate the dial based on final calculation - do not rotate further if value is at 0 or max
   if ((val1.value !== maxVal1) && (val1.value != 0)) { // eslint-disable-line
     // console.log(val1.value) // for testing
-    dial1.style.transform = 'rotate(' + result + 'deg)'
+    dial1.style.transform = 'rotate(' + value1 + 'deg)'
   }
 }
 
