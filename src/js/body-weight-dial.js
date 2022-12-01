@@ -62,7 +62,7 @@ function parameterDial2 (e) {
 function rotate2 (e) {
   // final calculations for the mouse position
   parameterDial2(e)
-  let value2 = val2.value * (360/maxVal2)
+  const value2 = val2.value * (360 / maxVal2)
 
   // rotate the dial based on final calculation - do not rotate further if value is at 0 or max
   if ((val2.value !== maxVal2) && (val2.value != 0)) { // eslint-disable-line
