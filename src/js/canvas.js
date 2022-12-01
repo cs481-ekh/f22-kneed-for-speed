@@ -3,6 +3,7 @@ const canvas = document.getElementById('map')
 const parent = document.getElementById('canvas-container')
 const draw = document.getElementById('draw')
 let createdNodes = [[]]
+let createdElements = [[]]
 const colorList = { red: '#FF0000', orange_red: '#FF4500', yellow: '#FFFF00', green_yellow: '#ADFF20', green: '#008000', teal: '#008080', light_blue: '#ADD8E0', blue: '#0000F0' }
 
 const translatePos = {
@@ -66,7 +67,7 @@ window.onresize = function () {
   // Adjusting canvas width and height
   canvas.width = (parent.offsetWidth * 0.996)
   canvas.height = (parent.offsetHeight * 0.996)
-  drawKnee(scale, translatePos)
+  drawElement(scale, translatePos)
 }
 
 // Draws on canvas when draw button is pushed after selecting files
@@ -79,6 +80,7 @@ draw.onclick = function () {
 function drawKnee (scale, translatePos) {
   clearCanvas()
   createNodes()
+  createElements(createdNodes)
   drawElement(scale, translatePos)
   recalculateHeatmapForces()
   // Can access result of forces
@@ -99,26 +101,26 @@ function drawElement (scale, translatePos) {
   const ctx = canvas.getContext('2d')
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
-  for (let i = 0; i < createdNodes.length; i++) {
-    if (createdNodes[i].force <= forceRanges[0]) {
+  for (let i = 1; i < createdElements.length; i++) {
+    if (createdElements[i].force <= forceRanges[0]) {
       ctx.strokeStyle = '#0000F0'
       ctx.fillStyle = '#0000F0'
-    } else if (createdNodes[i].force <= forceRanges[1]) {
+    } else if (createdElements[i].force <= forceRanges[1]) {
       ctx.strokeStyle = '#ADD8E0'
       ctx.fillStyle = '#ADD8E0'
-    } else if (createdNodes[i].force <= forceRanges[2]) {
+    } else if (createdElements[i].force <= forceRanges[2]) {
       ctx.strokeStyle = '#008080'
       ctx.fillStyle = '#008080'
-    } else if (createdNodes[i].force <= forceRanges[3]) {
+    } else if (createdElements[i].force <= forceRanges[3]) {
       ctx.strokeStyle = '#008000'
       ctx.fillStyle = '#008000'
-    } else if (createdNodes[i].force <= forceRanges[4]) {
+    } else if (createdElements[i].force <= forceRanges[4]) {
       ctx.strokeStyle = '#ADFF20'
       ctx.fillStyle = '#ADFF20'
-    } else if (createdNodes[i].force <= forceRanges[5]) {
+    } else if (createdElements[i].force <= forceRanges[5]) {
       ctx.strokeStyle = '#FFFF00'
       ctx.fillStyle = '#FFFF00'
-    } else if (createdNodes[i].force <= forceRanges[6]) {
+    } else if (createdElements[i].force <= forceRanges[6]) {
       ctx.strokeStyle = '#FF4500'
       ctx.fillStyle = '#FF4500'
     } else {
@@ -131,8 +133,17 @@ function drawElement (scale, translatePos) {
     ctx.translate(translatePos.x, translatePos.y)
     ctx.scale(scale, scale)
     ctx.beginPath()
-    // Using rectangles to draw our knee on the canvas
-    ctx.fillRect(createdNodes[i].xVal, createdNodes[i].yVal, 3, 3)
+
+    // Drawing each element
+    for (let j = 0; j < createdElements[i].nodes.length; j++) {
+      // Checking to see if j = 0, if so, we need to use moveTo. If not, use lineTo
+      if (j === 0) {
+        ctx.moveTo(createdElements[i].nodes[j].xVal, createdElements[i].nodes[j].yVal)
+      } else {
+        ctx.lineTo(createdElements[i].nodes[j].xVal, createdElements[i].nodes[j].yVal)
+      }
+    }
+
     // Stop drawing
     ctx.closePath()
     ctx.restore()
@@ -151,12 +162,50 @@ function createNodes () {
   }
 }
 
+// Loops through the data of elements and creates each element of nodes
+function createElements (nodes) {
+  // Loop through elements array
+  for (let i = 0; i < elements.length; i++) { // eslint-disable-line
+    // Variable to store nodes
+    const temp = []
+    // Loop through each array at array position i
+    for (let j = 0; j < elements[i].length; j++) { // eslint-disable-line
+      // Loop through nodes to add the nodes to the correct elements
+      for (let k = 0; k < nodes.length; k++) {
+        // If j = 0, just add the id for our element
+        if (j === 0) {
+          var id = elements[i][j] // eslint-disable-line
+          break
+        } else if (elements[i][j] === nodes[k].id) { // eslint-disable-line
+          temp.push(nodes[k])
+          break
+        }
+      }
+    }
+
+    // Looping through resultOutput to find the force for each element
+    for (let m = 0; m < resultOutput.length; m++) { // eslint-disable-line
+      // If element id matches id corresponding to force in resultOutput, store force value
+      if (id == resultOutput[m][0]) { // eslint-disable-line
+        var f = resultOutput[m][resultColumnToUse] // eslint-disable-line
+        break
+      }
+    }
+
+    // Creating our element and adding to createdElements array
+    const e = new Element(id, temp, f)
+    createdElements.push(e)
+  }
+  console.log(createdElements)
+}
+
 // Clears the canvas of a drawing and clears the data of nodes we created
 function clearCanvas () {
   const ctx = canvas.getContext('2d')
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   createdNodes = [[]]
+  createdElements = [[]]
 }
 
 // Creates the heatmap legend
@@ -208,10 +257,10 @@ class Node {
 }
 
 // Element class
-class Element { // eslint-disable-line
-  constructor (id, nodes, force) { // eslint-disable-line
-    this.id = id // eslint-disable-line
-    this.nodes = nodes // eslint-disable-line
-    this.force = force // eslint-disable-line
-  } // eslint-disable-line
-} // eslint-disable-line
+class Element {
+  constructor (id, nodes, force) {
+    this.id = id
+    this.nodes = nodes
+    this.force = force
+  }
+}
