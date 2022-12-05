@@ -9,11 +9,6 @@ const maxVal2 = val2.getAttribute('max')
 let prevX2 = 0
 let prevY2 = 0
 
-// counter for hold interval
-let counter2
-let timeout2
-let count2 = 0
-
 function parameterDial2 (e) {
   // calculate 1/2 of dial wodith and height
   const width = (dial2.clientWidth / 2)
@@ -87,8 +82,8 @@ function rotateOnClick2 () {
     dial2.style.transform = 'rotate(' + value2 + 'deg)'
   }
   // if max or min value is reached while the button is held down, allow dial to move to that position when released
-  if (val2.value == maxVal2 || val2.value == 0) {
-    dial2.style.transform = 'rotate(' + .01 + 'deg)'
+  if (val2.value == maxVal2 || val2.value == 0) { // eslint-disable-line
+    dial2.style.transform = 'rotate(' + 0.01 + 'deg)'
   }
 }
 
@@ -97,11 +92,11 @@ function valueOutofBounds2 () {
   const value2 = val2.value * (360 / maxVal2)
   if (val2.value > ~~maxVal2) {
     val2.value = maxVal2
-    dial2.style.transform = 'rotate(' + .01 + 'deg)'
+    dial2.style.transform = 'rotate(' + 0.01 + 'deg)'
     alert('The maximum value for this input is ' + maxVal2)
   } else if (val2.value < 0) {
     val2.value = 0
-    dial2.style.transform = 'rotate(' + .01 + 'deg)'
+    dial2.style.transform = 'rotate(' + 0.01 + 'deg)'
     alert('The minimum value for this input is 0')
   } else {
     dial2.style.transform = 'rotate(' + value2 + 'deg)'
@@ -125,5 +120,5 @@ dial2.addEventListener('mousedown', rotateStart2)
 plus2.addEventListener('click', rotateOnClick2)
 minus2.addEventListener('click', rotateOnClick2)
 
-//Add event listener to numeric input
+// Add event listener to numeric input
 val2.addEventListener('change', valueOutofBounds2)

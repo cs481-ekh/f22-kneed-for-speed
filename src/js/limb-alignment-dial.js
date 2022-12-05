@@ -81,8 +81,8 @@ function rotateOnClick1 () {
     dial1.style.transform = 'rotate(' + value1 + 'deg)'
   }
   // if max value is reached while the button is held down, allow dial to move to that position when released
-  if (val1.value == maxVal1 || val1.value == 0) {
-    dial1.style.transform = 'rotate(' + .01 + 'deg)'
+  if (val1.value == maxVal1 || val1.value == 0) { // eslint-disable-line
+    dial1.style.transform = 'rotate(' + 0.01 + 'deg)'
   }
 }
 
@@ -91,11 +91,11 @@ function valueOutofBounds1 () {
   const value1 = val1.value * (360 / maxVal1)
   if (val1.value > ~~maxVal1) { // ~~ ensures maxVal is treated as a number
     val1.value = maxVal1
-    dial1.style.transform = 'rotate(' + .01 + 'deg)' // return to start position
+    dial1.style.transform = 'rotate(' + 0.01 + 'deg)' // return to start position
     alert('The maximum value for this input is ' + maxVal1)
   } else if (val1.value < 0) {
     val1.value = 0
-    dial1.style.transform = 'rotate(' + .01 + 'deg)'
+    dial1.style.transform = 'rotate(' + 0.01 + 'deg)'
     alert('The minimum value for this input is 0')
   } else {
     dial1.style.transform = 'rotate(' + value1 + 'deg)' // rotate normally
@@ -119,5 +119,5 @@ dial1.addEventListener('mousedown', rotateStart1)
 plus1.addEventListener('click', rotateOnClick1)
 minus1.addEventListener('click', rotateOnClick1)
 
-//Add event listener to numeric input
+// Add event listener to numeric input
 val1.addEventListener('change', valueOutofBounds1)

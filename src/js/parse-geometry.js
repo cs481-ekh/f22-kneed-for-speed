@@ -20,16 +20,16 @@ input.addEventListener('change', () => {
 
   isCart = false
   isBone = false
-  
+
   // check for empty files
-  if (files.length === 0) return 
+  if (files.length === 0) return
 
   const file = files[0]
   const filename = file.name.toLowerCase() // makes filename case insensitive
   const fileExt = filename.split('.').pop() // splits the string on '.' and returns the last array element, which will be the file extension/type
 
   // ensures that files are .inp files before attempting to parse them
-  if (fileExt !== 'inp') { 
+  if (fileExt !== 'inp') {
     alert('Geometry files must be in .inp format')
     return
   }
@@ -50,7 +50,7 @@ input.addEventListener('change', () => {
   const reader = new FileReader()
 
   // treats the file as a text file
-  reader.readAsText(file) 
+  reader.readAsText(file)
 
   // Reads in file line by line and stores each line as sessionStorage item
   reader.onload = (e) => {
@@ -117,7 +117,7 @@ input.addEventListener('change', () => {
           break
         }
       }
-      
+
       // works the same as the nodes section, but for Elements array
       const temp = sessionStorage.getItem('line ' + line).split(',')
       temp.forEach(element => {
