@@ -3,9 +3,9 @@ let counter
 let timeout
 let count = 0
 
-/* Dial 1 */
+/* Dial 1 - Limb Alignment Dial */
 
-const num1 = document.getElementById('number-dial-1')
+const num1 = document.getElementById('dial-1-value')
 const sub1 = document.getElementById('minus-dial-1')
 const add1 = document.getElementById('plus-dial-1')
 
@@ -49,10 +49,10 @@ sub1.onmousedown = function () {
 sub1.addEventListener('mouseup', clearTimers)
 sub1.addEventListener('mouseleave', clearTimers)
 
-/* Dial 2 */
+/* Dial 2 - Body Weight Dial */
 // Works same as dial above
 
-const num2 = document.getElementById('number-dial-2')
+const num2 = document.getElementById('dial-2-value')
 const sub2 = document.getElementById('minus-dial-2')
 const add2 = document.getElementById('plus-dial-2')
 
@@ -66,7 +66,7 @@ add2.onmousedown = function () {
       num2.innerHTML = count
       count++
       num2.stepUp()
-    }, 75)
+    }, 100)
   }, 300)
 }
 
@@ -83,7 +83,7 @@ sub2.onmousedown = function () {
       num2.innerHTML = count
       count++
       num2.stepDown()
-    }, 75)
+    }, 100)
   }, 300)
 }
 
