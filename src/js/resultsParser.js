@@ -66,5 +66,7 @@ resultInput.addEventListener('change', () => {
     lowestForce = resultLowestVal
     console.log(highestForce)
     console.log(lowestForce)
+
+    heatmapKey(colorList) // eslint-disable-line
   }
 })
