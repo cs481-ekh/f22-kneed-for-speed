@@ -9,21 +9,24 @@
 <body>
     <div class="layout-grid-container">
         <div class="grid-item header">
-            <h1>KnApp</h1>
-            <h2>The knee visualization app</h2>
+            <div class="banner">
+                <h1>KnApp</h1>
+                <h2>The knee visualization app</h2>
+            </div>
         </div>
         <div class="grid-item upload-buttons-container">
             <form id="form" enctype="multipart/form-data">
-                <div class="file-buttons">
+                <div class="file-buttons-container">
                     <table>
                         <tr>
-                            <th>Geometry File: <input type="file" class="choose-file" id="file1" accept=".inp"></th>
+                            <th>Geometry File: <input type="file" class="choose-file-name" id="file1" accept=".inp"></th>
                         </tr>
                         <tr>
-                            <th>&ensp;&emsp;Results File: <input type="file" class="choose-file" id="file2" accept=".csv"></th>
+                            <th>&ensp;&emsp;Results File: <input type="file" class="choose-file-name" id="file2" accept=".csv"></th>
                         </tr> 
                     </table> 
-                    <button class="draw-btn button" id="draw">Draw</button>  
+                    <button class="draw-btn button" id="draw">Draw</button> 
+                    <button class="clear-btn button" id="clear">Clear</button>   
                 </div>
             </form>
             <script src="js/parse-geometry.js"></script>
@@ -32,7 +35,7 @@
         <div class="grid-item dial-1-container">
             <div class="dial-buttons dial-buttons-1">
                 <p>Limb Alignment (&deg;)</p>
-                <span class="dial-min-max">15</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max">0&nbsp;</span>
+                <span class="dial-min-max-vals">15</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max-vals">0&nbsp;</span>
                 <div class="dial-shadow">
                     <div class="dial-container" id="limb-alignment">
                         <div class="dial"></div>
@@ -48,7 +51,7 @@
         <div class="grid-item dial-2-container">
             <div class="dial-buttons dial-buttons-2">
                 <p>Body Weight (kg)</p>
-                <span class="dial-min-max">136</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max">0&emsp;</span>
+                <span class="dial-min-max-vals">136</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max-vals">0&emsp;</span>
                 <div class="dial-shadow">
                     <div class="dial-container" id="body-weight">
                         <div class="dial"></div>
@@ -66,7 +69,7 @@
         <script src="js/numeric-inputs.js"></script>
         <div class="grid-item heat-map-container" id="heatmap">
         </div>
-        <div class="grid-item grid-item-5" id="grid-item-5">
+        <div class="grid-item canvas-grid-section">
             <div class="canvas-container" id="canvas-container">
                 <canvas class="map" id="map"></canvas>
                 <div id="button-wrapper" class="zoom-button-wrapper">
