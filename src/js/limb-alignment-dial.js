@@ -1,5 +1,6 @@
+/* First Dial on the page (Dial 1) - currently the Limb Alignment Dial */
 const dial1 = document.getElementById('limb-alignment')
-const val1 = document.getElementById('number-dial-1')
+const val1 = document.getElementById('dial-1-value')
 const plus1 = document.getElementById('plus-dial-1')
 const minus1 = document.getElementById('minus-dial-1')
 const maxVal1 = val1.getAttribute('max')
@@ -91,11 +92,11 @@ function valueOutofBounds1 () {
   if (val1.value > ~~maxVal1) { // ~~ ensures maxVal is treated as a number
     val1.value = maxVal1
     dial1.style.transform = 'rotate(' + .01 + 'deg)' // return to start position
-    alert('Over max')
+    alert('The maximum value for this input is ' + maxVal1)
   } else if (val1.value < 0) {
     val1.value = 0
     dial1.style.transform = 'rotate(' + .01 + 'deg)'
-    alert('Under min')
+    alert('The minimum value for this input is 0')
   } else {
     dial1.style.transform = 'rotate(' + value1 + 'deg)' // rotate normally
   }

@@ -1,5 +1,6 @@
+/* Second Dial on the page (Dial 2) - currently the Body Weight Dial */
 const dial2 = document.getElementById('body-weight')
-const val2 = document.getElementById('number-dial-2')
+const val2 = document.getElementById('dial-2-value')
 const plus2 = document.getElementById('plus-dial-2')
 const minus2 = document.getElementById('minus-dial-2')
 const maxVal2 = val2.getAttribute('max')
@@ -97,11 +98,11 @@ function valueOutofBounds2 () {
   if (val2.value > ~~maxVal2) {
     val2.value = maxVal2
     dial2.style.transform = 'rotate(' + .01 + 'deg)'
-    alert('Over max')
+    alert('The maximum value for this input is ' + maxVal2)
   } else if (val2.value < 0) {
     val2.value = 0
     dial2.style.transform = 'rotate(' + .01 + 'deg)'
-    alert('Under min')
+    alert('The minimum value for this input is 0')
   } else {
     dial2.style.transform = 'rotate(' + value2 + 'deg)'
   }
