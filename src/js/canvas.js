@@ -86,8 +86,8 @@ function drawElement (scale, translatePos) {
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 1; i < createdElements.length; i++) {
     if (isBone) { // eslint-disable-line
-      ctx.strokeStyle = '#616161'
-      ctx.strokeStyle = '#616161'
+      ctx.strokeStyle = 'black'
+      ctx.fillStyle = '#c3c3c3'
     } else {
       if (createdElements[i].force <= (highestForce * 1 / 10)) { // eslint-disable-line
         ctx.strokeStyle = 'black'
@@ -108,12 +108,12 @@ function drawElement (scale, translatePos) {
         ctx.strokeStyle = 'black'
         ctx.fillStyle = '#A6FF58'
       } else if (createdElements[i].force <= (highestForce * 7 / 10)) { // eslint-disable-line
-        ctx.strokeStyle = '#FFFF00'
+        ctx.strokeStyle = '#black'
         ctx.fillStyle = '#FFFF00'
       } else if (createdElements[i].force <= (highestForce * 8 / 10)) { // eslint-disable-line
         ctx.strokeStyle = 'black'
         ctx.fillStyle = '#FF8400'
-      } else if (createdElements[i].force <= (highestForce * 9 / 10)) { // eslint-disable-line
+      } else if (createdElements[i].force <= (highestForce)) { // eslint-disable-line
         ctx.strokeStyle = 'black'
         ctx.fillStyle = '#E33200'
       } else {
