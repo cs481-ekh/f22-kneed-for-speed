@@ -3,6 +3,8 @@ let resultOutput = [[]]
 let highestForce = 0.9
 let lowestForce = 0.1
 let resultColumnToUse = 0
+let isStress = false
+let isStrain = false
 
 // Event listener listening to the choose file button for Results file. Code is executed on press of that button, not Draw
 resultInput.addEventListener('change', () => {
@@ -14,12 +16,29 @@ resultInput.addEventListener('change', () => {
 
   // Clearing data from resultOutput if input file is changed
   resultOutput = [[]]
+  isStress = false
+  isStrain = false
 
   if (resultFiles.length === 0) return
 
   const file = resultFiles[0]
   const resultReader = new FileReader()
   resultReader.readAsText(file)
+
+  const filename = file.name.toLowerCase() // makes filename case insensitive
+  
+  // checks for stress or strain file naming convention
+  if (filename.includes('_s')) {
+    isStress = true
+  } else if (filename.includes('_le')) { 
+    isStrain = true
+  } else {
+    alert('File name must specify whether it is a stress (S) or strain (LE) file') // alerts the user if file does not follow expected file naming conventions
+    return
+  }
+
+  console.log('isStress = ' + isStress) 
+  console.log('isStrain = ' + isStrain) 
 
   // Reader opens file and parses all values, force and element number, into 2d array
   resultReader.onload = (e) => {
