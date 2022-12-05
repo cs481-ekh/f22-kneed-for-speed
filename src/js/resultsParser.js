@@ -28,6 +28,7 @@ resultInput.addEventListener('change', () => {
   const filename = file.name.toLowerCase() // makes filename case insensitive
   
   // checks for stress or strain file naming convention
+  // could be used by future groups to add a proper unit to the map key based on file type
   if (filename.includes('_s')) {
     isStress = true
   } else if (filename.includes('_le')) { 
