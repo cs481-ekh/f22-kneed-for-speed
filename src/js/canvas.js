@@ -86,8 +86,8 @@ function drawElement (scale, translatePos) {
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 1; i < createdElements.length; i++) {
     if (isBone) { // eslint-disable-line
-      ctx.strokeStyle = '616161'
-      ctx.strokeStyle = '616161'
+      ctx.strokeStyle = '#616161'
+      ctx.strokeStyle = '#616161'
     } else {
       if (createdElements[i].force <= (highestForce * 1 / 10)) { // eslint-disable-line
         ctx.strokeStyle = 'black'
