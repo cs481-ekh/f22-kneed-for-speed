@@ -4,7 +4,7 @@ const parent = document.getElementById('canvas-container')
 const draw = document.getElementById('draw')
 let createdNodes = [[]]
 let createdElements = [[]]
-const colorList = { red: '#E30000', orange: '#FF8400', yellow: '#FFFF00', green: '#A6FF58', green_blue: '#40FFBF', light_blue: '#00E5FF', medium_blue: '#0033FF', blue: '#00008B' }
+const colorList = { red: '#E30000', red_orange: '#E33200', orange: '#FF8400', yellow: '#FFFF00', green: '#A6FF58', green_blue: '#40FFBF', light_blue: '#00E5FF', blue: '#0033FF', medium_blue: '#0000C8', dark_blue: '#00008B' } // eslint-disable-line
 
 const translatePos = {
   x: canvas.width,
@@ -57,11 +57,6 @@ canvas.addEventListener('mousemove', function (evt) {
 canvas.width = (parent.offsetWidth * 0.996) // multiplication to reduce canvas size to account for 1px border
 canvas.height = (parent.offsetHeight * 0.996)
 
-// creating the force spreads
-const n = 8
-let rangeDiff = ((highestForce - lowestForce) / (n - 1)); // eslint-disable-line
-let forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)]; // eslint-disable-line
-
 // Canvas will resize itself when window is resized
 window.onresize = function () {
   // Adjusting canvas width and height
@@ -82,15 +77,6 @@ function drawKnee (scale, translatePos) {
   createNodes()
   createElements(createdNodes)
   drawElement(scale, translatePos)
-  recalculateHeatmapForces()
-}
-
-// Changes the heatmap values based on data passed in, also draws the map on press of Draw (called in drawKnee())
-function recalculateHeatmapForces () {
-  rangeDiff = ((highestForce - lowestForce) / (n - 1)) // eslint-disable-line
-  // forceRanges is created and populated with evenly spaced values between the highest and lowest force values found in resultsParser
-  forceRanges = [(lowestForce + rangeDiff * 0), (lowestForce + rangeDiff * 1), (lowestForce + rangeDiff * 2), (lowestForce + rangeDiff * 3), (lowestForce + rangeDiff * 4), (lowestForce + rangeDiff * 5), (lowestForce + rangeDiff * 6), (lowestForce + rangeDiff * 7)] // eslint-disable-line
-  heatmapKey(colorList)
 }
 
 // Draws each element from data on the canvas
@@ -99,30 +85,41 @@ function drawElement (scale, translatePos) {
 
   // Loop through createdNodes and set the fill and stroke color based on the force associated with each node
   for (let i = 1; i < createdElements.length; i++) {
-    if (createdElements[i].force <= forceRanges[1]) {
-      ctx.strokeStyle = '#00008B'
-      ctx.fillStyle = '#00008B'
-    } else if (createdElements[i].force <= forceRanges[2]) {
-      ctx.strokeStyle = '#0033FF'
-      ctx.fillStyle = '#0033FF'
-    } else if (createdElements[i].force <= forceRanges[3]) {
-      ctx.strokeStyle = '#00E5FF'
-      ctx.fillStyle = '#00E5FF'
-    } else if (createdElements[i].force <= forceRanges[4]) {
-      ctx.strokeStyle = '#40FFBF'
-      ctx.fillStyle = '#40FFBF'
-    } else if (createdElements[i].force <= forceRanges[5]) {
-      ctx.strokeStyle = '#A6FF58'
-      ctx.fillStyle = '#A6FF58'
-    } else if (createdElements[i].force <= forceRanges[6]) {
-      ctx.strokeStyle = '#FFFF00'
-      ctx.fillStyle = '#FFFF00'
-    } else if (createdElements[i].force <= forceRanges[7]) {
-      ctx.strokeStyle = '#FF8400'
-      ctx.fillStyle = '#FF8400'
+    if (isBone) { // eslint-disable-line
+      ctx.strokeStyle = '#616161'
+      ctx.strokeStyle = '#616161'
     } else {
-      ctx.strokeStyle = '#E30000'
-      ctx.fillStyle = '#E30000'
+      if (createdElements[i].force <= (highestForce * 1 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#00008B'
+      } else if (createdElements[i].force <= (highestForce * 2 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#0000C8'
+      } else if (createdElements[i].force <= (highestForce * 3 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#0033FF'
+      } else if (createdElements[i].force <= (highestForce * 4 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#00E5FF'
+      } else if (createdElements[i].force <= (highestForce * 5 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#40FFBF'
+      } else if (createdElements[i].force <= (highestForce * 6 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#A6FF58'
+      } else if (createdElements[i].force <= (highestForce * 7 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = '#FFFF00'
+        ctx.fillStyle = '#FFFF00'
+      } else if (createdElements[i].force <= (highestForce * 8 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#FF8400'
+      } else if (createdElements[i].force <= (highestForce * 9 / 10)) { // eslint-disable-line
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#E33200'
+      } else {
+        ctx.strokeStyle = 'black'
+        ctx.fillStyle = '#E30000'
+      }
     }
 
     // Can begin drawing
@@ -227,12 +224,12 @@ function heatmapKey (colorList) {
 
     // Setting the max and min values in the heatmap legend
     // Had to switch the indexes, cant figure out why but this is what works so I wont question it
-    if (i === 7) {
-      const forceLabel = forceRanges[0].toFixed(5)
+    if (i === 9) {
+      const forceLabel = lowestForce.toFixed(5) // eslint-disable-line
       boxContainer.append(forceLabel + ' ')
     }
     if (i === 0) {
-      const forceLabel = forceRanges[7].toFixed(5)
+      const forceLabel = highestForce.toFixed(5) // eslint-disable-line
       boxContainer.append(forceLabel + ' ')
     }
 
@@ -260,3 +257,5 @@ class Element {
     this.force = force
   }
 }
+
+heatmapKey(colorList)
