@@ -63,13 +63,12 @@ resultInput.addEventListener('change', () => {
       indexCount--
     }
     console.log(resultOutput)
-    
 
     // finding the highest force value in the first row and column for canvas.js to use
     const rowLength = resultOutput[0].length
     let nullCount = index
-    while(resultOutput[nullCount].length < rowLength) {
-      resultOutput.splice(nullCount,1)
+    while (resultOutput[nullCount].length < rowLength) {
+      resultOutput.splice(nullCount, 1)
       nullCount--
     }
     index = nullCount
