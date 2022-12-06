@@ -1,12 +1,6 @@
-# capstone-template
-BSU CS481 Capstone project template
+# KnApp  - The Knee Visualization App
 
-![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
-
-## Project Title
-KnApp  - The Knee Visualization App
-
-## Team Member
+## Team Members
 Ezekiel Holmes  
 Kate Rosenthal  
 Mario Torres  
@@ -50,3 +44,5 @@ of the data. Users could also update the data parameters by dialing the two
 circle panels or clicking on the "+" or "-" buttons on the sides of the panels.
 Below is a snapshot of our web application.
 ![Capture](./src/assets/images/Capture.PNG)
+
+![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
