@@ -7,25 +7,26 @@ BSU CS481 Capstone project template
 KnApp  - The Knee Visualization App
 
 ## Team Member
-Ezekiel Holmes</br>
-Kate Rosenthal</br>
-Mario Torres</br>
-Mitchell Crocker</br>
-Sharon Yang</br>
+Ezekiel Holmes  
+Kate Rosenthal  
+Mario Torres  
+Mitchell Crocker   
+Sharon Yang
 
 ## Project Abstract
 Currently, Boise State University’s Computational Biosciences Lab (CBL)
 simulates and models knee joint movement and stresses by producing numeric
 datasets and results for osteoarthritis patients based on various parameters
-such as loading conditions, anatomy, and movement. </br> </br> To make medical
-data more easily understandable for clinicians, we built this easy-to-use web
+such as loading conditions, anatomy, and movement. 
+
+To make medical data more easily understandable for clinicians, we built this easy-to-use web
 application where an user can upload data files, see a visual heat map of output,
 and observe the shape and colorness of the image to easily understand the data
 distribution.
 
 ## Project Description
 The web application we've built primarily performs four key
-functionalities as follows:</br>
+functionalities as follows:
 - File Uploading: Users upload geometry and results data file
 in .inp or .csv format. The geometry file determines the shape
 of the image and the results file determines the colors of data
