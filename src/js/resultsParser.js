@@ -51,6 +51,10 @@ resultInput.addEventListener('change', () => {
     let index = 0
     while (indexCount > 0) {
       const placehold = resLines[index].split(',')
+      // if (resLines[index].search(/(^(\r\n|\n|\r)$)|(^(\r\n|\n|\r))|^\s*$/gm) !== (-1)) {
+      //   resultOutput.splice(index,1)
+      //   break
+      // }
       placehold.forEach(element => {
         resultOutput[index].push(parseFloat(element.slice(1))) // turning strings into ints, trimming off extra spaces
       })
@@ -58,9 +62,16 @@ resultInput.addEventListener('change', () => {
       index++
       indexCount--
     }
+    console.log(resultOutput)
 
     // finding the highest force value in the first row and column for canvas.js to use
     const rowLength = resultOutput[0].length
+    let nullCount = index
+    while (resultOutput[nullCount].length < rowLength) {
+      resultOutput.splice(nullCount, 1)
+      nullCount--
+    }
+    index = nullCount
     let resultHighestVal = 0
     let resultLowestVal = Number.MAX_SAFE_INTEGER
     // Double for loop finds highest force value in the file and the column that value belongs to
