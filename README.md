@@ -52,12 +52,12 @@ does not rely on any outside frameworks, libraries, or databases.
 
 Note: Due to the importance of parsing data for this application to run, file format is extremely important. 
 
-All Geometry files must be in .inp format, meaning they have distictly labled 'node', 'element', and, 
-if they are cartilage files, 'side' node sections followed by the data itself immediately 
+All Geometry files must be in .inp format, meaning they have distinctly labled 'node' and 'element' sections, and, 
+if they are cartilage files, 'side' node sections as well, followed by the data itself immediately 
 on the next line. For the node data, each line will represent a unique node. Each line must contain only the node
 number and its x, y, and z values all seperated by commas. For element data, each line will represent a unique 
-element and each line must contain only the element number and the node numbers of all nodes beloning to that element 
-all seperated by commas.
+element and each line must contain only the element number and the node numbers of all nodes beloning to that element, 
+again, all seperated by commas.
 
 For the Results files, each line of the .csv file will represent a unique element and the 
 pressure exerted on it over a given time period. The first item on each line will be
