@@ -1,10 +1,10 @@
 # KnApp
 ![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
 ## Team Knee'd for Speed
-Mitchell Crocker     
+Mitchell Crocker   
 Ezekiel Holmes  
 Kate Rosenthal  
-Mario Torres   
+Mario Torres  
 Sharon Yang
 
 ## Project Abstract
@@ -36,15 +36,34 @@ parsed into a 2D array of individual node numbers with x, y, and z values and
 a 2D array of element numbers with each node number corresponsing to nodes in
 that element. Results files are parsed into a 2D array of elements with the change 
 in pressure on each individual element over a period of time. The point in time 
-where the highest pressure occurs is also stored.
+where the highest pressure occurs is also stored, along with the highest and
+lowest pressures at that time.
 - Image Generating: The site uses the parsed data to generate an accurate
 image of pressures on the knee at the point in time that the highest pressure
 is occuring by drawing it on an HTML canvas element. The map draws each element
 based on the x,y coordinates of each of its nodes and then applies the proper
-colors 
+colors from the heat map key to each element based on its pressure at this point
+in time from the result file data. Colors are assigned based on a linear scale 
+calculated from the highest pressure to the lowest pressure to allow for each
+image to have its own unique and accurate color mapping.
 
-It was built entirely using basic HTML, CSS, and JavaScript code and does not
-rely on any outside frameworks, libraries, or databases.
+The application was built entirely using basic HTML, CSS, and JavaScript code and 
+does not rely on any outside frameworks, libraries, or databases.
+
+File format is extremely important for the application to work. All Geometry files
+must be in .inp format, meaning they have distictly labled 'node' and 'element' and, 
+if they are cartilage files, 'side' node sections followed immediately on the next line 
+by the data itself.
+
+For nodes, each line will represent a unique node. Each line must contain only the node
+number and its x, y, and z values all seperated by commas.
+
+For elements, each line will represent a unique element and each line must contain only the 
+element number and the node numbers of all nodes beloning to that element all seperated by commas.
+
+For the Results files, each line of the .csv file will represent a unique element and the 
+pressure exerted on it over a given time period. The first item on each line will be
+the element's number followed by the pressure values, again, all separated by commas.
 
 ### How It Works
 To use this web application, a user must first click on the "Choose File"
@@ -95,7 +114,7 @@ Currently, the parameter dials on the left side of the page do not affect the ge
 They can be turned by clicking and dragging to rotate them, by clicking or holding the '+' and '-'
 buttons below them, or by manually entering a value in their indicated range in the number input
 area below them. Future work on the project could allow these values to update the heat map in
-real time for the user to show them just how changes to these parameters could change where or
+real time for the user to show them how changes to these parameters could change where or
 how much pressure is being applied to different parts of the knee.
 
 ## Visit the App
