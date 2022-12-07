@@ -8,7 +8,7 @@ Mario Torres
 Sharon Yang
 
 ## Project Abstract
-The Computational Biosciences Lab (CBL )at Boise State University simulates and models knee 
+The Computational Biosciences Lab (CBL) at Boise State University simulates and models knee 
 joint movement and stresses. They are currently producing numeric data sets and results for 
 osteoarthritis patients based on parameters such as loading conditions, anatomy, and movement. 
 These complex, numeric results are understandable for the department generating the data, but 
@@ -23,48 +23,53 @@ clinicians.
 
 ## Project Description
 ### What We Built
-The web application we've built performs four key
-functionalities as follows:
+The web application we've built performs three key
+functions:
 - File Uploading: Users can upload geometry and results data files
 in .inp and .csv format, respectively. The data in the geometry file 
 determines the shape of the image produced by the app and the results file 
-determines the values and colors of  in the image.
-- Data Parsing: The site parses these correctly and handles the
+determines the pressure values and colors assigned to each individual element 
+in the image.
+- Data Parsing: The site parses geometry and results files and handles the
 data in a way that the site can use to create an image.
-- Image Generating: The site uses the parsed data to generate the
-image of the knee.
-- Parameters Updating: Parameters input could be updated arbitrary
-by dialing on the panels.
+- Image Generating: The site uses the parsed data to generate an accuarte
+image of pressures on the knee.
+
+It was built entirely using basic HTML, CSS, and JavaScript code and does not
+rely on any outside frameworks, libraries, or databases.
 
 ### How It Works
 To use this web application, a user must first click on the "Choose File"
-button on the upper left of the web page following the title "Geometry File"
+button on the upper left of the web page following the "Geometry File" label
 and select a Geometry data file from their local drive. Files must be in .inp format
-and the file name must include the tissue type they will produce- 'bone' for bone
+and the file name must include the tissue type it will produce- 'bone' for bone
 files and 'cart' for cartlage files.
 
 ![KnApp](./docs/knapp-choose-file.png)
 
 If the file is a bone file, the user can draw it accurately without a corresponding result
-file, as the app is only designed to generate pressure maps for cartilage files. Bones are drawn 
-entirely in grey.
+file, as the app is only designed to generate pressure maps for cartilage. Bones are drawn 
+entirely in grey, such as the tibia geometry below.
 
 ![KnApp](./docs/knapp-bone.png)
 
 If they are working with a cartilage file, users must then click on the "Choose File" button following 
-the title "Results File" and select a Results data file from their local drive. If they do not select a
+the "Results File" label and select a Results data file from their local drive and must include the pressure
+type they will display- \_S for stress files and \_LE for strain files. If they do not select a
 results file, the cartilage will be drawn in one single color rather than with a heat map applied.
 
 ![KnApp](./docs/knapp-choose-file-2.png)
 
-Once their file(s) are chosen, users must click on the "Draw" button to generate their image. The image
-will appear in the canvas element on the right side of the web page showing the distribution
-of the data.
+Once their file(s) are chosen, the user must click on the "Draw" button to generate their image. The image
+will appear in the canvas element on the right side of the web page.
 
+The following image shows the map of a stress results file on a patella cartilage geometry file:
 ![KnApp](./docs/knapp.png)
 
+This image shows the map of a strain results file on the same patella cartilage geometry file as above:
 ![KnApp](./docs/knapp-strain.png)
 
+This image shows the map of a strain results file on a femur cartilage geometry file as above:
 ![KnApp](./docs/knapp-femur.png)
 
 Currently, the parameter dials on the left side of the page do no affect the generated heat map.
