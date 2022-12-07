@@ -70,8 +70,18 @@ The following image shows the map of a stress results file on a patella cartilag
 This image shows the map of a strain results file on the same patella cartilage geometry file as above:
 ![KnApp](./docs/knapp-strain.png)
 
-This image shows the map of a strain results file on a femur cartilage geometry file:
+This image shows the map of a stress results file on a femur cartilage geometry file:
 ![KnApp](./docs/knapp-femur.png)
+Note: when drawing femur cartilage in particular, the app can run very slowly due to the sheer size and number
+of unique nodes and elements
+
+Users can then Zoom in or out on the image they have created and are also able to save a .png file of
+the image using the buttons located below the canvas.
+![KnApp](./docs/knapp-zoom.png)
+
+To draw another image, users can click on the 'Clear' button next to the 'Draw' button to reset the page 
+completely, or they can simply choose a new geometry or results file from either or both of the file selection 
+buttons and click 'Draw' again.
 
 Currently, the parameter dials on the left side of the page do not affect the generated heat map.
 They can be turned by clicking and dragging to rotate them, by clicking or holding the '+' and '-'
