@@ -57,4 +57,4 @@ circle panels or clicking on the "+" or "-" buttons on the sides of the panels.
 
 Below is a snapshot of our web application.
 
-![KnApp](./dos/knapp.PNG)
+![KnApp](./docs/knapp.PNG)
