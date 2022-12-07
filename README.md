@@ -33,7 +33,7 @@ in the image.
 - Data Parsing: The site parses geometry and results files and handles the
 data in a way that the site can use to create an image.
 - Image Generating: The site uses the parsed data to generate an accuarte
-image of pressures on the knee.
+image of pressures on the knee by drawing it on an HTML canvas element.
 
 It was built entirely using basic HTML, CSS, and JavaScript code and does not
 rely on any outside frameworks, libraries, or databases.
