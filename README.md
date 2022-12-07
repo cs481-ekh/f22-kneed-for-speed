@@ -1,6 +1,6 @@
-# KnApp
+# KnApp - The Knee Visualization App
 ![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
-## Team Knee'd for Speed
+## The Team
 Mitchell Crocker   
 Ezekiel Holmes  
 Kate Rosenthal  
