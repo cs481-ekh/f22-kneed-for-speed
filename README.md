@@ -40,10 +40,10 @@ rely on any outside frameworks, libraries, or databases.
 
 ### How It Works
 To use this web application, a user must first click on the "Choose File"
-button on the upper left of the web page following the "Geometry File" label
+button in the upper left of the web page following the "Geometry File" label
 and select a Geometry data file from their local drive. Files must be in .inp format
 and the file name must include the tissue type it will produce- 'bone' for bone
-files and 'cart' for cartlage files.
+files and 'cart' for cartilage files.
 
 ![KnApp](./docs/knapp-choose-file.png)
 
@@ -54,9 +54,10 @@ entirely in grey, such as the tibia geometry below.
 ![KnApp](./docs/knapp-bone.png)
 
 If they are working with a cartilage file, users must then click on the "Choose File" button following 
-the "Results File" label and select a Results data file from their local drive and must include the pressure
-type they will display- \_S for stress files and \_LE for strain files. If they do not select a
-results file, the cartilage will be drawn in one single color rather than with a heat map applied.
+the "Results File" label and select a Results data file from their local drive. Results files must be in
+.csv format and the file name must include the pressure type it will display- 
+\_S for stress files and \_LE for strain files. If they do not select a results file, the cartilage will 
+be drawn in one single color rather than with a heat map applied.
 
 ![KnApp](./docs/knapp-choose-file-2.png)
 
@@ -69,10 +70,10 @@ The following image shows the map of a stress results file on a patella cartilag
 This image shows the map of a strain results file on the same patella cartilage geometry file as above:
 ![KnApp](./docs/knapp-strain.png)
 
-This image shows the map of a strain results file on a femur cartilage geometry file as above:
+This image shows the map of a strain results file on a femur cartilage geometry file:
 ![KnApp](./docs/knapp-femur.png)
 
-Currently, the parameter dials on the left side of the page do no affect the generated heat map.
+Currently, the parameter dials on the left side of the page do not affect the generated heat map.
 They can be turned by clicking and dragging to rotate them, by clicking or holding the '+' and '-'
 buttons below them, or by manually entering a value in their indicated range in the number input
 area below them. Future work on the project could allow these values to update the heat map in
