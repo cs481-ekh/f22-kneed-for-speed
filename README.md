@@ -56,13 +56,13 @@ All Geometry files must be in .inp format, meaning they have distinctly labled '
 if they are cartilage files, 'side' node sections as well, followed by the data itself immediately 
 on the next line. For the node data, each line will represent a unique node. Each line must contain only the node
 number and its x, y, and z values all seperated by commas. For element data, each line will represent a unique 
-element and each line must contain only the element number and the node numbers of all nodes beloning to that element, 
+element and each line must contain only the element number and the node numbers of all nodes belonging to that element, 
 again, all seperated by commas.
 
 For the Results files, each line of the .csv file will represent a unique element and the 
 pressure exerted on it over a given time period. The first item on each line will be
 the element's number followed by the comma seperated pressure values. Each column of the
-file will represent a single point in time.
+file after the first will represent a single point in time.
 
 ### How It Works
 To use this web application, a user must first click on the "Choose File"
@@ -105,7 +105,7 @@ Users can then Zoom in or out on the image they have created and are also able t
 the image using the buttons located below the canvas.
 ![KnApp](./docs/knapp-zoom.png)
 
-To draw another image, users can click on the 'Clear' button next to the 'Draw' button to reset the page 
+To draw another image, users can click on the 'Clear' button located next to the 'Draw' button to reset the page 
 completely, or they can simply choose a new geometry or results file from either or both of the file selection 
 buttons and click 'Draw' again.
 
