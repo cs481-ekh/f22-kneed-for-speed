@@ -8,11 +8,12 @@ Mitchell Crocker
 Sharon Yang
 
 ## Project Abstract
-The Computational Biosciences Lab (CBL) simulates and models knee joint movement and stresses. 
-They are currently producing numeric data sets and results for osteoarthritis patients based on 
-parameters such as loading conditions, anatomy, and movement. These complex, numeric results are 
-understandable for the department generating the data, but it is currently difficult to gather a 
-high-level understanding of this output for clinicians and those unfamiliar with the field. 
+The Computational Biosciences Lab (CBL )at Boise State University simulates and models knee 
+joint movement and stresses. They are currently producing numeric data sets and results for 
+osteoarthritis patients based on parameters such as loading conditions, anatomy, and movement. 
+These complex, numeric results are understandable for the department generating the data, but 
+it is currently difficult to gather a high-level understanding of this output for clinicians 
+and those unfamiliar with the field. 
 
 To help solve this issue, our team has developed an easy-to-use web application with which 
 a user can upload files containing the anatomic data provided by the CBL and see a 
@@ -64,7 +65,13 @@ of the data.
 
 ![KnApp](./docs/knapp-femur.png)
 
-Ideally, users would also be able to update the data parameters by dialing the two
-circle panels or clicking on the "+" or "-" buttons on the sides of the panels.
+Currently, the parameter dials on the left side of the page do no affect the generated heat map.
+They can be turned by clicking and dragging to rotate them, by clicking or holding the '+' and '-'
+buttons below them, or by manually entering a value in their indicated range in the number input
+area below them. Future work on the project could allow these values to update the heat map in
+real time for the user to show them just how changes to these parameters could change where or
+how much pressure is being applied to different parts of the knee.
 
-![KnApp](./docs/knapp-dials.png)
+## Visit the App
+https://cs481-ekh.github.io/f22-kneed-for-speed/src/index.html?
+Note: for the app to work properly, you must have a set of properly formatted files from the CBL
