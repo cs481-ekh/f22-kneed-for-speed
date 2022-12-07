@@ -82,7 +82,7 @@ entirely in grey, such as the tibia geometry below.
 If they are working with a cartilage file, users must then click on the "Choose File" button following 
 the "Results File" label and select a Results data file from their local drive. Results files must be in
 .csv format and the file name must include the pressure type it will display- 
-\_S for stress files and \_LE for strain files. If they do not select a results file, the cartilage will 
+'\_S' for stress files and '\_LE' for strain files. If they do not select a results file, the cartilage will 
 be drawn in one single color rather than with a heat map applied.
 
 ![KnApp](./docs/knapp-choose-file-2.png)
