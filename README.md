@@ -1,6 +1,6 @@
 # KnApp  - The Knee Visualization App
 
-## Team Members
+## Created by Team Knee'd for Speed
 Ezekiel Holmes  
 Kate Rosenthal  
 Mario Torres  
