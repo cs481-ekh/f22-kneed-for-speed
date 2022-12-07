@@ -1,5 +1,5 @@
 # KnApp  - The Knee Visualization App
-
+![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
 ## Created by Team Knee'd for Speed
 Ezekiel Holmes  
 Kate Rosenthal  
@@ -45,5 +45,3 @@ circle panels or clicking on the "+" or "-" buttons on the sides of the panels.
 Below is a snapshot of our web application.
 
 ![Capture](./src/assets/images/Capture.PNG)
-
-![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
