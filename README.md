@@ -31,9 +31,17 @@ determines the shape of the image produced by the app and the results file
 determines the pressure values and colors assigned to each individual element 
 in the image.
 - Data Parsing: The site parses geometry and results files and handles the
-data in a way that the site can use to create an image.
-- Image Generating: The site uses the parsed data to generate an accuarte
-image of pressures on the knee by drawing it on an HTML canvas element.
+data in a way that the site can use to create an image. Geometry files are
+parsed into a 2D array of individual node numbers with x, y, and z values and 
+a 2D array of element numbers with each node number corresponsing to nodes in
+that element. Results files are parsed into a 2D array of elements with the change 
+in pressure on each individual element over a period of time. The point in time 
+where the highest pressure occurs is also stored.
+- Image Generating: The site uses the parsed data to generate an accurate
+image of pressures on the knee at the point in time that the highest pressure
+is occuring by drawing it on an HTML canvas element. The map draws each element
+based on the x,y coordinates of each of its nodes and then applies the proper
+colors 
 
 It was built entirely using basic HTML, CSS, and JavaScript code and does not
 rely on any outside frameworks, libraries, or databases.
