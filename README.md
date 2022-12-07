@@ -50,10 +50,10 @@ image to have its own unique and accurate color mapping.
 The application was built entirely using basic HTML, CSS, and JavaScript code and 
 does not rely on any outside frameworks, libraries, or databases.
 
-File format is extremely important for the application to work. All Geometry files
-must be in .inp format, meaning they have distictly labled 'node' and 'element' and, 
-if they are cartilage files, 'side' node sections followed immediately on the next line 
-by the data itself.
+File format is also extremely important for the application to work. All Geometry files
+must be in .inp format, meaning they have distictly labled 'node', 'element', and, 
+if they are cartilage files, 'side' node sections followed by the data itself immediately 
+on the next line.
 
 For nodes, each line will represent a unique node. Each line must contain only the node
 number and its x, y, and z values all seperated by commas.
