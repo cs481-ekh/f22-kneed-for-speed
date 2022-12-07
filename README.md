@@ -73,5 +73,6 @@ real time for the user to show them just how changes to these parameters could c
 how much pressure is being applied to different parts of the knee.
 
 ## Visit the App
-https://cs481-ekh.github.io/f22-kneed-for-speed/src/index.html?
+https://cs481-ekh.github.io/f22-kneed-for-speed/src/index.html
+
 Note: for the app to work properly, you must have a set of properly formatted files from the CBL
