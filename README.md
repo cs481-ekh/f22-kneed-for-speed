@@ -22,6 +22,7 @@ see the Lab’s data in this way will hopefully make it more easily understandab
 clinicians.
 
 ## Project Description
+### What We Built
 The web application we've built performs four key
 functionalities as follows:
 - File Uploading: Users can upload geometry and results data files
@@ -35,6 +36,7 @@ image of the knee.
 - Parameters Updating: Parameters input could be updated arbitrary
 by dialing on the panels.
 
+### How It Works
 To use this web application, a user must first click on the "Choose File"
 button on the upper left of the web page following the title "Geometry File"
 and select a Geometry data file from their local drive. Files must be in .inp format
