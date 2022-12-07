@@ -1,6 +1,6 @@
-# KnApp  - The Knee Visualization App
+# KnApp
 ![example workflow](https://github.com/cs481-ekh/f22-kneed-for-speed/actions/workflows/github-actions.yml/badge.svg)
-## Created by Team Knee'd for Speed
+## Team Knee'd for Speed
 Ezekiel Holmes  
 Kate Rosenthal  
 Mario Torres  
