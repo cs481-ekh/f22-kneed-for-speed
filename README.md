@@ -40,21 +40,31 @@ and select a Geometry data file from their local drive. Files must be in .inp fo
 and the file name must include the tissue type they will produce- 'bone' for bone
 files and 'cart' for cartlage files.
 
+![KnApp](./docs/knapp-choose-file.png)
+
 If the file is a bone file, the user can draw it accurately without a corresponding result
 file, as the app is only designed to generate pressure maps for cartilage files. Bones are drawn 
 entirely in grey.
+
+![KnApp](./docs/knapp-bone.png)
 
 If they are working with a cartilage file, users must then click on the "Choose File" button following 
 the title "Results File" and select a Results data file from their local drive. If they do not select a
 results file, the cartilage will be drawn in one single color rather than with a heat map applied.
 
+![KnApp](./docs/knapp-choose-file-2.png)
+
 Once their file(s) are chosen, users must click on the "Draw" button to generate their image. The image
 will appear in the canvas element on the right side of the web page showing the distribution
-of the data. 
+of the data.
+
+![KnApp](./docs/knapp.png)
+
+![KnApp](./docs/knapp-strain.png)
+
+![KnApp](./docs/knapp-femur.png)
 
 Ideally, users would also be able to update the data parameters by dialing the two
 circle panels or clicking on the "+" or "-" buttons on the sides of the panels.
 
-Below is a snapshot of our web application.
-
-![KnApp](./docs/knapp.png)
+![KnApp](./docs/knapp-dials.png)
