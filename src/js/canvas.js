@@ -69,7 +69,7 @@ window.onresize = function () {
 draw.onclick = function () {
   draw.disabled = true
   // Let the user know if their geometry and results files don't match
-  if (!isBone && resultOutput.length != elements.length) { // eslint-disable-line
+  if ((!isBone && resultOutput.length != elements.length) && resultOutput.length !== 1) { // eslint-disable-line
     alert('The number of elements in your geometry and results files do not match. Make sure you are using a corresponding set of files.')
   } else {
     drawKnee(scale, translatePos)
