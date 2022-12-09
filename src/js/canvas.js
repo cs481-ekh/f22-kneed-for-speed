@@ -68,7 +68,12 @@ window.onresize = function () {
 // Draws on canvas when draw button is pushed after selecting files
 draw.onclick = function () {
   draw.disabled = true
-  drawKnee(scale, translatePos)
+    // Let the user know if their geometry and results files don't match
+    if (!isBone && resultOutput.length != elements.length) {
+      alert('The number of elements in your geometry and results files do not match. Make sure you are using a corresponding set of files.')
+    } else{
+      drawKnee(scale, translatePos)
+    }
 }
 
 // Clears the canvas and draws the knee with data from files selected to canvas
