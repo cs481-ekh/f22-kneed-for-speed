@@ -97,6 +97,7 @@ resultInput.addEventListener('change', () => {
     lowestForce = resultLowestVal
     console.log(highestForce)
     console.log(lowestForce)
+    console.log('Total elements in results file: ' + resultOutput.length + '\n')
 
     heatmapKey(colorList) // eslint-disable-line
   }

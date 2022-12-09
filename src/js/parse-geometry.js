@@ -136,6 +136,7 @@ input.addEventListener('change', () => {
     console.log(nodes)
     console.log('FINAL ELEMENT ARRAY' + '\n')
     console.log(elements)
+    console.log('Total elements in geometry file: ' + elements.length + '\n')
   }
   // error catching
   reader.onerror = (e) => alert(e.target.error.name)
